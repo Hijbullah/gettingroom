@@ -1,0 +1,64 @@
+location{
+    address_line
+    city
+    city_lat
+    city_lng
+    country
+    full_address
+    google_formated_address
+    lat 
+    lng 
+    any_lat
+    any_lng
+    postal_code
+    region
+    sub_locality
+    sw_lat
+    sw_lng
+}
+
+room_offer{
+    id
+    listing_id
+    title
+    location
+    lat 
+    lng
+    monthly_rate
+    currency=USD
+
+    duration_type
+    duration_start
+    duration_end
+    duration_limit
+
+    description
+    building_type
+    move-in-time
+    utility_cost
+    parking_rent
+    is_furnished
+
+    amenities(long text with comma separetor)
+
+    hosehold_min_age
+    hosehold_max_age
+
+    people_in_household
+    household_sex
+
+    my_cleanliness
+    overnight_guests
+    party_habits
+    get_up
+    goto_bed
+    food_preference
+    smoker
+    work_schedule
+    occupation
+
+    p
+
+
+
+}

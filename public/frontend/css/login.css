@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900|Roboto:300,400,700,900&display=swap');
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	background: url('../images/login-bg.jpg');
+	background-repeat: no-repeat;
+	background-position: top left;
+	background-size: cover;
+}
+.facebook {background: #3B5999 !important; color: #fff !important;}
+.linkedin {background: #0274b3 !important; color: #fff !important;} 
+.twitter {background: #00b6f1 !important; color: #fff !important;} 
+.phone-book {background: #fa8601 !important; color: #fff !important;}
+.comments {background: #47A40E !important; color: #fff !important;}
+.instagram { background: linear-gradient(180deg,#5162d3 0,#c84f67 49%,#f7cb74) !important; color: #fff !important;}
+
+/*custom css*/
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+}
+h1, h2, h3, h4, h5, h6, p, a{
+	margin: 0;
+	padding: 0;
+}
+.bg-dark-blue{
+	background:#D8D8D8;
+}
+.font-20 {
+	font-size: 20px;
+}
+.font-25{
+	font-size: 25px !important;
+}
+.w-f-25 {
+	width: 25px;
+	margin-top: 6px;
+}
+.b-r-1{border-right:1px solid #ddd ;}
+
+/*custom css*/
+
+/*menu css*/
+.gr-logo{
+	width: 135px;
+}
+.gr-logo-sm{
+	width: 45px;
+}
+.main-menu {
+	/*background: rgba(0,0,0,.1);*/
+}
+/*menu css*/
+/**/
+.left{
+	position: relative;
+}
+.left .social-link{
+	position: relative;
+	height: 100%;
+}
+.left .social-link a {
+	margin-bottom: 12px;
+}
+.icon {
+	display: inline-block;
+	padding: 5px 15px;
+	font-size: 40px;
+	border-radius: 4px;
+}
+.or {
+	position: absolute;
+	right: -20px;
+	top: 50%;
+	background: #fff;
+	z-index: 444;
+	transform: translateY(-50%);
+	width: 40px;
+}
+/**/
+
+/**/
+.right {
+	background: rgba(0,0,0,.1);
+	padding: 10px 20px;
+}
+.right .form-body input {
+	border-radius: 0;
+	outline: none;
+	color: #fff;
+}
+.right .form-body input:focus {
+	outline: 0 !important;
+	box-shadow: none !important;
+	border-color: #fff;
+}
+
+/**/
+
+
+/* media query*/
+ /* Extra small devices (phones, 576 and down) xs */
+@media only screen and (max-width: 575.98px) {
+	.left{
+		margin-bottom: 20px;
+	}
+	.or {
+		left: 50% !important;
+		top: -30px !important;
+		transform: translateX(-50%) !important;
+		display: inline-block !important;
+
+	}
+	.bg-dark-blue{
+		background:transparent !important;
+	}
+	.icon {
+		padding: 5px 10px;
+		font-size: 20px;
+	}
+	.h-100{
+		height: auto !important;
+	}
+	.right{
+		padding: 1rem !important;
+	}
+	.right.registration{
+		margin-top: 80px !important;
+	}
+
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) sm */
+@media only screen and (min-width: 576px) and (max-width: 767.98px){
+	.left{
+		margin-bottom: 20px;
+	}
+	.or {
+		left: 50% !important;
+		top: -30px !important;
+		transform: translateX(-50%) !important;
+		display: inline-block !important;
+	}
+	.bg-dark-blue{
+		background:transparent !important;
+	}
+	.h-100{
+		height: auto !important;
+	}
+	.right{
+		padding: 1rem !important;
+	}
+	.right.registration{
+		margin-top: 100px !important;
+	}
+
+} 
+/* Medium devices (landscape tablets, 768px and up)  md */
+@media only screen and (min-width: 768px) and (max-width: 991.98px) {
+	
+	.position-center{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		/*height: 100%;*/
+	}
+}
+
+/* Large devices (laptops/desktops, 992px and up) lg */
+@media only screen and (min-width: 992px) and (max-width: 1199.98px) {
+	.position-center{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		/*height: 100%;*/
+	}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) xl */
+@media only screen and (min-width: 1200px) {
+	.position-center{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 100%;
+		/*height: 100%;*/
+	}
+} 
+
