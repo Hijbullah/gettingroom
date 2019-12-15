@@ -561,7 +561,7 @@
                 this.formData.lng = null;
             },
             uploadImageSuccess(formData, index, fileList) {
-                    axios.post('http://localhost:8000/fileUpload', formData)
+                    axios.post('/fileUpload', formData)
                         .then(response => {
                             this.formData.images.push(response.data);
                         });
@@ -570,7 +570,7 @@
                     var r = confirm("remove image");
                     if (r == true) {
                         let file = this.formData.images[index];
-                        axios.post('http://localhost:8000/fileDelete', {url: file})
+                        axios.post('/fileDelete', {url: file})
                             .then(response => {
                                 console.log(response.data);
                                 this.formData.images.splice(index, 1);
@@ -580,7 +580,7 @@
                 },
                 editImage (formData, index, fileList) {
                     let exFile = this.formData.images[index];
-                    axios.post(`http://localhost:8000/fileEdit/${exFile}`, formData)
+                    axios.post(`/fileEdit/${exFile}`, formData)
                         .then(response => {
                             console.log(response.data);
                             this.formData.images.splice(index, 1, response.data);
