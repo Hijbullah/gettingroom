@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\OfferApartment;
 use Illuminate\Http\Request;
+use App\Models\OfferApartment;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OfferApartmentController extends Controller
 {
