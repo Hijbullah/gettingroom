@@ -1,6 +1,6 @@
 <template>
     <div v-if="showData">
-        <section v-if="listing.images && listing.images.length > 0">
+        <section v-if="listing.hasOwnProperty(images) && listing.images.length > 0">
              <swiper :options="swiperOption">
                 <swiper-slide v-for="(image, index) in listing.images" :key="index">
                     <img :src="image" alt="images">
