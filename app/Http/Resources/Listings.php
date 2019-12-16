@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -17,17 +18,17 @@ class Listings extends JsonResource
     {
         return [
             'listing_id' => $this->listing_id,
-            'title' => $this->title,
+            'title' => Str::limit($this->title, 20),
             'move_date' => $this->move_date,
             'created_at' => $this->created_at->diffForHumans(),
             'listing_url' => env('APP_URL') .'/listings/' . $this->listing_id,
             'image' => $this->images ? explode( ',', $this->images)[0] : env('APP_URL') . '/no-image.png',
             'rent' => [
-                'rent' => $this->monthly_rent,
+                'rent' => round($this->monthly_rent),
                 'currency' => $this->rental_currency
             ],
             'location' => [
-                'location' => $this->location,
+                'location' => Str::limit($this->location, 50),
                 'lat' => $this->lat,
                 'lng' => $this->lng
             ],

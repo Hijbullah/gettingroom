@@ -8,8 +8,8 @@
                 <div class="col-md-9">
                     <div class="">
                         <a href="#" class="mb-2" 
-                            :class="type == 'need_room' ? 'active' : '' " 
-                            @click.prevent="changeListings('needrooms')"
+                            :class="type == 'offer_room' ? 'active' : '' " 
+                            @click.prevent="changeListings('offerrooms')"
                         >Room </a>
                         <a href="#" class=" mb-2" 
                             :class="type == 'need_apartment' ? 'active' : '' "  
@@ -17,8 +17,8 @@
                         >Entire Place </a>
 
                         <a href="#" class=" mb-2" 
-                            :class="type == 'offer_room' ? 'active' : '' " 
-                            @click.prevent="changeListings('offerrooms')"
+                            :class="type == 'need_room' ? 'active' : '' " 
+                            @click.prevent="changeListings('needrooms')"
                         >Roommate </a>
                         <a href="#" class=" mb-2"
                             :class="type == 'offer_apartment' ? 'active' : '' " 
@@ -241,7 +241,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-6">
+                                        <div class="col-5">
                                             <div class="listing-content">
                                                 <h2 class="font-18 mb-2">{{ listing.title }}</h2>
                                                 <p class="font-14"><span class="color-main-text">{{ listingType }}</span> |
@@ -271,9 +271,13 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-2">
+                                        <div class="col-3">
                                             <div class="listing-pricing text-center mx-3 mt-4">
-                                                <p class="font-12 color-main-text"><sup>$</sup> {{ listing.rent.rent }} <sup>{{ listing.rent.currency }}</sup></p>
+                                                <p class="color-main-text pricing">
+                                                    <span class="dollar">$</span>
+                                                    <span class="font-weight-bold font-16">{{ listing.rent.rent }}</span>
+                                                    <span class="dollar">{{ listing.rent.currency }}</span>
+                                                </p>
                                                 <p class="font-12 mb-3">per month</p>
                                                 <span><i class="fas fa-calendar-alt font-18 color-main-text"></i></span>
                                                 <p class="font-12">Move-in Date:</p>
@@ -408,16 +412,16 @@
             listingType(){
                switch(this.type){
                     case 'need_room':
-                        return 'Need Room';
+                        return 'Roommate';
                         break;
                     case 'offer_room':
-                        return 'Offer Room';
+                        return 'Private Room';
                         break;
                     case 'need_apartment':
-                        return 'Need Apartment';
+                        return 'Entire Place';
                         break;
                     default:
-                        return 'Offer Apartment'
+                        return 'Tenant'
                }
             }
         },
@@ -469,4 +473,12 @@
     .col >>> .page-item.pagination-page-nav .page-link:focus {
        box-shadow: none !important;
     }
+    .pricing{
+        word-spacing: -4px;
+    }
+    .dollar{
+        font-size: 10px;
+        vertical-align: .33vw;
+    }
+
 </style>
