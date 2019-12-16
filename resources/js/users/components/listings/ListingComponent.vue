@@ -10,20 +10,20 @@
                         <a href="#" class="mb-2" 
                             :class="type == 'offer_room' ? 'active' : '' " 
                             @click.prevent="changeListings('offerrooms')"
-                        >Room </a>
+                        >a room </a>
                         <a href="#" class=" mb-2" 
                             :class="type == 'need_apartment' ? 'active' : '' "  
                             @click.prevent="changeListings('needapartments')"
-                        >Entire Place </a>
+                        >an entire place </a>
 
                         <a href="#" class=" mb-2" 
                             :class="type == 'need_room' ? 'active' : '' " 
                             @click.prevent="changeListings('needrooms')"
-                        >Roommate </a>
+                        >a roommate </a>
                         <a href="#" class=" mb-2"
                             :class="type == 'offer_apartment' ? 'active' : '' " 
                             @click.prevent="changeListings('offerapartments')"
-                        >Tenant </a>
+                        >a tenant </a>
                     </div>
                 </div>
             </div>

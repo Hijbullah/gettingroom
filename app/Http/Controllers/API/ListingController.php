@@ -30,7 +30,7 @@ class ListingController extends Controller
                     }
                 })
             
-            ->paginate(2);
+            ->paginate(15);
         
         return Listings::collection($data);
     }
