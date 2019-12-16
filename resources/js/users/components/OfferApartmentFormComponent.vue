@@ -1,26 +1,15 @@
 <template>
     <div class="content">
         <form  class="needs-validation" @submit.prevent="formSubmitted" @keydown="formData.onKeydown($event)">
-             <div class="listing-img-upload py-5 bg-light" style="min-height: 300px;">
-                <!-- <h2 class="text-secondary text-center">Image Upload hear</h2> -->
-                <div class="container">
+             <div class="listing-img-upload" style="min-height: 300px;">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col">
-                             <div id="my-strictly-unique-vue-upload-multiple-image">
-                                <vue-upload-multiple-image
-                                @upload-success="uploadImageSuccess"
-                                @before-remove="beforeRemove"
-                                @edit-image="editImage"
-                                idUpload="myIdUpload"
-                                editUpload="myIdEdit"
-                                dragText="Drag your images Or"
-                                browseText="Browse"
-                                dropText="Drag and Drop"
-                                primaryText="Main Image"
-                                markIsPrimaryText="Make it Main image"
-                                :multiple="true"
-                                ></vue-upload-multiple-image>
-                            </div>
+                            <VueUploadMultipleImage 
+                                :images="formData.images"
+                                @imageUpload = "uploadImage"
+                                @imageDelete = "deletedImage"
+                            ></VueUploadMultipleImage>
                         </div>
                     </div>
                 </div>
@@ -320,32 +309,38 @@
                 this.formData.lat = null;
                 this.formData.lng = null;
             },
-            uploadImageSuccess(formData, index, fileList) {
-                    axios.post('/fileUpload', formData)
-                        .then(response => {
-                            this.formData.images.push(response.data);
-                        });
-                },
-                beforeRemove (index, done, fileList) {
-                    var r = confirm("remove image");
-                    if (r == true) {
-                        let file = this.formData.images[index];
-                        axios.post('/fileDelete', {url: file})
-                            .then(response => {
-                                console.log(response.data);
-                                this.formData.images.splice(index, 1);
-                                done();
-                            });
-                    } 
-                },
-                editImage (formData, index, fileList) {
-                    let exFile = this.formData.images[index];
-                    axios.post(`/fileEdit/${exFile}`, formData)
-                        .then(response => {
-                            console.log(response.data);
-                            this.formData.images.splice(index, 1, response.data);
-                        });
-                }
+            // image upload and delete
+            uploadImage(image){
+                axios.post('/fileUpload', image)
+                .then(response => {
+                    this.formData.images.push(response.data);
+                    this.showMessege('Image uploaded successfully', 'success');
+                })
+                .catch(error => {
+                    if (error.response.status == 422){
+                        let message = error.response.data.errors.image[0];
+                        this.showMessege(message, 'error');
+                    }
+                })
+            },
+            deletedImage(file, index){
+                axios.post('/fileDelete', {url: file})
+                .then(response => {
+                    if(response.data == 'done'){
+                        this.formData.images.splice(index, 1);
+                        this.showMessege('Image has been deletee!', 'success');
+                    }
+                });
+            },
+            showMessege(message, type){
+                this.$dlg.toast(message, {
+                    language: 'en',
+                    position: 'topRight',
+                    messageType: type,
+                    closeTime: 30
+                });
+            }
+           
         },
         computed: {
             

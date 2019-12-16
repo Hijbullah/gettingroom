@@ -92,7 +92,7 @@
 
     .form-content input {
         background-color: #fff;
-        border: 1px solid #d41212;
+        border: 1px solid #ddd;
         border-left: none;
         border-radius: 0;
         padding: 20px 40px 20px 10px;
@@ -101,8 +101,8 @@
     }
     .form-content .input-group-text {
         font-size: 1.5rem;
-        color: #d41212;
-        border: 1px solid #d41212;
+        color: #3e983e;
+        border: 1px solid #ddd;
         border-right: none;
         border-radius: 0;
 	    background-color: #fff;

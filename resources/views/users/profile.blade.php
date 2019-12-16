@@ -95,7 +95,7 @@
                                                             </div>
                                                            
                                                         </div>
-                                                        <img src="{{ $listing->images ? Storage::url(explode(',', $listing->images)[0]) : asset('frontend/images/sld1.jpg') }}" alt="">
+                                                        <img src="{{ $listing->images ? explode(',', $listing->images)[0] : asset('no-image.png') }}" alt="">
                                                     </div>
                                                     <div class="listing-contact mt-1 pb-2 pl-2">
                                                         <h2 class="font-16 my-1 text-dark">{{ $listing->title }}</h2>

@@ -29,7 +29,6 @@
                     <div class="col-md-10 m-auto">
                         <div class="row">
                             <div class="col-lg-8 col-md-8 col-12 order-md-0 order-1">
-
                                 <div class="user-listing-button p-4 mb-3 d-flex text-center" v-if="authId && authId == listing.user.id">
                                     <a href="" class="btn w-25 btn-info text-white p-2 mr-3">Edit Listing</a>
                                     <a href="" class="btn w-25 color-main-bg text-white p-2">Delete Listing</a>
@@ -184,7 +183,7 @@
                                     </div>
                                     
                                 </div>
-                                <div class="user-listing-map p-2 bg-white">
+                                <div class="user-listing-map p-2 bg-white d-none">
                                     <p>Map Area</p>
                                 </div>
                             </div>
@@ -201,7 +200,7 @@
                                             <h3 class="font-25">{{ listing.user.name }}</h3>
                                         </a>
                                         <p class="font-20">{{ listing.user.age }}</p>
-                                        <!-- <p class="font-18 text-success">Offering an entire place</p> -->
+                                        <p class="font-18 color-main-text">{{ listingType }}</p>
                                     </div>
                                     <div class="listing-user-sms-block p-3 ">
                                         <textarea name="" id="" cols="20" rows="5" class="form-control noresize text-left"></textarea>
@@ -313,12 +312,12 @@
             getListing(){
                 axios.get(`/api/get-listing/${this.type}/${this.listingId}`)
                     .then( res => {
-                        console.log(res.data.data);
-                        if(!res.data != 'error'){
+                        if(res.data != 'error'){
                             this.listing = res.data.data;
+                            console.log(this.listing);
                             this.showData = true;
                         }else{
-                            // alert('listing not found!')
+                            this.showData = false;
                             window.location.href = '/';
                         }
                     })
@@ -329,13 +328,21 @@
     
         },
         computed: {
-            // swiper() {
-            //     return this.$refs.mySwiper.swiper
-            // }
-        },
-        mounted(){
-            // console.log('this is current swiper instance object', this.swiper)
-            // this.swiper.slideTo(3, 1000, false)
+            listingType() {
+                switch(this.type){
+                    case 'NeedRoom':
+                        return 'Looking for a room!';
+                        break;
+                    case 'OfferRoom':
+                        return 'Offering a room!';
+                        break;
+                    case 'NeedApartment':
+                        return 'Looking for an Apartment!';
+                        break;
+                    default:
+                        return 'Offering an entire place!';
+                }
+            }
         },
         created() {
             this.getListing();

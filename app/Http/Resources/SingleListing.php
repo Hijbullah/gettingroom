@@ -20,7 +20,7 @@ class SingleListing extends JsonResource
     {
         return collect(explode(',', $images))
             ->map(function ($image) {
-                return Storage::url($image);
+                return $image;
             });
     }
 
@@ -81,7 +81,7 @@ class SingleListing extends JsonResource
             $this->mergeWhen($this->type == 'NeedApartment', [
                 'apartmentType' => $this->apartment_type
             ]),
-            $this->mergeWhen($this->type != 'NeedRoom', [
+            $this->mergeWhen(($this->type != 'NeedRoom' && $this->amenities), [
                 'amenities' => explode(',', $this->amenities)
             ]),
 

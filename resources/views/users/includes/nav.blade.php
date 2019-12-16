@@ -36,18 +36,20 @@
                         <option>Login With Email</option>
                     </select>
                 </div>
-            @endguest
-            <div class="border-left b-r-1 px-3 py-2 d-none d-md-block">
-                <a href="#" class="">
-                    <span class="text-success font-30"><i class="far fa-comment"></i></span>
-                </a>
-            </div>
-            <div class="b-r-1 px-3 py-2 ">
-                <a href="#" class="">
-                    <span class="text-success font-30"><i class="far fa-question-circle"></i></span>
-                </a>
-            </div>
-            @auth
+                @endguest
+                <div class="b-r-1 px-3 py-2 ">
+                    <a href="#" class="">
+                        <span class="text-success font-30"><i class="far fa-question-circle"></i></span>
+                        {{-- <span class="text-success font-30"><img height="" src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt=""></span> --}}
+
+                    </a>
+                </div>
+                @auth
+                <div class="border-left b-r-1 px-3 py-2 d-none d-md-block">
+                    <a href="#" class="">
+                        <span class="text-success font-30"><i class="far fa-comment"></i></span>
+                    </a>
+                </div>
                 <div class="b-r-1 px-3 py-2">
                     <a href="#" id="account-dropdown" class="user" data-toggle="dropdown">
                         <img src="{{ asset('frontend/images/user-defult.png') }}" alt="">

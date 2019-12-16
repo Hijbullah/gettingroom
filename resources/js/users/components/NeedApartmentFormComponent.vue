@@ -223,14 +223,12 @@
             formSubmitted(){
                 this.formData.post('/needapartments')
                     .then(({ data }) => { 
-                        window.location.href = data.redirectUrl;
-                        console.log(data) 
+                        window.location.href = data.redirectUrl; 
                     })
                 
             },
             formCancelled(){
                 window.location.href = '/listingNew';
-                // alert('cancelled');
             },
              placeSelected(place){
                 this.formData.location = place.label;
@@ -242,12 +240,6 @@
                 this.formData.lat = null;
                 this.formData.lng = null;
             },
-        },
-        computed: {
-            
-        },
-        mounted() {
-            console.log(this.storeData);
         }
     }
 </script>

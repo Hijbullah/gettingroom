@@ -57,7 +57,7 @@ class NeedApartmentController extends Controller
         $listing_id = 31 . $this->getListingId();
 
         $NeedApartment = new NeedApartment;
-        $NeedApartment->listing_id = mt_rand();
+        $NeedApartment->listing_id = $listing_id;
         $NeedApartment->user_id = $request->user()->id;
         $NeedApartment->title = $request->title ? $request->title : 'New Listing';                
         $NeedApartment->location = $request->location;           

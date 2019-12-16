@@ -8,20 +8,20 @@
                 <div class="col-md-9">
                     <div class="">
                         <a href="#" class="mb-2" 
-                            :class="listingType == 'need_room' ? 'active' : '' " 
+                            :class="type == 'need_room' ? 'active' : '' " 
                             @click.prevent="changeListings('needrooms')"
                         >Room </a>
                         <a href="#" class=" mb-2" 
-                            :class="listingType == 'need_apartment' ? 'active' : '' "  
+                            :class="type == 'need_apartment' ? 'active' : '' "  
                             @click.prevent="changeListings('needapartments')"
                         >Entire Place </a>
 
                         <a href="#" class=" mb-2" 
-                            :class="listingType == 'offer_room' ? 'active' : '' " 
+                            :class="type == 'offer_room' ? 'active' : '' " 
                             @click.prevent="changeListings('offerrooms')"
                         >Roommate </a>
                         <a href="#" class=" mb-2"
-                            :class="listingType == 'offer_apartment' ? 'active' : '' " 
+                            :class="type == 'offer_apartment' ? 'active' : '' " 
                             @click.prevent="changeListings('offerapartments')"
                         >Tenant </a>
                     </div>
@@ -370,13 +370,9 @@
 </template>
 
 <script>
-    // import PlaceAutocomplete from '../plugin/PlaceAutocomplete'
     import Pagination from 'laravel-vue-pagination'
-
-   
     export default {
          components: {
-            // PlaceAutocomplete,
             Pagination
         },
         props: {
@@ -398,7 +394,6 @@
                 total: null,
                 from: null,
                 to: null,
-                listingType: '',
                 sortBy: 'latest',
                 location: {
                     location: '',
@@ -409,6 +404,23 @@
                 showListings: true
             }
         },
+        computed: {
+            listingType(){
+               switch(this.type){
+                    case 'need_room':
+                        return 'Need Room';
+                        break;
+                    case 'offer_room':
+                        return 'Offer Room';
+                        break;
+                    case 'need_apartment':
+                        return 'Need Apartment';
+                        break;
+                    default:
+                        return 'Offer Apartment'
+               }
+            }
+        },
         methods: {
             changeListings(type){
                 window.location.href = `/lists/${type}`;
@@ -417,20 +429,9 @@
                 this.sortBy = sortBy;
                 this.getListings();
             },
-            // placeSelected(place){
-            //     this.location.location = place.label;
-            //     this.location.lng = place.x;
-            //     this.location.lat = place.y;
-            //     this.getListings();
-            // },
-            // cancelled(){
-            //     this.location.location = '';
-            //     this.location.lat = null;
-            //     this.location.lng = null;
-            // },
             getListings(page = 1){
                 const key = this.$dlg.mask()
-                axios.get(`/api/get-listings/${this.listingType}/${this.sortBy}/${this.location.lat}/${this.location.lng}?page=${page}`)
+                axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.location.lat}/${this.location.lng}?page=${page}`)
                     .then( res => {
                         if(res.data.meta.total > 0) {
                             this.listings = res.data;
@@ -451,8 +452,6 @@
     
         },
         created() {
-            this.listingType = this.type;
-            // this.location = this.searchLocation;
             this.getListings();
         }
     }

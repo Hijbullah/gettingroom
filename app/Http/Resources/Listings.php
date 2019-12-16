@@ -21,7 +21,7 @@ class Listings extends JsonResource
             'move_date' => $this->move_date,
             'created_at' => $this->created_at->diffForHumans(),
             'listing_url' => env('APP_URL') .'/listings/' . $this->listing_id,
-            'image' => $this->images ? Storage::url(explode( ',', $this->images)[0]) : env('APP_URL') . '/no-image.png',
+            'image' => $this->images ? explode( ',', $this->images)[0] : env('APP_URL') . '/no-image.png',
             'rent' => [
                 'rent' => $this->monthly_rent,
                 'currency' => $this->rental_currency
