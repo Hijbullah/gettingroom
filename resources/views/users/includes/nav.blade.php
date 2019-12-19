@@ -8,7 +8,8 @@
                 </a>
             </div>
             <div class="search-box py-2 px-3" style="width: 100%">
-                <input class="w-100 form-control border-0 font-18" type="search" id="placesearch-nav" placeholder="Search Place">
+                <input class="w-100 form-control border-0 font-18" value="{{ session('location') ? session('location')['location'] : '' }}" type="search" id="placesearch" placeholder="Search Place">
+                <div id="place-content" class="place-content d-none"></div>
             </div>
             <div class="border-left px-3 py-2 d-none d-md-block">
                 <select class="selectpicker" data-size="3" data-width="100%">

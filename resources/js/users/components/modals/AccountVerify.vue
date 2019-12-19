@@ -36,7 +36,9 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
 
     export default {
         data(){
-            return {}
+            return {
+
+            }
         },
         methods: {
             openEmailVerifyModel(){
@@ -51,7 +53,21 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
                         
                     }
                 })
+            },
+            getVerification(){
+                axios.get('/user?ID=12345')
+                    .then(function (response) {
+                        // handle success
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        // handle error
+                        console.log(error);
+                    })
             }
+        },
+        created(){
+
         }
     }
 </script>

@@ -8,8 +8,18 @@ use App\Http\Controllers\Controller;
 class ListingController extends Controller
 {
 
-    public function showAllListings($type)
+    public function showAllListings(Request $request, $type)
     {
+        if($request->query()){
+            $location = array(
+                'location' => $request->query('loc'),
+                'lat' => $request->query('lat'),
+                'lng' => $request->query('lng')
+            );
+            $request->session()->put('location', $location);
+        }
+
+
         $typeArray = ['needrooms', 'offerrooms', 'needapartments', 'offerapartments'];
         
         if(in_array($type, $typeArray))

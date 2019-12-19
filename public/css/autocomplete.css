@@ -1,0 +1,17 @@
+.search-box {
+    position: relative;
+}
+
+.place-content {
+    position: absolute;
+    width: 100%;
+    height: 250px;
+    overflow-y: auto;
+    z-index: 2050;
+    top: 110%;
+    left: 0;
+}
+
+.place-content .address-item {
+    cursor: pointer;
+}

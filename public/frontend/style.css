@@ -42,8 +42,16 @@ body {
 .font-18{
 	font-size: 18px !important;
 }
+.font-20{
+    font-size: 20px !important;
+}
 .w-f-25{
 	width: 25px;
+}
+.pos-relative{
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 /*custom css end*/
@@ -301,10 +309,18 @@ body {
 	background-repeat: no-repeat;
 }
 .gr-btn {
-	position: absolute;
+	/* position: absolute;
 	left: 50%;
 	top: 50%;
-	transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    position: absolute;
+    left: 5%;
+    top: 5%;
+}
+.text{
+    position: absolute;
+    bottom: -65px;
+    left: 30px;
 }
 .gr-about-us{
 	color: #fff;

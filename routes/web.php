@@ -28,6 +28,8 @@ Route::get('/lists/{type}', 'User\ListingController@showAllListings')->name('lis
 Route::get('/listings/{listing_id}', 'User\ListingController@showSingleListing')->where('listing_id', '[0-9]+');
 
 
+
+
 //listings
 Route::resource('/offerrooms','User\OfferRoomController')->middleware('auth');
 Route::resource('/needrooms','User\NeedRoomController')->middleware('auth');

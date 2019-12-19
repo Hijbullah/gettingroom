@@ -241,7 +241,7 @@
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="col-5">
+                                        <div class="col-6">
                                             <div class="listing-content">
                                                 <h2 class="font-18 mb-2">{{ listing.title }}</h2>
                                                 <p class="font-14"><span class="color-main-text">{{ listingType }}</span> |
@@ -271,7 +271,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-3">
+                                        <div class="col-2">
                                             <div class="listing-pricing text-center mx-3 mt-4">
                                                 <p class="color-main-text pricing">
                                                     <span class="dollar">$</span>
@@ -381,16 +381,9 @@
         },
         props: {
             type: String,
-            // searchLocation: {
-            //     type: Object,
-            //     default: function () {
-            //         return {
-            //             location: 'anywhere',
-            //             lat: null,
-            //             lng: null
-            //         }
-            //     }
-            // },
+            lat: String,
+            lng: String
+         
         },
         data() {
             return{
@@ -399,11 +392,6 @@
                 from: null,
                 to: null,
                 sortBy: 'latest',
-                location: {
-                    location: '',
-                    lat: null,
-                    lng: null
-                },
                 showFilter: false,
                 showListings: true
             }
@@ -435,7 +423,7 @@
             },
             getListings(page = 1){
                 const key = this.$dlg.mask()
-                axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.location.lat}/${this.location.lng}?page=${page}`)
+                axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.lat}/${this.lng}?page=${page}`)
                     .then( res => {
                         if(res.data.meta.total > 0) {
                             this.listings = res.data;

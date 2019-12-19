@@ -22,5 +22,6 @@ Route::namespace('API')->group(function () {
     Route::post('/updateUser/{id}', 'UserController@updateUser');
 
     Route::get('/get-listings/{type}/{sort}/{lat?}/{lng?}', 'ListingController@getListings');
+    
     Route::get('/get-listing/{type}/{listing_id}', 'ListingController@getListing');
 });

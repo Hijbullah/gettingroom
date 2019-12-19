@@ -15,10 +15,13 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getListings($type, $sortBy = null, $lat=null, $lng=null, $distance = 2)
+    public function getListings($type, $sortBy = null, $lat = null, $lng = null, $distance = 35)
     {
         $model = 'App\Models\\' . Str::studly($type);
         $data = $model::with('user')
+            ->when($lat, function($query, $lat) use ($lng, $distance){
+                return $query->whereRaw("(6371 * acos( cos( radians( $lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng ) ) + sin( radians( $lat) ) * sin( radians( lat ) ) ) ) < $distance");
+            })
             // ->whereRaw("(6371 * acos( cos( radians( $lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng ) ) + sin( radians( $lat) ) * sin( radians( lat ) ) ) ) < $distance")
             ->when($sortBy,function ($query,$sortBy){
                     if ($sortBy == 'latest'){

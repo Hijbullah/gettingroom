@@ -13,6 +13,7 @@
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 		<link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/autocomplete.css') }}">
         @stack('page-css')
 		<title>Getting Room | Home</title>
 	</head>
@@ -28,6 +29,7 @@
 		
 		<script src="{{ asset('js/app.js') }}"></script>
 		<script src="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/js/bootstrap-select.min.js') }}"></script>
+        <script src="{{ asset('js/placeAutocomplete.js') }} "></script>
         <script src="{{ asset('frontend/js/main.js') }} "></script>
         @stack('page-script')
 	</body>

@@ -2,5 +2,6 @@
     "/admins/js/app.js": "/admins/js/app.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
-    "/admins/css/app.css": "/admins/css/app.css"
+    "/admins/css/app.css": "/admins/css/app.css",
+    "/js/placeAutocomplete.js": "/js/placeAutocomplete.js"
 }
