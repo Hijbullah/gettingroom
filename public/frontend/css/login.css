@@ -3,7 +3,7 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
-	background: url('../images/login-bg.jpg');
+	background: url('../images/login-2.jpg');
 	background-repeat: no-repeat;
 	background-position: top left;
 	background-size: cover;
@@ -38,7 +38,10 @@ h1, h2, h3, h4, h5, h6, p, a{
 	margin-top: 6px;
 }
 .b-r-1{border-right:1px solid #ddd ;}
-
+.ptb-50{
+    padding-top: 50px !important;
+    padding-bottom: 50px !important;
+}
 /*custom css*/
 
 /*menu css*/
@@ -54,7 +57,8 @@ h1, h2, h3, h4, h5, h6, p, a{
 /*menu css*/
 /**/
 .left{
-	position: relative;
+    position: relative;
+    background: rgba(0,0,0,.1);
 }
 .left .social-link{
 	position: relative;
@@ -71,7 +75,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 }
 .or {
 	position: absolute;
-	right: -20px;
+	left: -35px;
 	top: 50%;
 	background: #fff;
 	z-index: 444;

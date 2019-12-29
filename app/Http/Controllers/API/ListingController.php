@@ -15,7 +15,7 @@ class ListingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getListings($type, $sortBy = null, $lat = null, $lng = null, $distance = 35)
+    public function getListings($type, $sortBy = null, $min, $max, $lat = null, $lng = null, $distance = 35)
     {
         $model = 'App\Models\\' . Str::studly($type);
         $data = $model::with('user')
@@ -24,15 +24,15 @@ class ListingController extends Controller
             })
             // ->whereRaw("(6371 * acos( cos( radians( $lat) ) * cos( radians( lat ) ) * cos( radians( lng ) - radians($lng ) ) + sin( radians( $lat) ) * sin( radians( lat ) ) ) ) < $distance")
             ->when($sortBy,function ($query,$sortBy){
-                    if ($sortBy == 'latest'){
-                        return $query->orderBy('id', 'asc');
-                    }elseif($sortBy == 'activity'){
-                        return $query->orderBy('id','desc');
-                    }else{
-                        return $query->orderBy('monthly_rent','asc');
-                    }
-                })
-            
+                if ($sortBy == 'latest'){
+                    return $query->orderBy('id', 'asc');
+                }elseif($sortBy == 'activity'){
+                    return $query->orderBy('id','desc');
+                }else{
+                    return $query->orderBy('monthly_rent','asc');
+                }
+            })
+            ->whereBetween('monthly_rent', [$min, $max])
             ->paginate(15);
         
         return Listings::collection($data);

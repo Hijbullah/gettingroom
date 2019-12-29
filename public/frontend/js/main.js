@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
   $(function () {
-      $('select').selectpicker();
+      $('.selectpicker').selectpicker();
   });
 
   $(function() {

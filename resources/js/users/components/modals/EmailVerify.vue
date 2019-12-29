@@ -3,7 +3,7 @@
         <div class="confirm-email" v-if="showConfirm">
             <div class="form-group">
                 <label for="email" class="label">Confirm Your email</label>
-                <input type="email" id="email" v-model="email" class="form-control form-control-lg">
+                <input type="email" id="email" v-model="userEmail" class="form-control form-control-lg">
             </div>
             <div class="form-group text-center">
                 <button class="btn btn-success" @click="sendConfirmCode">Confirm Email</button>
@@ -11,11 +11,11 @@
         </div>
         <div class="confirm-email" v-else>
             <div class="form-group">
-                <label for="email" class="label">Enter the Confirmation Code</label>
-                <input type="email" id="email" class="form-control form-control-lg">
+                <label for="code" class="label">Enter the Confirmation Code</label>
+                <input type="text" v-model="code" id="code" class="form-control form-control-lg">
             </div>
             <div class="form-group text-center">
-                <button class="btn btn-success">Verify</button>
+                <button class="btn btn-success" :disabled="!code.length" @click="verifyCode">Verify</button>
             </div>
         </div>
        
@@ -24,9 +24,10 @@
 
 <script>
     export default {
+        props: ['authUser', 'email'],
         data(){
             return {
-                email: '',
+                code: '',
                 showConfirm: true
             }
         },
@@ -40,14 +41,44 @@
                         closeTime: true
                     });
                 }else{
-                    this.showConfirm = false;
-                    this.$dlg.toast(`We have send you a email. Please, Check your email...`, {
-                        messageType: 'success',
-                        language: 'en',
-                        position: 'topRight',
-                        closeTime: true
-                    });
+                    axios.get(`/verification/code/${this.authUser}/email`)
+                    .then(response => {
+                        if(response.data == 'done'){
+                            this.showConfirm = false;
+                            this.showAlert('We have send you a email with verification code. Please, Check your email...', 'success');
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
                 }
+            },
+            verifyCode(){
+                axios.get(`/verification/verify/${this.code}/email`)
+                    .then(response => {
+                        if(response.data == 'done'){
+                            this.showAlert('Email Verified!', 'success');
+                            this.$emit('close', { email: 1 });
+                        }else{
+                            this.showAlert('Code not matched! Please, try again!', 'error');
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
+            },
+            showAlert(msg, type) {
+                this.$dlg.toast(msg, {
+                    messageType: type,
+                    language: 'en',
+                    position: 'topRight',
+                    closeTime: true
+                });
+            }
+        },
+        computed: {
+            userEmail(){
+                return this.email;
             }
         }
     }

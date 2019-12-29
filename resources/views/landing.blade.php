@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/plugins/fontawesome-free-5.11.2-web/css/all.min.css') }}">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-4.3.1/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/autocomplete.css') }}">
     <title>Getting Room | Home</title>
 </head>
@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="col-md-6 d-none d-md-block">
-                        <select class="selectpicker" id="loginwith" data-width="100%" title="Login With...">
+                        <select class="selectpicker form-control" id="loginwith"  title="Login With...">
                             <option>Login With Facebook</option>
                             <option>Login With Google</option>
                             <option>Login With Linkedin</option>
@@ -536,7 +536,11 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('frontend/js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/bootstrap-4.3.1/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/fontawesome-free-5.11.2-web/js/all.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('js/placeAutocomplete.js') }}"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>

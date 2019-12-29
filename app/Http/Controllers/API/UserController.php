@@ -5,16 +5,20 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    Public function getUser($id)
+    public function getUser($id)
     {
-        $user = DB::table('users')->first();
+        $user = DB::table('users')
+            ->where('id', $id)
+            ->first();
         return response()->json($user);  
     }
+   
 
-    Public function updateUser(Request $request, $id)
+    public function updateUser(Request $request, $id)
     {
        $request->validate([
             'first_name'             => 'sometimes|required|string|max:255',

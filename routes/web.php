@@ -1,5 +1,7 @@
 <?php
 
+use App\Notifications\SendEmailVerificationCode;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,7 @@
 */
 
 Route::get('/', 'HomeController@showLandingPage');
+Route::get('/get-auth-user', 'HomeController@getAuthUser');
 
 // auth and Social Auth
 Auth::routes();
@@ -22,7 +25,12 @@ Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallb
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile/{id}', 'HomeController@showProfile');
+Route::get('/profile/{id}', 'HomeController@showProfile')->name('profile.show');
+Route::post('/profile/{id}', 'HomeController@updateProfile')->name('profile.update');
+Route::get('/profile/{id}/edit', 'HomeController@editProfile')->name('profile.edit');
+
+
+
 Route::view('/listingNew', 'users.listings.listing-new')->middleware('auth');
 Route::get('/lists/{type}', 'User\ListingController@showAllListings')->name('listings.all');
 Route::get('/listings/{listing_id}', 'User\ListingController@showSingleListing')->where('listing_id', '[0-9]+');
@@ -45,3 +53,13 @@ Route::post('/fileDelete', 'User\FileUploadController@fileDelete');
 Route::get('/upgrade/plans', 'User\UpgradeController@showPlans');
 Route::get('/upgrade/plans/{plan}', 'User\UpgradeController@paymentForm');
 Route::post('/upgrade/subscribed', 'User\UpgradeController@subscribed');
+
+// verification
+
+Route::get('/verification/code/{user}/email', 'User\VerificationController@sendEmailCode');
+Route::get('/verification/code/{user}/phone/{phone}', 'User\VerificationController@sendSmsCode');
+Route::get('/verification/verify/{code}/email', 'User\VerificationController@verifyEmailCode');
+Route::get('/verification/verify/{code}/phone', 'User\VerificationController@verifySmsCode');
+
+Route::get('/clear/{type}', 'User\VerificationController@clearCode');
+Route::get('sendsms', 'User\VerificationController@sendSms');

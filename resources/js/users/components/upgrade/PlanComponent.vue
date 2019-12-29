@@ -7,8 +7,8 @@
 						<div class="row">
 							<div class="col-md-3 col-sm-6">
 								<div class="g-card font-20 text-center py-3 mb-4" 
-                                    :class="[selectedPlan == 1 ? 'active' : '']"
-                                    @click="selectPlan(1)" 
+                                    :class="[selectedPlan == 310 ? 'active' : '']"
+                                    @click="selectPlan(310)" 
                                 >
 									<h2 class="display-4">1</h2>
 									<p class="font-20">days</p>
@@ -19,8 +19,8 @@
 							</div>
 							<div class="col-md-3 col-sm-6">
 								<div class="g-card font-20 text-center py-3 mb-4"
-                                    :class="[selectedPlan == 2 ? 'active' : '']"
-                                    @click="selectPlan(2)" 
+                                    :class="[selectedPlan == 311 ? 'active' : '']"
+                                    @click="selectPlan(311)" 
                                 >
 									<h2 class="display-4">5</h2>
 									<p class="font-20">days</p>
@@ -31,8 +31,8 @@
 							</div>
 							<div class="col-md-3 col-sm-6">
 								<div class="g-card font-20 text-center py-3 mb-4"
-                                    :class="[selectedPlan == 3 ? 'active' : '']"
-                                    @click="selectPlan(3)" 
+                                    :class="[selectedPlan == 312 ? 'active' : '']"
+                                    @click="selectPlan(312)" 
                                 >
 									<h2 class="display-4">15</h2>
 									<p class="font-20">days</p>
@@ -44,8 +44,8 @@
 							</div>
 							<div class="col-md-3 col-sm-6">
 								<div class="g-card font-20 text-center py-3 mb-4"
-                                    :class="[selectedPlan == 4 ? 'active' : '']"
-                                    @click="selectPlan(4)" 
+                                    :class="[selectedPlan == 313 ? 'active' : '']"
+                                    @click="selectPlan(313)" 
                                 >
 									<h2 class="display-4">30</h2>
 									<p class="font-20">days</p>

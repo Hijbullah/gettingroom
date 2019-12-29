@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'gender', 'dob', 'email', 'password',
+        'first_name', 'last_name', 'gender', 'dob', 'phone', 'email', 'password', 'country', 'city', 'place', 'language', 'about',
     ];
 
     /**
@@ -38,10 +38,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function identities() 
     {
         return $this->hasMany('App\SocialIdentity');
-     }
+    }
 
     /**
      * Get the Listings that owns the User.

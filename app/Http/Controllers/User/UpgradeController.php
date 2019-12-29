@@ -16,9 +16,20 @@ class UpgradeController extends Controller
         return view('users.upgrades.plan');
     }
 
-    public function paymentForm($plan)
+    public function paymentForm($planId)
     {
         $user = Auth::user();
+        if($planId == 310){
+            $plan = [
+                'id' => 310,
+                'nickname' => '1 days free',
+                'amount' => 0.00,
+                'currency' => 'usd' 
+            ];
+        }else{
+            $plan = Stripe::plans()->find($planId);
+        }
+
         return view('users.upgrades.payment', [
             'intent' => $user->createSetupIntent(),
             'plan' => $plan
@@ -30,9 +41,32 @@ class UpgradeController extends Controller
         $user = Auth::user();
         $planId = $request->planId;
         $paymentMethod = $request->payment_method;
-        $user->newSubscription('default', $planId)
+
+        if($planId == 310)
+        {
+            $user->newSubscription('default', 313)
             ->trialDays(1)
-            ->create($paymentMethod);
-        return 'done';
+            ->create($paymentMethod, [
+                'name' => $request->name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+                'address' => $request->address
+            ]);
+
+            return response()->json($planId);
+        }else{
+            $user->newSubscription('default', $planId)
+                ->create($paymentMethod, [
+                    'name' => $request->name,
+                    'email' => $user->email,
+                    'phone' => $user->phone,
+                    'address' => $request->address
+                ]);
+
+            $user->subscription('default')->noProrate()->swap(313);  
+
+            return response()->json($planId);
+        }
+        
     }
 }

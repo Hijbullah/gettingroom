@@ -342,12 +342,12 @@ a.color-main-bg:hover{
 /*single-user-listing start*/
 .single-user-listing .user-profile .single-user-img{
 	position: relative;
-	width: 100px;
+	width: 200px;
 	margin: 0 auto;
 }
 .single-user-listing .user-profile .single-user-img .profile-pic {
 	
-	border-radius: 60px;
+	border-radius: 50%;
 }
 .single-user-listing .user-profile .single-user-img .profile-check {
 	position: absolute;
@@ -466,6 +466,21 @@ a.color-main-bg:hover{
 	margin-top: 15px;
 }
 /*choose-package style end*/
+
+/*payment style start*/
+.box-privacy .text-area {
+	width: 100%;
+	resize: none;
+	height: 250px;
+	overflow-y: scroll;
+	border: 1px solid silver;
+	border-radius: 20px;
+	background: transparent;
+	margin: 15px 0px;
+	padding: 10px 20px;
+}
+/*payment style end*/
+
 
 
 /* media query*/

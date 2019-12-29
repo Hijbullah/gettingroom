@@ -5,24 +5,28 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-12">
+                @if(Auth::check() && Auth::user()->id === $user->id)
                 <div class="bg-success py-5 px-3 mb-2 text-center">
                     <p class="text-white mb-3">Account verification is incomplete.</p>
                     <button class="btn btn-light text-success rounded px-3 py-2 w-25">Verify</button>
                 </div>
+                @endif
                 <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                     <div class="single-user-img">
                         <a href="#">
-                            <img src="{{ asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic">
+                            <img src="{{ $user->avatar ? $user->avatar : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic">
                             <span class="badge badge-success profile-check"><i class="fas fa-check"></i></span>
                         </a>
                     </div>
                     <div class="single-user-info py-3">
                         <a href="{{ url('/profile') . '/' . $user->id }}" class="text-success"><h3 class="font-25">{{ $user->first_name . ' ' . $user->last_name }}</h3></a>
+                        @if($user->dob)
                         <p class="font-20">{{ Carbon\Carbon::parse($user->dob)->diffInYears(Carbon\Carbon::now()) }}</p>
+                        @endif
                     </div>
                     @if(Auth::check() && Auth::user()->id === $user->id)
-                    <a href="#" class="btn btn-success w-75 my-4 py-2">
-                    Edit Profile
+                    <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-success w-75 my-4 py-2">
+                        Edit Profile
                     </a>
                     @endif
                    
@@ -47,13 +51,27 @@
             <div class="col-lg-8 col-md-8 col-12">
                 <div class="gr-content pad-tb-20">
                     <div class="row">
+                        @if (session('status'))
+                        <div class="col">
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        </div>
+                        @endif
+                    
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <ul class="list-group">
-                                        <li class="list-group-item">Language: English</li>
-                                        <li class="list-group-item">Hometown: London</li>
-                                        <li class="list-group-item">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam ipsum laborum ducimus vel nemo quos cupiditate. Perspiciatis doloribus sequi quas non amet! Illo ab exercitationem perspiciatis neque eos iste rem.</li>
+                                        @if($user->language)
+                                        <li class="list-group-item"><b>Language: </b> {{ $user->language }}</li>
+                                        @endif
+                                        @if($user->city)
+                                        <li class="list-group-item"><b>Hometown: </b> {{ $user->city }}</li>
+                                        @endif
+                                        @if($user->about)
+                                        <li class="list-group-item" style="min-height: 100px;">{{ $user->about }}</li>
+                                        @endif
                                     </ul>
                                 </div>
                             </div>

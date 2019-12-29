@@ -10,7 +10,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicon-16x16.png') }}">
     <link rel="manifest" href="{{ asset('frontend/images/site.webmanifest') }}">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css"
         integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -43,33 +42,34 @@
                     <div class="col-lg-8 col-md-8 mx-auto">
                         <!-- form card login -->
                         <div class="row no-gutters">
-                            <div class="col-md-5 order-1 order-md-0">
-                                <div class="left bg-dark-blue p-3 h-100 mt-5 mt-md-0">
+                            <div class="col-md-5 order-1">
+                                <div class="left p-3 h-100 mt-5 mt-md-0">
 
                                     <div class="or border rounded-circle p-2 border-light d-inline-block">OR</div>
                                     <div class="social-link mt-3 text-center">
                                         <div class="position-center">
-                                            <a href="#" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon instagram mr-2">
-                                                    <i class="fab fa-instagram"></i>
-                                                </span>
-                                            </a>
-                                            <a href="{{ url('/login/facebook') }}" class="mb-2">
+                                            <p class="font-18 text-uppercase text-white mb-2">Connect with your social accounts</p>
+                                            <a href="{{ url('/login/facebook') }}" class="mb-1">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}"
                                                     alt="">
                                                 <span class="d-sm-inline-block d-md-none icon facebook mr-2">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </span>
                                             </a>
-                                            <a href="{{ url('/login/google') }}" class="mb-2">
+                                            <a href="#" class="mb-2">
+                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}" alt="">
+                                                <span class="d-sm-inline-block d-md-none icon instagram mr-2">
+                                                    <i class="fab fa-instagram"></i>
+                                                </span>
+                                            </a>
+                                            <a href="{{ url('/login/google') }}" class="mb-1">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/google.svg') }}"
                                                     alt="">
                                                 <span class="d-sm-inline-block d-md-none icon facebook mr-2">
                                                     <i class="fab fa-facebook-f"></i>
                                                 </span>
                                             </a>
-                                            <a href="#" class="mb-2">
+                                            <a href="#" class="mb-1">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/twitter.svg') }}"
                                                     alt="">
                                                 <span class="d-sm-inline-block d-md-none icon twitter  mr-2">
@@ -87,8 +87,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-7 order-0 order-md-1">
-                                <div class="right text-white h-100 px-5 py-4 ">
+                            <div class="col-md-7 order-0">
+                                <div class="right text-white h-100 px-5 ptb-50 ">
                                     <h2 class="font-20 mb-3 text-uppercase text-center">Login</h2>
                                     <p>Don't have a account? <a href="{{ route('register') }}" class="text-success"> Sign Up Free!</a></p>
                                     <div class="form-body mt-3">

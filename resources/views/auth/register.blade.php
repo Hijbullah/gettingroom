@@ -42,21 +42,22 @@
                     <div class="col-lg-9 col-md-8 mx-auto">
                         <!-- form card login -->
                         <div class="row no-gutters">
-                            <div class="col-lg-5 col-md-4 order-1 order-md-0">
-                                <div class="left bg-dark-blue p-3 h-100 mt-5 mt-md-0">
+                            <div class="col-lg-5 col-md-4 order-1">
+                                <div class="left p-3 h-100 mt-5 mt-md-0">
                                     <div class="or border rounded-circle p-2 border-light d-inline-block">OR</div>
                                     <div class="social-link mt-3 text-center">
                                         <div class="position-center">
-                                            <a href="#" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon instagram mr-2">
-                                                    <i class="fab fa-instagram"></i>
-                                                </span>
-                                            </a>
+                                            <p class="font-18 text-uppercase text-white mb-2">Connect with your social <br> accounts</p>
                                             <a href="{{ url('/login/facebook') }}" class="mb-2">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}" alt="">
                                                 <span class="d-sm-inline-block d-md-none icon facebook mr-2">
                                                     <i class="fab fa-facebook-f"></i>
+                                                </span>
+                                            </a>
+                                            <a href="#" class="mb-2">
+                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}" alt="">
+                                                <span class="d-sm-inline-block d-md-none icon instagram mr-2">
+                                                    <i class="fab fa-instagram"></i>
                                                 </span>
                                             </a>
                                             <a href="{{ url('/login/google') }}" class="mb-2">
@@ -81,7 +82,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-7 col-md-8 order-0 order-md-1">
+                            <div class="col-lg-7 col-md-8 order-0">
                                 <div class="right text-white h-100 px-5 py-4 registration">
                                     <h2 class="font-20 mb-3 text-uppercase text-center">Sign up</h2>
                                     <p>Already have an account? <a href="{{ route('login') }}" class="text-success"> Login With Email</a>
