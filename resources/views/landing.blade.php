@@ -58,7 +58,7 @@
                 <a href="{{ route('login') }}" class="font-18 text-secondary d-none d-md-none d-inline-block">
                     Login
                 </a>
-                <a href="#" class="ml-2">
+                <a href="{{ url('/support') }}" class="ml-2">
                     <span class="font-18 text-secondary d-none d-md-inline-block">Help</span>
                     <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt="" class="w-f-25 ml-1">
                 </a>

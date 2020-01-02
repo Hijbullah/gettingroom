@@ -58,7 +58,7 @@ class LoginController extends Controller
 
         list($authUser, $location) = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
-         return redirect()->intended($location);
+        return redirect()->intended($location);
     }
  
  

@@ -85,6 +85,7 @@
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
                                                         v-model="formData.move_date" 
+                                                        color="#3e983e"
                                                     />
                                                     <has-error :form="formData" field="move_date"></has-error>
                                                 </div>
@@ -214,7 +215,7 @@
                                                 </div>
                                             </div>
                                             <h2 class="form-title">Room Mate Preference</h2>
-                                             <div class="form-group row">
+                                             <div class="form-group row age">
                                                 <label for="age" class="col-sm-3 col-form-label">Age</label>
                                                 <div class="col-sm-9">
                                                     <vue-slider 
@@ -366,6 +367,14 @@
 .help-block.invalid-feedback{
     display: block !important;
     font-weight: 700;
+}
+
+.age >>> .vue-slider-process {
+    background-color: #21880e;
+}
+.age >>> .vue-slider-dot-tooltip-inner {
+    border-color: #3e983e;
+    background-color: #3e983e;
 }
 
 </style>

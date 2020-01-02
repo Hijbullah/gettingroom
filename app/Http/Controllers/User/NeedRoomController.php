@@ -129,9 +129,9 @@ class NeedRoomController extends Controller
      * @param  \App\Models\NeedRoom  $needRoom
      * @return \Illuminate\Http\Response
      */
-    public function edit(NeedRoom $needRoom)
+    public function edit(NeedRoom $needroom)
     {
-        //
+        return view('users.needrooms.edit', compact('needroom'));
     }
 
     /**
@@ -141,9 +141,69 @@ class NeedRoomController extends Controller
      * @param  \App\Models\NeedRoom  $needRoom
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NeedRoom $needRoom)
+    public function update(Request $request, NeedRoom $needroom)
     {
-        //
+        $request->validate([
+            'title'                 => 'required|string|max:255',
+            'location'              => 'required|string',
+            'lat'                   => 'required',
+            'lng'                   => 'required',
+            'rental_currency'       => 'required',
+            'monthly_rent'          => 'required|numeric',
+            'is_short_term'         => 'required|boolean',
+            'move_date'             => 'required|date',
+            'leave_date'            => 'nullable|date',
+            'description'           => 'required|string|min:20',
+
+            'cleanliness'           => 'nullable|string',
+            'overnight_guest'      => 'nullable|string',
+            'party_habit'          => 'nullable|string',
+            'get_up'                => 'nullable|string',
+            'go_to_bed'             => 'nullable|string',
+            'food_preference'       => 'nullable|string',
+            'smoker'                => 'nullable|string',
+            'work_schedule'         => 'nullable|string',
+            'occupation'            => 'nullable|string',
+
+            'prefer_age'            => 'required|array',
+            'prefer_smoker'         => 'nullable|string',
+            'prefer_student'        => 'nullable|string',
+
+            'my_pet'       => 'nullable|array',
+            'prefer_pet'           => 'nullable|array'
+            
+        ]);
+
+        $needroom->title = $request->title;                
+        $needroom->location = $request->location;           
+        $needroom->lat = $request->lat;                
+        $needroom->lng = $request->lng;   
+        $needroom->rental_currency = $request->rental_currency;      
+        $needroom->monthly_rent = $request->monthly_rent;         
+        $needroom->is_short_term = $request->is_short_term;        
+        $needroom->move_date = $request->move_date;            
+        $needroom->leave_date = $request->is_short_term ? $request->leave_date : null;        
+        $needroom->description = $request->description; 
+        $needroom->cleanliness = $request->cleanliness;          
+        $needroom->overnight_guest = $request->overnight_guest;     
+        $needroom->party_habit = $request->party_habit;         
+        $needroom->get_up = $request->get_up;               
+        $needroom->go_to_bed = $request->go_to_bed;            
+        $needroom->food_preference = $request->food_preference;      
+        $needroom->smoker = $request->smoker;               
+        $needroom->work_schedule = $request->work_schedule;        
+        $needroom->occupation = $request->occupation;           
+        $needroom->prefer_age = implode(',', $request->prefer_age);           
+        $needroom->prefer_smoker = $request->prefer_smoker;        
+        $needroom->prefer_student = $request->prefer_student;       
+        $needroom->my_pet = $request->my_pet ? implode(',', $request->my_pet) : null;      
+        $needroom->prefer_pet = $request->prefer_pet ? implode(',', $request->prefer_pet) : null;            
+   
+        $listing = $needroom->save();
+
+        return response()->json([
+            'redirectUrl' => '/listings/' . $needroom->listing_id
+        ]);
     }
 
     /**
@@ -152,8 +212,9 @@ class NeedRoomController extends Controller
      * @param  \App\Models\NeedRoom  $needRoom
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NeedRoom $needRoom)
+    public function destroy(NeedRoom $needroom)
     {
-        //
+        $needroom->delete();
+        return response()->json('done');
     }
 }

@@ -27,6 +27,10 @@ img{
 	width: 100%;
 }
 
+.custom-control-input:checked ~ .custom-control-label::before {
+    border-color: #368810 !important;
+    background-color: #368810 !important;
+}
 
 /*reset css*/
 .form-control:focus{
@@ -94,6 +98,9 @@ a.color-main-bg:hover{
 .font-30{
 	font-size: 30px !important;
 }
+.font-40{
+    font-size: 40px !important;
+}
 .font-25{
 	font-size: 25px !important;
 }
@@ -114,11 +121,89 @@ a.color-main-bg:hover{
 	margin-top: 6px;
 }
 .b-r-1{border-right:1px solid #ddd ;}
+
+.position-relative{
+    position: relative;
+}
 /*helper css end*/
 
-/*navbar css start*/
+/* custom element */
+.custom-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
 
-/*navbar css end*/
+.custom-switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.custom-switch .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.custom-switch .slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.custom-switch input:checked + .slider {
+  background-color: #3e983e;
+}
+
+.custom-switch input:focus + .slider {
+  box-shadow: 0 0 1px #3e983e;
+}
+
+.custom-switch input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.custom-switch .slider.round {
+  border-radius: 34px;
+}
+
+.custom-switch .slider.round:before {
+  border-radius: 50%;
+}
+
+.custom-picker {
+    color: #000;
+    border: 2px solid #3e983e;
+    border-radius: 10px;
+    background: #fff;
+    padding: 8px 10px;
+    font-size: 18px;
+}
+.dropdown-toggle.custom-picker:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.dropdown-toggle.custom-picker:after {
+    color: #3e983e !important;
+}
+/* custom element */
 
 /*carousel css start*/
 
@@ -181,6 +266,12 @@ a.color-main-bg:hover{
 .dropdown-menu.account li.list-group-item:hover span{
    color: #fff !important;
    transition: .5s all;
+}
+
+.message-badge{
+    position: absolute;
+    top: 5px;
+    right: 10px;
 }
 
 /*gr-lokingn*/
@@ -481,7 +572,68 @@ a.color-main-bg:hover{
 }
 /*payment style end*/
 
+/* setting syle start */
+.setting .setting-header{
+    color: #272829;
+    font-size: 40px;
+    font-weight: 500;
+}
+.setting p{
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+}
+.setting p, .setting a{
+    font-size: 16px;
+}
+.setting a:hover{
+    text-decoration: underline;
+}
+.setting a.btn:hover{
+    text-decoration: none;
+}
+/* setting syle end */
 
+
+/* support style start */
+
+.support .quick-links a.link{
+   display: block;
+    border: 2px solid #3e983e;
+    padding: 5px 10px;
+    color: #000;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    overflow: hidden;
+    transition: .5s;
+}
+.support .quick-links a.link > i{
+    float: right;
+    margin-top: 1px;
+}
+.support .quick-links a.link:hover{
+    color: #3e983e;
+    text-decoration: underline;
+    transition: .5s;
+}
+.support .message .info img{
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+}
+.support .support-form textarea {
+    width: 100%;
+    height: 170px;
+    border-radius: 10px;
+    border: 2px solid #3e983e;
+    resize: none;
+    font-size: 16px;
+}
+
+/* support style start */
 
 /* media query*/
  /* Extra small devices (phones, 576 and down) xs */

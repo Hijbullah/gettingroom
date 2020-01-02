@@ -26,11 +26,12 @@ class CreateUsersTable extends Migration
             
             $table->boolean('phone_verified')->default(0);
             $table->boolean('email_verified')->default(0);
-            $table->boolean('fb_verified')->default(0);
+            $table->boolean('facebook_verified')->default(0);
             $table->boolean('google_verified')->default(0);
             $table->boolean('instagram_verified')->default(0);
             $table->boolean('twitter_verified')->default(0);
             $table->boolean('linkedin_verified')->default(0);
+            $table->boolean('package')->default(0);
 
             $table->string('country')->nullable();
             $table->string('city')->nullable();

@@ -30,10 +30,10 @@
         </div>
         <div class="budget mt-2 mb-5">
             <div class="row">
-                <div class="col-md-2">
+                <div class="col-md-2 col-12">
                     <p class="m-0 p-0 font-18">Budget</p>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-11">
                     <vue-slider 
                         v-model= "priceRange" 
                         :min= "0" 
@@ -238,7 +238,7 @@
             <div class="col-md-12">
                 <div class="listing-area pad-tb-50">
                     <div v-if="showListings">
-                        <div class="list-view d-none d-md-block" >
+                        <div class="list-view d-none d-lg-block" >
                             <div class="row">
                                 <div class="col-md-6" 
                                     v-for="listing in listings.data" 
@@ -261,18 +261,21 @@
                                                                 </span>
                                                             </div>
                                                         </div>
-                                                        <img :src="listing.image" alt="">
+                                                        <img :src="listing.image" :alt="listing.title">
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <div class="listing-content">
-                                                    <h2 class="font-18 mb-2">{{ listing.title }}</h2>
+                                                    <a :href="listing.listing_url">
+                                                        <h2 class="font-18 mb-2 text-dark">{{ listing.title }}</h2>
+                                                    </a>
                                                     <p class="font-14"><span class="color-main-text">{{ listingType }}</span> |
                                                         <span>{{ listing.location.location }}</span></p>
                                                     <div class="listing-user clearfix">
-                                                        <img :src="listing.user.avatar" alt=""
-                                                            class="rounded-circle float-left">
+                                                        <a :href="listing.user.profile">
+                                                            <img :src="listing.user.avatar" :alt="listing.user.name" class="rounded-circle float-left">
+                                                        </a>    
                                                         <div class="float-left ml-2 mt-1">
                                                             <span
                                                                 class="mb-2 d-inline-block font-weight-bold">{{ listing.user.name }}</span>
@@ -282,16 +285,11 @@
                                                     </div>
                                                     <div class="listing-contact mt-1">
                                                         <p class="font-14 mb-3">Contact {{ listing.user.name }}</p>
-                                                        <a href="#"><i
-                                                                class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
-                                                        <a href="#"><i
-                                                                class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
-                                                        <a href="#"><i
-                                                                class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
-                                                        <a href="#"><i
-                                                                class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
-                                                        <a href="#"><i
-                                                                class="far fa-comments icon comments font-25 mr-2"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.phone"><i class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
+                                                        <a href="#" v-if="true"><i class="far fa-comments icon comments font-25 mr-2"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -306,7 +304,7 @@
                                                     <span><i class="fas fa-calendar-alt font-18 color-main-text"></i></span>
                                                     <p class="font-12">Move-in Date:</p>
                                                     <p class="font-12 mb-3">{{ listing.move_date }}</p>
-                                                    <a href="#"
+                                                    <a :href="listing.listing_url"
                                                         class="btn font-14 color-main-bg text-light btn-block">view</a>
                                                 </div>
                                             </div>
@@ -315,65 +313,65 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grid-view">
+                        <div class="grid-view d-block d-lg-none">
                             <div class="row">
-                                <div class="col-md-4 col-lg-3"
-                                    v-for="listing in listings"
+                                <div class="col-md-4 col-sm-6 col-12"
+                                    v-for="listing in listings.data"
                                     :key="listing.listing_id"
                                 >
-                                    <a href="#">
-                                        <div class="listing-single bg-white mar-bot-20 shadow-sm">
-                                            <div class="listing-img">
-                                                <div class="img-text-top clearfix w-100 px-3 py-2">
-                                                    <div class="float-left">
-                                                        <span class="font-25 text-light">
-                                                            <i class="fas fa-star-half-alt"></i>
-                                                        </span>
-                                                    </div>
-                                                    <div class="float-right text-light">
-                                                        <span class="mr-2 font-14">6 Days Ago</span> <br />
-                                                        <span class="btn btn-warning p-0 px-3 mt-2 text-light">New</span>
-                                                    </div>
+                                    <div class="listing-single bg-white mar-bot-20 shadow-sm">
+                                        <div class="listing-img">
+                                            <div class="img-text-top clearfix w-100 px-3 py-2">
+                                                <div class="float-left">
+                                                    <span class="font-25 text-light">
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    </span>
                                                 </div>
-                                                <div class="img-text-bottom clearfix w-100 p-2">
-                                                    <div class="float-left text-light">
-                                                        <span class="font-30 font-weight-bold">
-                                                            <sup class="font-20">$</sup> {{ listing.rent.rent }} <sup class="font-20">{{ listing.rent.currency }}</sup>
-                                                        </span>
-                                                        <span class="font-20 font-weight-bold">per month</span>
-                                                    </div>
-                                                    <div class="float-right text-light listing-user">
-                                                        <img :src="listing.user.avatar" alt="" class="rounded-circle"
-                                                            width="100px" height="100px">
-                                                        <div class="mb-2 listing-user-text">
-                                                            <span
-                                                                class="mb-2 d-inline-block font-weight-bold mr-2">Angelia</span>
-                                                            <span class="d-inline-block font-weight-bold">28</span>
-                                                        </div>
-                                                    </div>
+                                                <div class="float-right text-light">
+                                                    <span class="mr-2 font-14">{{ listing.created_at }}</span> <br />
+                                                    <span class="btn btn-warning p-0 px-3 mt-2 text-light">New</span>
                                                 </div>
-                                                <img :src="listing.image" alt="">
                                             </div>
-                                            <div class="listing-contact mt-1 pb-2 pl-2">
-                                                <h2 class="font-16 my-1 text-dark">{{ listing.title }}</h2>
-                                                <p class="font-12 mb-3 ">
-                                                    <span class="color-main-text">{{ listing.type }}</span> | <span
-                                                        class="text-dark">{{ listing.location.location }}</span>
-                                                </p>
-                                                <div class="text-center">
-                                                    <a href="#"><i
-                                                            class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
-                                                    <a href="#"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
-                                                    <a href="#"><i
-                                                            class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
-                                                    <a href="#"><i
-                                                            class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
-                                                    <a href="#"><i
-                                                            class="far fa-comments icon comments font-25 mr-2"></i></a>
+                                            <div class="img-text-bottom clearfix w-100 p-2">
+                                                <div class="float-left text-light">
+                                                    <span class="font-30 font-weight-bold">
+                                                        <sup class="font-20">$</sup> {{ listing.rent.rent }} <sup class="font-20">{{ listing.rent.currency }}</sup>
+                                                    </span>
+                                                    <span class="font-20 font-weight-bold">per month</span>
                                                 </div>
+                                                <div class="float-right text-light listing-user">
+                                                    <a :href="listing.user.profile">
+                                                        <img :src="listing.user.avatar" alt="" class="rounded-circle" width="100px" height="100px">
+                                                    </a>    
+                                                    <div class="mb-2 listing-user-text">
+                                                        <span
+                                                            class="mb-2 d-inline-block font-weight-bold mr-2">{{ listing.user.name }}</span>
+                                                        <span class="d-inline-block font-weight-bold">{{ listing.user.age }}</span>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                             <a :href="listing.listing_url">
+                                                <img :src="listing.image" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="listing-contact mt-1 pb-2 pl-2">
+                                            <a :href="listing.listing_url">
+                                                <h2 class="font-18 my-2 text-dark">{{ listing.title }}</h2>
+                                            </a>
+                                            <p class="font-12 mb-3 ">
+                                                <span class="color-main-text">{{ listingType }}</span> | <span
+                                                    class="text-dark">{{ listing.location.location }}</span>
+                                            </p>
+                                            <div class="text-center">
+                                                <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
+                                                <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
+                                                <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
+                                                <a href="#" v-if="listing.user.verified.phone"><i class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
+                                                <a href="#" v-if="true"><i class="far fa-comments icon comments font-25 mr-2"></i></a>
                                             </div>
                                         </div>
-                                    </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -481,10 +479,12 @@
                             this.from = res.data.meta.from;
                             this.to = res.data.meta.to;
                             this.showListings = true;
+
                         }else{
                             this.showListings = false;
                         }
                         this.$dlg.close(key)
+                        console.log(this.listings);
                     })
                     .catch(function (error) {
                         console.log(error);
@@ -525,6 +525,10 @@
     }
     .budget >>> .vue-slider-process {
         background-color: #21880e;
+    }
+    .budget >>> .vue-slider-dot-tooltip-inner {
+        border-color: #3e983e;
+        background-color: #3e983e;
     }
 
 </style>

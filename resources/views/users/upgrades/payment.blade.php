@@ -251,25 +251,28 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="content">
-                            <div class="custom-control custom-checkbox d-inline-block">
-                                <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                <label class="custom-control-label" for="customCheck1"></label>
-                            </div>
-                            <span>I affirm that I have read and agree to the <a href="#" target="_blank"
-                                    class="color-main-text">Privacy Policy</a>, <a href="#" target="_blank"
-                                    class="color-main-text">Terms of Use</a> and authorize my account to be charged the
-                                selected subscription rate until I cancel.</span>
-                            <p>This subscription is renewed every 30 days in the amount of 24.95 USD after the initial
+                            <label class="custom-checkbox">
+                                <span>I affirm that I have read and agree to the <a href="#" target="_blank" class="color-main-text">Privacy Policy</a>,
+                                    <a href="#" target="_blank" class="color-main-text">Terms of Use</a> and authorize my account to be charged the
+                                    selected subscription rate until I cancel.
+                                </span>
+                                <input type="checkbox" id="payment-agree">
+                                <span class="checkmark"></span>
+                            </label>
+                            
+                            <p class="font-16 mb-2">This subscription is renewed every 30 days in the amount of 24.95 USD after the initial
                                 period ends. To cancel your subscription click the "Settings" button located under the
                                 "Account" tab found on your logged in Roomster home page and then click on the
                                 "Subscription" link and choose "Cancel my subscription".</p>
-                            <p>For security purposes we record your IP address: 103.121.221.83 —12/09/2019 07:23:47 AM
+                            <p class="font-16 mb-2">For security purposes we record your IP address: 103.121.221.83 —12/09/2019 07:23:47 AM
                             </p>
-                            <p>When you press "I authorize this transaction", your card will be charged immediately.</p>
-                            <button class="btn btn-success btn-lg my-4" id="card_button" data-secret="{{ $intent->client_secret }}" >I authorize this transaction</button>
-                            <p>All fees are charged in U.S. dollars. Charges will appear on your bill as "Roomster".
+                            <p class="font-16 mb-2">When you press "I authorize this transaction", your card will be charged immediately.</p>
+                            <div class="text-center">
+                                <button class="btn btn-success btn-lg my-4" id="card_button" data-secret="{{ $intent->client_secret }}" disabled>I authorize this transaction</button>
+                            </div>
+                            <p class="font-16">All fees are charged in U.S. dollars. Charges will appear on your bill as "Roomster".
                             </p>
-                            <p>* This credit card page complies with California Senate Bill 340</p>
+                            <p class="font-16 font-weight-bold">* This credit card page complies with California Senate Bill 340</p>
                         </div>
                     </div>
                 </div>
@@ -282,6 +285,15 @@
 
 @push('page-script')
 <script src="https://js.stripe.com/v3/"></script>
+<script>
+    document.getElementById('payment-agree').addEventListener('click', function(e){
+        if(this.checked){
+            document.getElementById('card_button').disabled = false;
+        }else{
+            document.getElementById('card_button').disabled = true;
+        }
+    })
+</script>
 <script>
     var stripe = Stripe("{{ config('services.stripe.key') }}");
 
@@ -382,7 +394,8 @@
        
 
         if (error) {
-            console.log(error.message);
+            // console.log(error.message);
+            alert(error.message);
         } else {
             console.log(setupIntent.payment_method);
             // The card has been verified successfully...
@@ -415,46 +428,6 @@
     
 </script>
 
-{{-- <script>
-    window.addEventListener('load', function() {
-
-        const stripe = Stripe("{{ config('services.stripe.key') }}");
-    
-        const elements = stripe.elements();
-        const cardElement = elements.create('card');
-    
-        cardElement.mount('#card-element');
-    
-        const cardHolderName = document.getElementById('first_name') + ' ' + document.getElementById('last_name');
-        const cardButton = document.getElementById('card-button');
-        const clientSecret = cardButton.dataset.secret;
-        
-        cardButton.addEventListener('click', async (e) => {
-            const { setupIntent, error } = await stripe.handleCardSetup(
-                    clientSecret, cardElement, {
-                        payment_method_data: {
-                            billing_details: { name: cardHolderName.value }
-                    }
-                }
-            );
-        
-            if (error) {
-            // Display "error.message" to the user...
-            } else {
-                console.log(setupIntent.payment_method);
-            // The card has been verified successfully...
-                axios.post('/upgrade/subscribed', {
-                    payment_method: setupIntent.payment_method,
-                    planId: '{{ $plan }}'
-                })
-                .then(res => {
-                    console.log(res.data);
-                    alert('payment accepted');
-                })
-            }
-        });
-    });
-</script> --}}
 @endpush
 
 @push('page-css')
@@ -488,5 +461,76 @@ height: 20px;
 padding: 4px 0;
 color: #fa755a;
 }
-</style>    
+</style>   
+
+<style>
+    /* The container */
+    .custom-checkbox {
+        display: inline-block;
+        position: relative;
+        margin-bottom: 15px;
+        cursor: pointer;
+        font-size: 20px;
+        line-height: 1.5;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 0 0 46px;
+    }
+
+    /* Hide the browser's default checkbox */
+    .custom-checkbox input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        height: 30px;
+        width: 30px;
+        border: 2px solid #1e7e34;
+        background-color: #fff;
+    }
+
+    /* On mouse-over, add a grey background color */
+    .custom-checkbox:hover input~.checkmark {
+        background-color: #ccc;
+    }
+
+    /* When the checkbox is checked, add a blue background */
+    .custom-checkbox input:checked~.checkmark {
+        background-color: #1e7e34;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the checkmark when checked */
+    .custom-checkbox input:checked~.checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .custom-checkbox .checkmark:after {
+        left: 11px;
+        top: 7px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+</style>
 @endpush

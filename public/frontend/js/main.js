@@ -9,13 +9,13 @@ $(document).ready(function() {
             let location = '';
             switch (clickedIndex) {
                 case 1:
-                    location = '/login/facebook';
+                    location = '/socialauth/facebook';
                     break;
                 case 2:
-                    location = '/login/google';
+                    location = '/socialauth/google';
                     break;
                 case 3:
-                    location = '/login/linkedin';
+                    location = '/socialauth/linkedin';
                     break;
                 case 4:
                     location = '/login';

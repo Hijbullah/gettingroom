@@ -21,10 +21,7 @@ class UserController extends Controller
     public function updateUser(Request $request, $id)
     {
        $request->validate([
-            'first_name'             => 'sometimes|required|string|max:255',
-            'last_name'              => 'sometimes|required|string|max:255',
-            'email'                  => 'sometimes|required|string|email|max:255|unique:users',
-            'dob'                    => 'sometimes|required|date'
+            'email' => 'sometimes|required|string|email|max:255|unique:users',
         ]);
         DB::table('users')
             ->where('id', $id)

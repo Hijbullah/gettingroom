@@ -92,7 +92,7 @@ class NeedApartmentController extends Controller
      * @param  \App\Models\NeedApartment  $needApartment
      * @return \Illuminate\Http\Response
      */
-    public function show(NeedApartment $needApartment)
+    public function show(NeedApartment $needapartment)
     {
         //
     }
@@ -100,12 +100,12 @@ class NeedApartmentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\NeedApartment  $needApartment
+     * @param  \App\Models\NeedApartment  $needapartment
      * @return \Illuminate\Http\Response
      */
-    public function edit(NeedApartment $needApartment)
+    public function edit(NeedApartment $needapartment)
     {
-        //
+        return view('users.needapartments.edit', compact('needapartment'));
     }
 
     /**
@@ -115,9 +115,45 @@ class NeedApartmentController extends Controller
      * @param  \App\Models\NeedApartment  $needApartment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, NeedApartment $needApartment)
+    public function update(Request $request, NeedApartment $needapartment)
     {
-        //
+        $request->validate([
+            'title'                 => 'required|string|max:255',
+            'location'              => 'required|string',
+            'lat'                   => 'required',
+            'lng'                   => 'required',
+            'rental_currency'       => 'required',
+            'monthly_rent'          => 'required|numeric',
+            'is_short_term'         => 'required|boolean',
+            'move_date'             => 'required|date',
+            'leave_date'            => 'nullable|date',
+            'description'           => 'required|string|min:20',
+            'apartment_type'        => 'nullable|array',
+            'is_furnished'          => 'nullable|string',
+            'amenities'             => 'nullable|array',
+            
+        ]);
+        
+        $needapartment->title = $request->title;                
+        $needapartment->location = $request->location;           
+        $needapartment->lat = $request->lat;                
+        $needapartment->lng = $request->lng;                 
+        $needapartment->rental_currency = $request->rental_currency;      
+        $needapartment->monthly_rent = $request->monthly_rent;         
+        $needapartment->is_short_term = $request->is_short_term;        
+        $needapartment->move_date = $request->move_date;            
+        $needapartment->leave_date = $request->is_short_term ? $request->leave_date : null;       
+        $needapartment->description = $request->description;  
+        $needapartment->apartment_type = $request->apartment_type ? implode(',' , $request->apartment_type) : null;         
+        $needapartment->is_furnished = $request->is_furnished;         
+        $needapartment->amenities = $request->amenities ? implode(',', $request->amenities) : null;                    
+                      
+
+        $listing = $needapartment->save();
+
+        return response()->json([
+            'redirectUrl' => '/listings/' . $needapartment->listing_id
+        ]);
     }
 
     /**
@@ -126,8 +162,9 @@ class NeedApartmentController extends Controller
      * @param  \App\Models\NeedApartment  $needApartment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(NeedApartment $needApartment)
+    public function destroy(NeedApartment $needapartment)
     {
-        //
+        $needapartment->delete();
+        return response()->json('done');
     }
 }

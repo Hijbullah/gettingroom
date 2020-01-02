@@ -44,26 +44,34 @@ class UpgradeController extends Controller
 
         if($planId == 310)
         {
-            $user->newSubscription('default', 313)
-            ->trialDays(1)
-            ->create($paymentMethod, [
-                'name' => $request->name,
-                'email' => $user->email,
-                'phone' => $user->phone,
-                'address' => $request->address
-            ]);
-
-            return response()->json($planId);
-        }else{
-            $user->newSubscription('default', $planId)
+            try {
+                $user->newSubscription('default', 313)
+                ->trialDays(1)
                 ->create($paymentMethod, [
                     'name' => $request->name,
                     'email' => $user->email,
                     'phone' => $user->phone,
                     'address' => $request->address
                 ]);
+                
+            } catch (\Stripe\Exception\CardException $e) {
+                return response()->json($e);
+            }
 
-            $user->subscription('default')->noProrate()->swap(313);  
+            return response()->json($planId);
+        }else{
+             try {
+                 $user->newSubscription('default', $planId)
+                     ->create($paymentMethod, [
+                         'name' => $request->name,
+                         'email' => $user->email,
+                         'phone' => $user->phone,
+                         'address' => $request->address
+                     ]);
+            } catch (\Stripe\Exception\CardException $e) {
+                return response()->json($e);
+            }
+
 
             return response()->json($planId);
         }

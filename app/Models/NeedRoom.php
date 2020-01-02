@@ -21,4 +21,8 @@ class NeedRoom extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    public function getRouteKeyName()
+    {
+        return 'listing_id';
+    }
 }

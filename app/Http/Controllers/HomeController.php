@@ -37,7 +37,7 @@ class HomeController extends Controller
     public function showLandingPage()
     {
         if(Auth::check()){
-            return redirect()->route('listings.all', 'needrooms');
+            return redirect()->route('listings.all', 'offerrooms');
         }
 
         return view('landing');
@@ -131,7 +131,7 @@ class HomeController extends Controller
     public function getAuthUser()
     {
         $user = DB::table('users')
-            ->select('id', 'email', 'phone', 'email_verified', 'phone_verified', 'fb_verified', 'google_verified', 'instagram_verified', 'linkedin_verified', 'twitter_verified')
+            ->select('id', 'email', 'phone', 'email_verified', 'phone_verified', 'facebook_verified', 'google_verified', 'instagram_verified', 'linkedin_verified', 'twitter_verified')
             ->where('id', Auth::id())
             ->first();
         return response()->json($user);     

@@ -49,7 +49,7 @@
                                     <div class="social-link mt-3 text-center">
                                         <div class="position-center">
                                             <p class="font-18 text-uppercase text-white mb-2">Connect with your social accounts</p>
-                                            <a href="{{ url('/login/facebook') }}" class="mb-1">
+                                            <a href="{{ url('/socialauth/facebook') }}" class="mb-1">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}"
                                                     alt="">
                                                 <span class="d-sm-inline-block d-md-none icon facebook mr-2">
@@ -62,7 +62,7 @@
                                                     <i class="fab fa-instagram"></i>
                                                 </span>
                                             </a>
-                                            <a href="{{ url('/login/google') }}" class="mb-1">
+                                            <a href="{{ url('/socialauth/google') }}" class="mb-1">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/google.svg') }}"
                                                     alt="">
                                                 <span class="d-sm-inline-block d-md-none icon facebook mr-2">
@@ -76,7 +76,7 @@
                                                     <i class="fab fa-twitter"></i>
                                                 </span>
                                             </a>
-                                            <a href="{{ url('/login/linkedin') }}" class="">
+                                            <a href="{{ url('/socialauth/linkedin') }}" class="">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/linkedin.sv') }}g"
                                                     alt="">
                                                 <span class="d-sm-inline-block d-md-none icon facebook mr-2">

@@ -2,27 +2,11 @@
     <div>
         <div class="card">
             <div class="card-body">
-                <div class="form-group row" v-if="!this.firstName">
-                    <div class="col">
-                        <label for="first_name" class="label">First Name</label>
-                        <input type="text" class="form-control" id="first_name" v-model="formData.first_name" :class="{ 'is-invalid': formData.errors.has('first_name') }">
-                        <has-error :form="formData" field="first_name"></has-error>
-                    </div>
-                    <div class="col">
-                        <label for="last_name" class="label">Last Name</label>
-                        <input type="text" class="form-control" id="last_name" v-model="formData.last_name" :class="{ 'is-invalid': formData.errors.has('last_name') }">
-                        <has-error :form="formData" field="last_name"></has-error>
-                    </div>
-                </div>
+                
                 <div class="form-group" v-if="!this.email">
                     <label class="label" for="email">Email</label>
                     <input type="email" class="form-control" id="email" v-model="formData.email" :class="{ 'is-invalid': formData.errors.has('email') }">
                     <has-error :form="formData" field="email"></has-error>
-                </div>
-                <div class="form-group" v-if="!this.dob">
-                    <label for="dob" class="label"></label>
-                    <input type="date" class="form-control" id="dob" v-model="formData.dob" :class="{ 'is-invalid': formData.errors.has('dob') }">
-                    <has-error :form="formData" field="dob"></has-error>
                 </div>
                 <div class="form-group text-center">
                     <button
@@ -45,14 +29,11 @@
 
 <script>
     export default {
-        props: ['id', 'firstName', 'lastName', 'email', 'dob'],
+        props: ['id', 'email'],
         data () {
             return {
                 formData: new Form({
-                    // first_name: '',
-                    // last_name: '',
-                    // email: '',
-                    // dob: null
+                    email: ''
                 })
             }
         },
@@ -71,19 +52,7 @@
             
         },
         mounted(){
-            let dataObj = {
-                first_name: this.firstName,
-                last_name: this.lastName,
-                email: this.email,
-                dob: this.dob
-            };
-
-            for (var propName in dataObj) { 
-                if (dataObj[propName] === null || dataObj[propName] === undefined) {
-                    this.$set(this.formData, propName, dataObj[propName])
-                }
-            }
-           
+            email: this.email
         }
     }
 </script>

@@ -24,11 +24,7 @@ Vue.component('plan-component', require('./components/upgrade/PlanComponent.vue'
 Vue.component('listing-component', require('./components/listings/ListingComponent.vue').default);
 Vue.component('single-listing-component', require('./components/listings/SingleListingComponent.vue').default);
 Vue.component('listing-new-component', require('./components/listings/ListingNewComponent.vue').default);
-
-
-import VueLazyload from 'vue-lazyload'
-
-Vue.use(VueLazyload)
+Vue.component('messenger-component', require('./components/messenger/Messenger.vue').default);
 
 //Date Picker
 
@@ -51,10 +47,6 @@ Vue.use(vDialogs)
 import VerifyAccount from './components/modals/AccountVerify.vue';
 
 
-// import { OpenStreetMapProvider } from 'leaflet-geosearch';
-// const provider = new OpenStreetMapProvider();
-
-
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -63,10 +55,6 @@ import VerifyAccount from './components/modals/AccountVerify.vue';
 
 const app = new Vue({
     el: '#app',
-    data: {
-        // searchValue: '',
-        // searchResult: [],
-    },
     methods: {
         openVerifyModal() {
             this.$dlg.modal(VerifyAccount, {
@@ -80,24 +68,6 @@ const app = new Vue({
                     
                 }
             })
-        },
-        // placeSearch(){
-        //     this.searchValue = this.$refs.placesearch.value;
-
-        //     if (this.searchValue.length >= 3) {
-        //         provider
-        //             .search({ query: this.searchValue })
-        //             .then(result => {
-        //                 this.searchResult = result;
-        //                 this.$refs.search_result_content.classList.remove('d-none');
-        //             })
-        //     } else {
-        //         this.searchResult = [];
-        //         // this.showResult = false;
-        //     }
-        // },
-        // selectPlace(place){
-
-        // },
+        }
     }
 });

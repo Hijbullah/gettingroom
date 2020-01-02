@@ -28,11 +28,13 @@
                 <div class="row">
                     <div class="col-md-10 m-auto">
                         <div class="row">
-                            <div class="col-lg-8 col-md-8 col-12 order-md-0 order-1">
-                                <div class="user-listing-button p-4 mb-3 d-flex text-center" v-if="authId && authId == listing.user.id">
-                                    <a href="" class="btn w-25 btn-info text-white p-2 mr-3">Edit Listing</a>
-                                    <a href="" class="btn w-25 color-main-bg text-white p-2">Delete Listing</a>
+                            <div class="col-12">
+                                <div class="user-listing-button mb-5 d-flex text-center" v-if="authId && authId == listing.user.id">
+                                    <a :href="listing.edit_url" class="btn w-25 btn-info text-white p-2 mr-3">Edit Listing</a>
+                                    <a href="#" @click.prevent="deleteListing" class="btn w-25 color-main-bg text-white p-2">Delete Listing</a>
                                 </div>
+                            </div>
+                            <div class="col-lg-8 col-md-8 col-12 order-md-0 order-1">
                                 <div class="user-listing-info bg-white p-4 mb-3">
                                     <div class="d-flex">
                                         <p class="text-dark text-left flex-grow-1">{{ listing.created_at }} <span
@@ -325,6 +327,19 @@
                         console.log(error);
                     });
             },
+            deleteListing(){
+                 axios.delete(this.listing.delete_url)
+                    .then( res => {
+                        if(res.data == 'done'){
+                             window.location.href = `/profile/${this.authId}`;
+                        }else{
+                            alert('something wrong in our system...')
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
+            }
     
         },
         computed: {

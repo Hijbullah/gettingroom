@@ -22,4 +22,14 @@ class OfferRoom extends Model
         return $this->belongsTo('App\User', 'user_id');
     }
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'listing_id';
+    }
+
 }

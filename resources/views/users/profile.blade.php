@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-12">
-                @if(Auth::check() && Auth::user()->id === $user->id)
+                @if(Auth::check() && Auth::id() === $user->id)
                 <div class="bg-success py-5 px-3 mb-2 text-center">
                     <p class="text-white mb-3">Account verification is incomplete.</p>
                     <button class="btn btn-light text-success rounded px-3 py-2 w-25">Verify</button>
@@ -21,29 +21,71 @@
                     <div class="single-user-info py-3">
                         <a href="{{ url('/profile') . '/' . $user->id }}" class="text-success"><h3 class="font-25">{{ $user->first_name . ' ' . $user->last_name }}</h3></a>
                         @if($user->dob)
-                        <p class="font-20">{{ Carbon\Carbon::parse($user->dob)->diffInYears(Carbon\Carbon::now()) }}</p>
+                        <p class="font-20">{{ $user->dob ? Carbon\Carbon::parse($user->dob)->diffInYears(Carbon\Carbon::now()) : '' }}</p>
                         @endif
                     </div>
-                    @if(Auth::check() && Auth::user()->id === $user->id)
+                    @if(Auth::check() && Auth::id() === $user->id)
                     <a href="{{ route('profile.edit', $user->id) }}" class="btn btn-success w-75 my-4 py-2">
                         Edit Profile
                     </a>
                     @endif
                    
                     <div class="listing-user-social-verify-block font-12">
-                        @foreach ($user->identities as $identity)
-                            <p class="text-left d-inline-block mr-3">
-                                <span class="badge badge-success rounded">
-                                    <i class="fas fa-check"></i>
-                                </span> {{ ucfirst($identity->provider_name) }} Verified
-                            </p>
-                        
-                        @endforeach
-                        {{-- <p class="text-right d-inline-block">
+                        @if($user->email_verified)
+                        <p class="text-right d-inline-block m-2">
                             <span class="badge badge-success rounded">
                                 <i class="fas fa-check"></i>
-                            </span> Email Verified
-                        </p> --}}
+                            </span> Email
+                        </p>
+                        @endif
+
+                        @if($user->facebook_verified)
+                        <p class="text-right d-inline-block m-2">
+                            <span class="badge badge-success rounded">
+                                <i class="fas fa-check"></i>
+                            </span> Facebook
+                        </p>
+                        @endif
+
+                        @if($user->twitter_verified)
+                        <p class="text-right d-inline-block m-2">
+                            <span class="badge badge-success rounded">
+                                <i class="fas fa-check"></i>
+                            </span> Twitter
+                        </p>
+                        @endif
+
+                        @if($user->instagram_verified)
+                        <p class="text-right d-inline-block m-2">
+                            <span class="badge badge-success rounded">
+                                <i class="fas fa-check"></i>
+                            </span> Instagram
+                        </p>
+                        @endif
+
+                        @if($user->google_verified)
+                        <p class="text-right d-inline-block m-2">
+                            <span class="badge badge-success rounded">
+                                <i class="fas fa-check"></i>
+                            </span> Google
+                        </p>
+                        @endif
+
+                        @if($user->linkedin_verified)
+                        <p class="text-right d-inline-block m-2">
+                            <span class="badge badge-success rounded">
+                                <i class="fas fa-check"></i>
+                            </span> Linkedin
+                        </p>
+                        @endif
+
+                        @if($user->phone_verified)
+                        <p class="text-right d-inline-block m-2">
+                            <span class="badge badge-success rounded">
+                                <i class="fas fa-check"></i>
+                            </span> Phone
+                        </p>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -58,7 +100,7 @@
                             </div>
                         </div>
                         @endif
-                    
+                        @if($user->language || $user->city || $user->about)
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
@@ -76,7 +118,8 @@
                                 </div>
                             </div>
                         </div>
-                        @if(Auth::check() && Auth::user()->id === $user->id)
+                        @endif
+                        @if(Auth::check() && Auth::id() === $user->id)
                         <div class="col-md-12">
                             <nav class="navbar nav nav-fill mb-3 font-16">
                                 <li>
@@ -89,7 +132,7 @@
                                 </li>
                             </nav>
                         </div>
-                        @endif
+                        
                         <div class="col-md-12">
                             <div class="listing-area">
                                 <div class="grid-view">
@@ -129,6 +172,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

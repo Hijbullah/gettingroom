@@ -20,8 +20,12 @@ Route::get('/get-auth-user', 'HomeController@getAuthUser');
 // auth and Social Auth
 Auth::routes();
 
-Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
-Route::get('login/{provider}/callback','Auth\LoginController@handleProviderCallback');
+Route::get('socialauth/{provider}', 'User\SocialAuthController@redirectToProvider');
+Route::get('socialauth/{provider}/callback','User\SocialAuthController@handleProviderCallback');
+Route::get('/social/{status}', function($status){
+    return $status;
+});
+
 
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -63,3 +67,14 @@ Route::get('/verification/verify/{code}/phone', 'User\VerificationController@ver
 
 Route::get('/clear/{type}', 'User\VerificationController@clearCode');
 Route::get('sendsms', 'User\VerificationController@sendSms');
+
+// messenger
+Route::get('/message', 'User\MessengerController@showMessanger');
+Route::get('/contacts', 'User\MessengerController@get');
+Route::get('/conversation/{id}', 'User\MessengerController@getMessagesFor');
+Route::post('/conversation/send', 'User\MessengerController@send');
+
+//setting
+Route::view('/setting', 'users.setting');
+Route::get('/support', 'User\SupportController@showSupport');
+Route::post('/support', 'User\SupportController@storeSupport');

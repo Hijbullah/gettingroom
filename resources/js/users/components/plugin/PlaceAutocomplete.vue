@@ -34,6 +34,12 @@
 
     export default {
         name: 'place-autocomplete',
+        props: {
+            location: {
+                type: String,
+                default: ''
+            },
+        },
         data(){
             return {
                 value: '',
@@ -50,7 +56,6 @@
                     .then(result => { 
                         this.results = result;
                         this.showResult = true;
-                        // console.log(result);
                     })
                 }else{
                     this.results = [];
@@ -71,7 +76,8 @@
             }
         },
         mounted() {
-            console.log('Component mounted.')
+            this.value = this.location;
+
         }
     }
 </script>

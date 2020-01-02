@@ -83,10 +83,7 @@
                         title: 'We need Some more info About YOu',
                         params: {
                             id: this.user.id,
-                            firstName: this.user.first_name,
-                            lastName: this.user.last_name,
                             email: this.user.email,
-                            dob: this.user.dob
                         },
                         callback: data =>{
                         this.$dlg.alert(`${data.messege}`, {
@@ -102,10 +99,9 @@
                     .then( res => {
                        console.log(res.data)
                        this.user = res.data;
-                       if(!this.user.first_name || !this.user.last_name || !this.user.email || !this.user.dob){
+                       if(!this.user.email){
                            this.userNeedToUpdate = true;
                        }
-                    //    console.log(this.user);
                     })
                     .catch(function (error) {
                         console.log(error);

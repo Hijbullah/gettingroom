@@ -26,7 +26,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <span class="color-main-text">Getting Room &copy; 2019</span> 
+                <span class="color-main-text">Getting Room &copy; {{ date("Y") }}</span> 
             </div>
         </div>
     </div>

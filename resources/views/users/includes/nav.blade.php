@@ -38,22 +38,26 @@
                     </select>
                 </div>
                 @endguest
-                <div class="b-r-1 px-3 py-2 ">
-                    <a href="#" class="">
+                <div class="b-r-1 px-3 py-2 d-md-block position-relative">
+                    <a href="{{ url('/support') }}" class="">
                         <span class="text-success font-30"><i class="far fa-question-circle"></i></span>
-                        {{-- <span class="text-success font-30"><img height="" src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt=""></span> --}}
-
+                        @if($supportCount)
+                        <span class="badge badge-danger message-badge">{{ $supportCount }}</span>
+                        @endif
                     </a>
                 </div>
                 @auth
-                <div class="border-left b-r-1 px-3 py-2 d-none d-md-block">
-                    <a href="#" class="">
+                <div class="border-left b-r-1 px-3 py-2 d-none d-md-block position-relative">
+                    <a href="{{ url('/message') }}" class="">
                         <span class="text-success font-30"><i class="far fa-comment"></i></span>
+                        @if($messageCount)
+                        <span class="badge badge-danger message-badge">{{ $messageCount }}</span>
+                        @endif
                     </a>
                 </div>
                 <div class="b-r-1 px-3 py-2">
                     <a href="#" id="account-dropdown" class="user" data-toggle="dropdown">
-                        <img src="{{ asset('frontend/images/user-defult.png') }}" alt="">
+                        <img src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('frontend/images/user-defult.png') }}" alt="">
                     </a>
                     <div class="dropdown-menu account dropdown-menu-left py-0" aria-labelledby="account-dropdown">
                         <ul class="list-group list-group-flush font-16">
@@ -64,10 +68,16 @@
                                 <a href="{{ url('/profile/') . '/' . Auth::id() }}" class="text-dark"><span class="mr-2 color-main-text"><i class="far fa-user"></i></span>My profile / Listings</a>
                             </li>
                             <li class="list-group-item">
+                                <a href="{{ url('/lists/offerrooms') }}" class="text-dark"><span class="mr-2 color-main-text"><i class="fas fa-search"></i></span>Browse Listings</a>
+                            </li>
+                            <li class="list-group-item">
                                 <a href="#" class="text-dark" @click.prevent="openVerifyModal()"><span class="mr-2 color-main-text"><i class="fas fa-user-check"></i></span>Account Verification</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="#" class="text-dark"><span class="mr-2 color-main-text"><i class="fas fa-cogs"></i></span>Setting</a>
+                                <a href="{{ url('/setting') }}" class="text-dark"><span class="mr-2 color-main-text"><i class="fas fa-cogs"></i></span>Setting</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="{{ url('/support') }}" class="text-dark"><span class="mr-2 color-main-text"><i class="far fa-comments"></i></span>24/7 Supports</a>
                             </li>
                             <li class="list-group-item">
                                 <a class="text-dark" href="{{ route('logout') }}" onclick="event.preventDefault();

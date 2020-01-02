@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Support;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Request;
@@ -69,7 +70,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'first_name' => $data['first_name'],
             'last_name' => $data['last_name'],
             'dob' => $data['year'] . '-' . $data['month'] . '-' . $data['day'],
@@ -77,6 +78,14 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        $welcome = Support::create([
+            'user_id'=> $user->id,
+            'admin'=>'admin',
+            'subject'=>'Welcome to GettingRoom!',
+            'message'=>'If you have any questions about your Gettingroom account, there is a site representative who is always available, and in most cases responds to you within minutes.'
+        ]);
+        return $user;    
     }
 
     
