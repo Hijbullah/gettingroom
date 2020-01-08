@@ -1,7 +1,5 @@
 <?php
 
-use App\Notifications\SendEmailVerificationCode;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +38,6 @@ Route::get('/lists/{type}', 'User\ListingController@showAllListings')->name('lis
 Route::get('/listings/{listing_id}', 'User\ListingController@showSingleListing')->where('listing_id', '[0-9]+');
 
 
-
-
 //listings
 Route::resource('/offerrooms','User\OfferRoomController')->middleware('auth');
 Route::resource('/needrooms','User\NeedRoomController')->middleware('auth');
@@ -57,6 +53,8 @@ Route::post('/fileDelete', 'User\FileUploadController@fileDelete');
 Route::get('/upgrade/plans', 'User\UpgradeController@showPlans');
 Route::get('/upgrade/plans/{plan}', 'User\UpgradeController@paymentForm');
 Route::post('/upgrade/subscribed', 'User\UpgradeController@subscribed');
+Route::get('/upgrade/thank', 'User\UpgradeController@thank');
+Route::get('/upgrade/cancel', 'User\UpgradeController@cancelSubscription');
 
 // verification
 
@@ -68,13 +66,22 @@ Route::get('/verification/verify/{code}/phone', 'User\VerificationController@ver
 Route::get('/clear/{type}', 'User\VerificationController@clearCode');
 Route::get('sendsms', 'User\VerificationController@sendSms');
 
+
+
 // messenger
 Route::get('/message', 'User\MessengerController@showMessanger');
 Route::get('/contacts', 'User\MessengerController@get');
 Route::get('/conversation/{id}', 'User\MessengerController@getMessagesFor');
 Route::post('/conversation/send', 'User\MessengerController@send');
 
-//setting
-Route::view('/setting', 'users.setting');
+// setting
+Route::get('/setting', 'User\SettingController@showSetting');
+Route::post('/setting/email', 'User\SettingController@changeEmail');
+Route::post('/setting/password', 'User\SettingController@changePassword');
+
+// support
 Route::get('/support', 'User\SupportController@showSupport');
 Route::post('/support', 'User\SupportController@storeSupport');
+
+Route::view('/privacy', 'users.privacy');
+Route::view('/terms', 'users.terms');

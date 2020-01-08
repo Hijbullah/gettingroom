@@ -23,43 +23,43 @@
 
     <div class="main-menu px-3 sticky-top">
         <ul class="nav">
-            <li class="float-left b-r-1 menu-width-45 py-2">
+            <li class="float-left menu-width-45 py-2">
                 <a href="#">
-                    <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" class="gr-logo d-none d-md-block d-sm-none">
-                    <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block">
+                    <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" class="gr-logo">
+                    {{-- <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block"> --}}
                 </a>
             </li>
-            <li class="float-left b-lr-1 menu-width-45 py-2 px-2">
+            <li class="float-left border-left border-right menu-width-45 py-2 px-2 d-none d-md-block">
                 <div class="row no-gutters">
                     <div class="col-md-3 col-sm-6 col-6">
-                        <select class="selectpicker" data-size="3" data-width="97%">
-                            <option value="">English (US)</option>
-                            <option value="">English (UK)</option>
+                        <select class="selectpicker show-tick" data-size="3" data-width="97%" data-style="custom-picker">
+                            <option>English (US)</option>
                         </select>
                     </div>
                     <div class="col-md-3 col-sm-6 col-6">
-                        <select class="selectpicker" data-size="3" data-width="97%">
-                            <option value="">USD</option>
+                        <select class="selectpicker show-tick" data-size="3" data-width="97%" data-style="custom-picker">
+                            <option>USD</option>
                         </select>
                     </div>
 
                     <div class="col-md-6 d-none d-md-block">
-                        <select class="selectpicker form-control" id="loginwith"  title="Login With...">
-                            <option>Login With Facebook</option>
-                            <option>Login With Google</option>
-                            <option>Login With Linkedin</option>
-                            <option>Login With Instagram</option>
-                            <option>Login With Email</option>
+                        <select class="selectpicker form-control auth-social" id="loginwith" data-style="custom-picker-auth">
+                            <option class="facebook-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Facebook.png' /> <span class='ml-2'>Loging With Facebook</span>">Login With Facebook</option>
+                            <option class="google-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Google.png' /> <span class='ml-2'>Loging With Google</span>">Login With Google</option>
+                            <option class="linkedin-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Linkedin.png' /> <span class='ml-2'>Loging With Linkedin</span>">Login With Linkedin</option>
+                            <option class="instagram-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Instagram.png' /> <span class='ml-2'>Loging With Instagram</span>">Login With Instagram</option>
+                            <option class="twitter-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Twitter.png' /> <span class='ml-2'>Loging With Twitter</span>">Login With Linkedin</option>
+                            <option class="email-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Email.png' /> <span class='ml-2'>Loging With Email</span>">Login With Email</option>
                         </select>
                     </div>
                 </div>
             </li>
             <li class="menu-width-10 py-2 px-2 text-right">
-                <a href="{{ route('login') }}" class="font-18 text-secondary d-none d-md-none d-inline-block">
+                <a href="{{ route('login') }}" class="text-secondary d-md-none d-inline-block mobile-login">
                     Login
                 </a>
-                <a href="{{ url('/support') }}" class="ml-2">
-                    <span class="font-18 text-secondary d-none d-md-inline-block">Help</span>
+                <a href="{{ url('/support') }}" class="ml-2 d-none d-md-inline-block">
+                    <span class="font-18 text-secondary">Help</span>
                     <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt="" class="w-f-25 ml-1">
                 </a>
             </li>
@@ -100,12 +100,20 @@
                             </div>
                         </div>
                     </div>
+                    <div class="mobile-lang-cur text-center mt-3 d-md-none">
+                        <select class="selectpicker show-tick" data-width="120" data-style="custom-picker-mobile">
+                            <option>English (US)</option>
+                        </select>
+                        <select class="selectpicker show-tick" data-width="80" data-style="custom-picker-mobile">
+                            <option>USD</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
                 <div class="carousel-item active" style="background-image: url({{ asset('frontend/images/Slider/1.jpg') }})">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">
                             Find great places & people to <br> <span class="gr-text-yellow">share a home with</span>.
                         </h2>
@@ -113,7 +121,7 @@
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/2.jpg') }})">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">
                             We believe in the potentialof people <br> <span class="gr-text-yellow">when they can come together</span>.
                         </h2>
@@ -121,7 +129,7 @@
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/3.jpg') }})">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">
                             Live together with people who will <br> <span class="gr-text-yellow">
                                 inspire you</span>.
@@ -130,7 +138,7 @@
                 </div>
                 <!-- Slide Four - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/4.jpg') }})">
-                    <div class="carousel-caption d-none d-md-block">
+                    <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">Focus on what's important and <br> <span class="gr-text-yellow">
                                 spend less on rent</span>.
                         </h2>
@@ -324,34 +332,16 @@
     </section>
     <!-- add listing arear -->
     <section class="gr-add-lst bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="pos-relative">
-                        <div class="gr-btn">
-                            <a href="{{ url('/listingNew') }}" class="btn btn-lg btn-success text-light px-5 py-2">
-                                <i class="fas fa-plus font-18"></i> &nbsp; &nbsp;
-                                Add Your Listing
-                            </a>
-                        </div>
-                        <div class="text text-white">
-                            <p class="font-20">Tell us what you are looking for.</p>
-                            <p class="font-20">Create your listings in less than 1 minute.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="pos-relative">
-                        <div class="gr-about-us">
-                            <h2>Lorem ipsum dolor sit amet</h2>
-                            <p class="font-18">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque blanditiis sint incidunt ipsa
-                                a voluptate, placeat commodi provident animi temporibus libero eum sunt dolor nam laboriosam
-                                saepe veritatis aliquam corrupti.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="gr-btn">
+            <a href="{{ url('/listingNew') }}" class="btn btn-lg btn-success px-5 py-2">
+                <i class="fas fa-plus font-18"></i> &nbsp; &nbsp;
+                Add Your Listing
+            </a>
         </div>
+        <div class="text text-white">
+            <p class="font-20">Tell us what you are looking for.</p>
+            <p class="font-20">Create your listings in less than 1 minute.</p>
+        </div>       
     </section>
     <section class="gr-services bg-light">
         <div class="container">
@@ -386,29 +376,29 @@
         <section class="inf-links">
             <div class="container">
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 text-center text-sm-left">
                         <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" class="grf-img">
                     </div>
                 </div>
                 <div class="row gr-border-t">
-                    <div class="col-md-4">
-                        <ul class="nav flex-column pt-3">
+                    <div class="col-sm-4">
+                        <ul class="nav flex-column text-center text-sm-left pt-3">
                             <li><a href="">Gettingroom Team</a></li>
                             <li><a href="">Contact Us</a></li>
                             <li><a href="">Sitemap</a></li>
                             <li><a href="">Setting</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
-                        <ul class="nav flex-column pt-3">
+                    <div class="col-sm-4">
+                        <ul class="nav flex-column text-center text-sm-left pt-3">
                             <li><a href="">Mailbox</a></li>
                             <li><a href="">Megaphone</a></li>
                             <li><a href="">Bookmarks</a></li>
                             <li><a href="">24/7 Support</a></li>
                         </ul>
                     </div>
-                    <div class="col-md-4">
-                        <ul class="nav flex-column pt-3">
+                    <div class="col-sm-4">
+                        <ul class="nav flex-column text-center text-sm-left pt-3">
                             <li><a href="">Tutorial</a></li>
                             <li><a href="">Help Center</a></li>
                             <li><a href="">Fair housing</a></li>
@@ -421,18 +411,14 @@
         <!-- Social Links -->
         <section class="grs-area">
             <div class="container">
-                <div class="row gr-border-t">
-                    <div class="col-md-12">
-                        <div class="grs ">
-                            <div class="row">
-                                <div class="col-md-5 mx-auto mt-3">
-                                    <div class="box"><i class="fab fa-facebook-square f16"></i></div>
-                                    <div class="box"><i class="fab fa-twitter f16"></i></div>
-                                    <div class="box"><i class="fab fa-instagram f16"></i></div>
-                                    <div class="box"><i class="fab fa-google f16"></i></div>
-                                    <div class="box"><i class="fab fa-linkedin-in f16"></i></div>
-                                </div>
-                            </div>
+                <div class="row border-top">
+                    <div class="col-12">
+                        <div class="text-center mt-3">
+                            <div class="box d-inline-block"><i class="fab fa-facebook-square f16"></i></div>
+                            <div class="box d-inline-block"><i class="fab fa-twitter f16"></i></div>
+                            <div class="box d-inline-block"><i class="fab fa-instagram f16"></i></div>
+                            <div class="box d-inline-block"><i class="fab fa-google f16"></i></div>
+                            <div class="box d-inline-block"><i class="fab fa-linkedin-in f16"></i></div>
                         </div>
                     </div>
                 </div>
@@ -520,14 +506,14 @@
 
         <section class="container">
             <div class="row gr-border-t py-3">
-                <div class="col-md-4">
+                <div class="col-12 col-sm-4 mb-3 mb-sm-0">
                     <p class="copyright-text">Getting Room &copy; 2019</p>
                 </div>
-                <div class="col-md-4 text-center">
-                    <a href="#" class="gr-link">Terms of Use</a>
+                <div class="col-6 col-sm-4 text-left text-sm-center ">
+                    <a href="{{ url('/terms') }}" class="gr-link">Terms of Use</a>
                 </div>
-                <div class="col-md-4 text-right">
-                    <a href="#" class="gr-link">Privacy Policy</a>
+                <div class="col-6 col-sm-4 text-right">
+                    <a href="{{ url('/privacy') }}" class="gr-link">Privacy Policy</a>
                 </div>
             </div>
         </section>

@@ -1,7 +1,9 @@
 @extends('users.master')
 
 @section('main-content')
-<section v-cloak>
-    <need-apartment-form-component></need-apartment-form-component>
+<section >
+    <div class="main-container" v-cloak>
+        <need-apartment-form-component></need-apartment-form-component>
+    </div>
 </section>
 @endsection

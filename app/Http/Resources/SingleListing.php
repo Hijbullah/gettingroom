@@ -20,7 +20,7 @@ class SingleListing extends JsonResource
     {
         return collect(explode(',', $images))
             ->map(function ($image) {
-                return $image;
+                return Storage::url($image);
             });
     }
 
@@ -42,7 +42,7 @@ class SingleListing extends JsonResource
             'images' => $this->when(($this->type == 'OfferRoom' || $this->type == 'OfferApartment'), $this->images ? $this->processImages($this->images) : null),
 
             'rent' => [
-                'rent' => $this->monthly_rent,
+                'rent' => (int) $this->monthly_rent,
                 'currency' => $this->rental_currency
             ],
             'location' => [
@@ -58,23 +58,41 @@ class SingleListing extends JsonResource
 
             $this->mergeWhen($this->type == 'OfferRoom', [
                 'residence' => [
-                    'Building Type' => ucwords($this->building_type),
-                    'Move in Fee' => $this->move_in_fee,
-                    'Utility Cost' => $this->utility_cost,
-                    'Parking Rent' => $this->parking_rent,
+                    $this->mergeWhen($this->building_type,[
+                        'Building Type' => ucwords($this->building_type)
+                    ]),
+                    $this->mergeWhen($this->move_in_fee,[
+                        'Move in Fee' => $this->move_in_fee
+                    ]),
+                    $this->mergeWhen($this->utility_cost,[
+                        'Utility Cost' => $this->utility_cost
+                    ]),
+                    $this->mergeWhen($this->parking_rent,[
+                        'Parking Rent' => $this->parking_rent
+                    ]),
                     'Furnished' => ucwords($this->is_furnished)
                 ],
                 'household' => [
                     'Age' => implode(' to ', explode(',', $this->household_age)),
-                    'People' => $this->people_in_household,
-                    'Sex' => $this->household_sex
+                    $this->mergeWhen($this->people_in_household,[
+                        'People' => $this->people_in_household
+                    ]),
+                    $this->mergeWhen($this->household_sex,[
+                        'Sex' => $this->household_sex
+                    ])
                 ],
             ]),
             $this->mergeWhen($this->type == 'OfferApartment', [
                 'residence' => [
-                    'Bedroom' => ucwords($this->bedroom),
-                    'Bathroom' => ucwords($this->bathroom),
-                    'Measurement' => (int) $this->measurement . ' ' . $this->measurement_unit,
+                    $this->mergeWhen($this->bedroom,[
+                        'Bedroom' => ucwords($this->bedroom)
+                    ]),
+                    $this->mergeWhen($this->bathroom,[
+                        'Bathroom' => ucwords($this->bathroom)
+                    ]),
+                    $this->mergeWhen($this->measurement,[
+                        'Measurement' => (int) $this->measurement . ' ' . $this->measurement_unit
+                    ]),
                     'Furnished' => ucwords($this->is_furnished)
                 ],
 
@@ -88,20 +106,42 @@ class SingleListing extends JsonResource
 
             $this->mergeWhen(($this->type == 'OfferRoom' || $this->type == 'NeedRoom'), [
                 'lifeStyle' => [
-                    'Cleanliness' => $this->cleanliness,
-                    'Overnight Guest' => $this->overnight_guest,
-                    'Party Habit' => $this->party_habit,
-                    'Get Up' => $this->get_up,
-                    'Go to Bed' => $this->go_to_bed,
-                    'Food Preference' => $this->food_preference,
-                    'Smoker' => $this->smoker,
-                    'Work Schedule' => $this->work_schedule,
-                    'Occupation' => $this->occupation
+                    $this->mergeWhen($this->cleanliness,[
+                        'Cleanliness' => $this->cleanliness
+                    ]),
+                    $this->mergeWhen($this->overnight_guest,[
+                        'Overnight Guest' => $this->overnight_guest
+                    ]),
+                    $this->mergeWhen($this->party_habit,[
+                        'Party Habit' => $this->party_habit
+                    ]),
+                    $this->mergeWhen($this->get_up,[
+                        'Get Up' => $this->get_up
+                    ]),
+                    $this->mergeWhen($this->go_to_bed,[
+                        'Go to Bed' => $this->go_to_bed
+                    ]),
+                    $this->mergeWhen($this->food_preference,[
+                        'Food Preference' => $this->food_preference
+                    ]),
+                    $this->mergeWhen($this->smoker,[
+                        'Smoker' => $this->smoker
+                    ]),
+                    $this->mergeWhen($this->work_schedule,[
+                        'Work Schedule' => $this->work_schedule
+                    ]),
+                    $this->mergeWhen($this->occupation,[
+                        'Occupation' => $this->occupation
+                    ])
                 ],
                 'roomMatePreference' => [
                     'Age Preference' => implode(' to ', explode(',' , $this->prefer_age)),
-                    'Smoke Preference' => $this->prefer_smoker,
-                    'Student Preference' => ucfirst($this->prefer_student)
+                    $this->mergeWhen($this->prefer_smoker,[
+                        'Smoke Preference' => $this->prefer_smoker
+                    ]),
+                    $this->mergeWhen($this->prefer_student,[
+                        'Student Preference' => ucfirst($this->prefer_student)
+                    ])
                 ],
 
                 'pets' => [
@@ -117,7 +157,14 @@ class SingleListing extends JsonResource
                 'name' => $this->user->first_name . ' ' . $this->user->last_name,
                 'age' => Carbon::parse($this->user->dob)->diffInyears(Carbon::now()),
                 'profile_url' => '/profile/' . $this->user->id,
-                'avatar' => $this->user->avatar ? $this->user->avatar : '/frontend/images/user-defult.png'
+                'avatar' => $this->user->avatar ? Storage::url($this->user->avatar) : '/frontend/images/user-defult.png',
+                'phone' => $this->user->phone ? $this->user->phone : null,
+                'verified' => [
+                    'facebook' => $this->user->facebook_verified,
+                    'twitter' => $this->user->twitter_verified,
+                    'instagram' => $this->user->instagram_verified,
+                    'linkedin' => $this->user->linkedin_verified,
+                ]
             ],
             'created_at' => $this->created_at->diffForHumans(),
             

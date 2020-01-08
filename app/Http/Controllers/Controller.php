@@ -27,10 +27,10 @@ class Controller extends BaseController
     public function deleteImages($images)
     {
         $images->each(function($image){
-            $arrayPath = explode('/', $image);
-            array_splice($arrayPath, 0, 4);
-            $url = implode('/', $arrayPath);
-            Storage::delete($url);
+            // $arrayPath = explode('/', $image);
+            // array_splice($arrayPath, 0, 4);
+            // $url = implode('/', $arrayPath);
+            Storage::delete($image);
         });
         return true;
     }

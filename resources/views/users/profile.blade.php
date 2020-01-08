@@ -14,7 +14,7 @@
                 <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                     <div class="single-user-img">
                         <a href="#">
-                            <img src="{{ $user->avatar ? $user->avatar : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic">
+                            <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic">
                             <span class="badge badge-success profile-check"><i class="fas fa-check"></i></span>
                         </a>
                     </div>
@@ -156,7 +156,7 @@
                                                             </div>
                                                            
                                                         </div>
-                                                        <img src="{{ $listing->images ? explode(',', $listing->images)[0] : asset('no-image.png') }}" alt="">
+                                                        <img src="{{ $listing->images ? Storage::url(explode(',', $listing->images)[0]) : asset('no-image.png') }}" alt="">
                                                     </div>
                                                     <div class="listing-contact mt-1 pb-2 pl-2">
                                                         <h2 class="font-16 my-1 text-dark">{{ $listing->title }}</h2>

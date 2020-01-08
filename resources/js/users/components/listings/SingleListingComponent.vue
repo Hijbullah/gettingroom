@@ -14,7 +14,7 @@
 				<div class="row">
 					<div class="col-md-12 ">
 						<nav class="navbar nav nav-fill">
-							<li><a href="#" class="text-white">Description</a></li>
+							<li><a href="#listing-description" class="text-white">Description</a></li>
 							<li><a href="#" class="text-white">Amenities</a></li>
 							<li><a href="#" class="text-white">Roommate preference</a></li>
 							<li><a href="#" class="text-white">$ USD per month</a></li>
@@ -26,7 +26,7 @@
         <section class="single-user-listing p-2 mt-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-10 m-auto">
+                    <div class="col-md-11 m-auto">
                         <div class="row">
                             <div class="col-12">
                                 <div class="user-listing-button mb-5 d-flex text-center" v-if="authId && authId == listing.user.id">
@@ -85,13 +85,12 @@
                                     </div>
                                 </div>
                                 <div class="user-listing-description bg-white p-4 mb-3">
-                                    <p class="font-16 mb-2 font-weight-bold">
+                                    <p class="font-16 mb-2 font-weight-bold" id="listing-description">
                                         <span class="color-main-text mr-2"><i class="fas fa-receipt font-25"></i></span>
                                         Description</p>
-                                    <p class="font-16 text-justify text-break">{{ listing.description }}</p>
-                                    <hr>
-
+                                    <p class="font-16 text-justify text-break pre-line">{{ listing.description }}</p>
                                     <div class="household" v-if="listing.amenities && listing.amenities.length > 0">
+                                        <hr>
                                         <p class="font-16 mb-3 font-weight-bold">
                                             <span class="color-main-text mr-2">
                                                 <i class="fas fa-home font-25"></i>
@@ -205,9 +204,9 @@
                                         <p class="font-18 color-main-text">{{ listingType }}</p>
                                     </div>
                                     <div class="listing-user-sms-block p-3 ">
-                                        <textarea name="" id="" cols="20" rows="5" class="form-control noresize text-left"></textarea>
+                                        <textarea v-model="message" rows="5" class="form-control noresize text-left"></textarea>
                                     </div>
-                                    <button class="btn btn-success w-50">
+                                    <button class="btn btn-success w-50" @click.prevent="sendMessage">
                                         Send Message
                                     </button>
                                     
@@ -215,13 +214,32 @@
                                 <div class="card mt-4">
                                     <div class="card-body">
                                         <div class="update-block text-center p-1 my-4">
-                                            <a href="#" class="text-dark">
+                                            <a href="/upgrade/plans" class="text-dark" v-if="!subscribed && authId">
                                                 <h3 class="font-18 text-uppercase"> 
-                                                    <i class="fas fa-phone-alt mr-1"></i> UPGRADE TO VIEW phone
+                                                    <i class="fas fa-phone-alt mr-1 color-main-text"></i> UPGRADE TO VIEW phone
+                                                </h3>
+                                            </a>
+                                            <a href="/upgrade/plans" class="text-dark" v-else-if="!authId">
+                                                <h3 class="font-18 text-uppercase"> 
+                                                    <i class="fas fa-phone-alt mr-1 color-main-text"></i> Show Phone Number
+                                                </h3>
+                                            </a>
+                                            <a href="#" class="text-dark" v-else @click.prevent="showPhone = true">
+                                                <h3 class="font-18 text-uppercase" v-if="!showPhone"> 
+                                                    <i class="fas fa-phone-alt mr-1 color-main-text"></i> Click To View Phone Number
+                                                </h3>
+                                                <h3 class="font-18 text-uppercase" v-else> 
+                                                    <i class="fas fa-phone-alt mr-1 color-main-text"></i> {{ listing.user.phone ? listing.user.phone : 'User not added!' }}
                                                 </h3>
                                             </a>
                                             <p class="font-18 m-2 text-secondary font-weight-bold">or</p>
                                             <p class="font-16">Find <a href="#" class="text-success">{{ listing.user.name }}</a> on Social Media</p>
+                                             <div class="text-center mt-3">
+                                                <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
+                                                <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
+                                                <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
+                                                <a href="#" v-if="listing.user.verified.linkedin"><i class="fab fa-linkedin-in icon linkedin font-25 mr-2"></i></a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -276,11 +294,13 @@
             swiper,
             swiperSlide
         },
-        props: ['type', 'listingId', 'authId'],
+        props: ['type', 'listingId', 'authId', 'subscribed'],
         data() {
             return{
                 listing: {},
+                message: '',
                 showData: false,
+                showPhone: false,
                 swiperOption: {
                     slidesPerView: 2,
                     autoPlay: true,
@@ -339,6 +359,28 @@
                     .catch(function (error) {
                         console.log(error);
                     });
+            },
+            sendMessage(){
+                if(this.authId == null){
+                    window.location.href = '/login';
+                    return;
+                }
+
+                if(this.subscribed == 0){
+                    window.location.href = '/upgrade/plans';
+                    return;
+                }
+                if(!this.message){
+                    alert('message can not empty');
+                    return;
+                }
+
+                axios.post('/conversation/send', {
+                    contact_id: this.listing.user.id,
+                    text: this.message
+                }).then((response) => {
+                    window.location.href = '/message';
+                });
             }
     
         },
@@ -379,5 +421,11 @@
 }
 .swiper-button-next, .swiper-button-prev{
     color: #ca2525;
+}
+.icon {
+    padding: 8px;
+	width: 35px;
+	height: 35px;
+	border-radius: 5px;
 }
 </style>

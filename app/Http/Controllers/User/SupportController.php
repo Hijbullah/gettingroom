@@ -23,7 +23,7 @@ class SupportController extends Controller
     {
         $userId = Auth::id();
         Support::where('user_id', $userId)->update(['read' => 1]);
-        $messages = Support::where('user_id', $userId)->latest()->get();
+        $messages = Support::where('user_id', $userId)->get();
         
         return view('users.support', compact('messages'));
     }

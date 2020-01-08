@@ -32,12 +32,13 @@
                 <div class="container">
                     <div class="form-basic-info">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="basic-form mb-4">
                                     <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Continue</button>
                                     <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
                                 </div>
-
+                            </div>
+                            <div class="col-md-6">
                                 <div class="basic-form">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
@@ -104,7 +105,8 @@
                                                         :validate="true"
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
-                                                        v-model="formData.move_date" 
+                                                        v-model="formData.move_date"
+                                                        color="#3e983e"  
                                                     />
                                                     <has-error :form="formData" field="move_date"></has-error>
                                                 </div>
@@ -117,7 +119,8 @@
                                                         :validate="true"
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
-                                                        v-model="formData.leave_date" 
+                                                        v-model="formData.leave_date"
+                                                        color="#3e983e"  
                                                     />
                                                     <has-error :form="formData" field="leave_date"></has-error>
                                                 </div>
@@ -151,7 +154,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="description-household mt-5">
+                                <div class="description-household">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <h2 class="form-title">Residence</h2>
@@ -233,6 +236,12 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="basic-form mt-5 text-center">
+                                    <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Continue</button>
+                                    <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
                                 </div>
                             </div>
                         </div>
@@ -357,5 +366,11 @@
     display: block !important;
     font-weight: 700;
 }
-
+.age >>> .vue-slider-process {
+    background-color: #21880e;
+}
+.age >>> .vue-slider-dot-tooltip-inner {
+    border-color: #3e983e;
+    background-color: #3e983e;
+}
 </style>

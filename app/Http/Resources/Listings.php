@@ -23,7 +23,7 @@ class Listings extends JsonResource
             'move_date' => $this->move_date,
             'created_at' => $this->created_at->diffForHumans(),
             'listing_url' => url('/listings/' . $this->listing_id),
-            'image' => $this->images ? explode( ',', $this->images)[0] : env('APP_URL') . '/no-image.png',
+            'image' => $this->images ? Storage::url(explode( ',', $this->images)[0]) : '/no-image.png',
             'rent' => [
                 'rent' => round($this->monthly_rent),
                 'currency' => $this->rental_currency
@@ -36,7 +36,7 @@ class Listings extends JsonResource
             'user' => [
                 'name' => $this->user->first_name . ' ' . $this->user->last_name,
                 'age' => $this->user->dob ? Carbon::parse($this->user->dob)->diffInYears(Carbon::now()) : null,
-                'avatar' => $this->user->avatar ? $this->user->avatar : '/frontend/images/user-defult.png',
+                'avatar' => $this->user->avatar ? Storage::url($this->user->avatar) : '/frontend/images/user-defult.png',
                 'profile' => url('profile/' . $this->user->id),
                 'verified' => [
                     'facebook' => $this->user->facebook_verified,

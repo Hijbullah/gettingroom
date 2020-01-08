@@ -89,11 +89,11 @@ class HomeController extends Controller
     public function updateProfile(Request $request, $id)
     {
         $request->validate([
-            'language' => 'required|string',
-            'dob' => 'required|date',
-            'city' => 'required|string',
-            'phone' => 'sometimes|required|string',
-            'email' => 'sometimes|required|email|string|unique:users',
+            'language' => 'nullable|string',
+            'dob' => 'nullable|date',
+            'city' => 'nullable|string',
+            'phone' => 'sometimes|nullable|string',
+            'email' => 'sometimes|nullable|email|string|unique:users',
             'about' => 'nullable|string',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,svg|max:2048',
         ]);
@@ -106,8 +106,6 @@ class HomeController extends Controller
                 $constraint->aspectRatio();
             });
             Storage::put($path, (string) $image->encode());
-    
-            $path = Storage::url($path);
         }
 
         $user = User::findOrFail($id);

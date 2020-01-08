@@ -27,7 +27,7 @@
                 <div class="img-wrapper">
                     <swiper :options="swiperOption">
                         <swiper-slide v-for="(image, index) in images" :key="index">
-                            <img :src="image" :class="{ 'drono': index === 0 }" :alt="`Image Uplaoder ${index}`">
+                            <img :src="'/storage/' + image" :class="{ 'drono': index === 0 }" :alt="`Image Uplaoder ${index}`">
                             <div class="remove" @click="removeImage(index)">
                                 <span class="fa fa-trash text-danger"></span>
                             </div>

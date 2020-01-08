@@ -23,9 +23,9 @@ html, body {
 	color: #fff !important;
 	background: #3e983e !important;
 }
-img{
+/* img{
 	width: 100%;
-}
+} */
 
 .custom-control-input:checked ~ .custom-control-label::before {
     border-color: #368810 !important;
@@ -33,6 +33,9 @@ img{
 }
 
 /*reset css*/
+.pre-line{
+    white-space: pre-line !important;
+}
 .form-control:focus{
 	box-shadow: none !important;
 }
@@ -187,6 +190,55 @@ a.color-main-bg:hover{
 .custom-switch .slider.round:before {
   border-radius: 50%;
 }
+
+.custom-picker-auth {
+    color: #000;
+    border: 2px solid #3e983e;
+    border-radius: 10px;
+    background: #fff;
+    padding: 6px 10px;
+    font-size: 18px;
+}
+
+.bootstrap-select.auth-social li.active { 
+    border: none !important;
+}
+.bootstrap-select.auth-social .dropdown-item.active { 
+    background: inherit; 
+    color: #fff;
+    border: none !important;
+}
+
+.bootstrap-select .dropdown-toggle.custom-picker-auth:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.dropdown-toggle.custom-picker-auth:after {
+    color: #3e983e !important;
+}
+
+.pad-tb-5{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.facebook-auth {background: #fff !important; color: #3b5998 !important; border-bottom: 1px solid #ddd;}
+.facebook-auth:hover {background: #3b5998 !important; color: #fff !important;}
+
+.twitter-auth {background: #fff !important; color: #00b6f1 !important; border-bottom: 1px solid #ddd} 
+.twitter-auth:hover {background: #00b6f1 !important; color: #fff !important;} 
+
+.google-auth{background: #fff !important; color: #47A40E !important; border-bottom: 1px solid #ddd}
+.google-auth:hover {background: #47A40E !important; color: #fff !important;}
+
+.linkedin-auth {background: #fff !important; color: #0274b3 !important; border-bottom: 1px solid #ddd} 
+.linkedin-auth:hover {background: #0274b3 !important; color: #fff !important;} 
+
+.email-auth {background: #fff !important; color: #3e983e !important;}
+.email-auth:hover {background: #3e983e !important; color: #fff !important;}
+
+.instagram-auth { background: #fff !important; color: #000 !important; border-bottom: 1px solid #ddd}
+.instagram-auth:hover { background: linear-gradient(180deg,#5162d3 0,#c84f67 49%,#f7cb74) !important; color: #fff !important;}
+
 
 .custom-picker {
     color: #000;

@@ -8,33 +8,41 @@
                 </a>
             </div>
             <div class="search-box py-2 px-3" style="width: 100%">
-                <input class="w-100 form-control border-0 font-18" value="{{ session('location') ? session('location')['location'] : '' }}" type="search" id="placesearch" placeholder="Search Place">
+                <input class="w-100 form-control border-0 font-18" value="{{ session('location') ? session('location')['location'] : '' }}" type="search" id="placesearch" placeholder="Search Place" autocomplete="off">
                 <div id="place-content" class="place-content d-none"></div>
             </div>
             <div class="border-left px-3 py-2 d-none d-md-block">
-                <select class="selectpicker" data-size="3" data-width="100%">
-                    <option value="">Enlisgh (US)</option>
-                    <option value="">English (UK)</option>
+                <select class="selectpicker show-tick" data-size="3" data-width="100%" data-style="custom-picker">
+                    <option>Enlisgh (US)</option>
                 </select>
             </div>
             <div class="pr-3 py-2 d-none d-md-block border-right">
-                <select class="selectpicker" data-size="3" data-width="100%">
-                    <option value="">USD</option>
-                    <option value="">USD</option>
-                    <option value="">USD</option>
-                    <option value="">USD</option>
-                    <option value="">USD</option>
+                <select class="selectpicker show-tick" data-size="3" data-width="100%" data-style="custom-picker">
+                    <option>USD</option>
                 </select>
             </div>
             
             @guest
                 <div class="px-3 py-2 d-none d-md-block">
-                    <select class="selectpicker" id="loginwith" data-width="200" title="Login With...">
-                        <option>Login With Facebook</option>
-                        <option>Login With Google</option>
-                        <option>Login With Linkedin</option>
-                        <option>Login With Instagram</option>
-                        <option>Login With Email</option>
+                    <select class="selectpicker form-control auth-social" data-width="300" id="loginwith" data-style="custom-picker-auth">
+                        <option class="facebook-auth pad-tb-5 pl-3"
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Facebook.png' /> <span class='ml-2'>Loging With Facebook</span>">
+                            Login With Facebook</option>
+                        <option class="google-auth pad-tb-5 pl-3"
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Google.png' /> <span class='ml-2'>Loging With Google</span>">
+                            Login With Google</option>
+                        <option class="linkedin-auth pad-tb-5 pl-3"
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Linkedin.png' /> <span class='ml-2'>Loging With Linkedin</span>">
+                            Login With Linkedin</option>
+                        <option class="instagram-auth pad-tb-5 pl-3"
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Instagram.png' /> <span class='ml-2'>Loging With Instagram</span>">
+                            Login With Instagram</option>
+                        <option class="twitter-auth pad-tb-5 pl-3"
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Twitter.png' /> <span class='ml-2'>Loging With Twitter</span>">
+                            Login With Linkedin</option>
+                        <option class="email-auth pad-tb-5 pl-3"
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Email.png' /> <span class='ml-2'>Loging With Email</span>">
+                            Login With Email</option>
                     </select>
                 </div>
                 @endguest
@@ -57,7 +65,7 @@
                 </div>
                 <div class="b-r-1 px-3 py-2">
                     <a href="#" id="account-dropdown" class="user" data-toggle="dropdown">
-                        <img src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('frontend/images/user-defult.png') }}" alt="">
+                        <img src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : asset('frontend/images/user-defult.png') }}" alt="">
                     </a>
                     <div class="dropdown-menu account dropdown-menu-left py-0" aria-labelledby="account-dropdown">
                         <ul class="list-group list-group-flush font-16">

@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "cartalyst/stripe-laravel": "^11.0",
+        "dougsisk/laravel-country-state": "^3.0",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/cashier": "^10.5",

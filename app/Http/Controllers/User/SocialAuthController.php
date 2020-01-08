@@ -14,13 +14,15 @@ class SocialAuthController extends Controller
 {
     public function redirectToProvider($provider)
     {
-        return Socialite::driver($provider)->redirect();
+        return Socialite::driver($provider)
+            ->redirect();
     }
 
      public function handleProviderCallback($provider)
     {
         try {
             $user = Socialite::driver($provider)->user();
+            // return response()->json($user);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             // return $e;
             if(Auth::check())

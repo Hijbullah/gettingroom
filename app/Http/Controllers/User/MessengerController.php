@@ -10,6 +10,17 @@ use App\Http\Controllers\Controller;
 
 class MessengerController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('subscribed');
+    }
+
     public function showMessanger()
     {
         return view('users.messenger');

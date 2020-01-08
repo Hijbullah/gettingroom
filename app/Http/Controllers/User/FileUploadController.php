@@ -27,16 +27,13 @@ class FileUploadController extends Controller
 
         Storage::put($path, (string) $image->encode());
 
-        $path = Storage::url($path);
+        // $path = Storage::url($path);
         return response()->json($path);
     }
 
     public function fileDelete(Request $request)
     {
-        $arrayPath = explode('/', $request->url);
-        array_splice($arrayPath, 0, 4);
-        $url = implode('/', $arrayPath);
-        Storage::delete($url);
+        Storage::delete($request->url);
         return response()->json('done');
     }
 }
