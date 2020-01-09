@@ -25,7 +25,7 @@
         <ul class="nav">
             <li class="float-left menu-width-45 py-2">
                 <a href="#">
-                    <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" class="gr-logo">
+                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo">
                     {{-- <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block"> --}}
                 </a>
             </li>
@@ -44,12 +44,12 @@
 
                     <div class="col-md-6 d-none d-md-block">
                         <select class="selectpicker form-control auth-social" id="loginwith" data-style="custom-picker-auth">
-                            <option class="facebook-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Facebook.png' /> <span class='ml-2'>Loging With Facebook</span>">Login With Facebook</option>
-                            <option class="google-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Google.png' /> <span class='ml-2'>Loging With Google</span>">Login With Google</option>
-                            <option class="linkedin-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Linkedin.png' /> <span class='ml-2'>Loging With Linkedin</span>">Login With Linkedin</option>
-                            <option class="instagram-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Instagram.png' /> <span class='ml-2'>Loging With Instagram</span>">Login With Instagram</option>
-                            <option class="twitter-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Twitter.png' /> <span class='ml-2'>Loging With Twitter</span>">Login With Linkedin</option>
-                            <option class="email-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Email.png' /> <span class='ml-2'>Loging With Email</span>">Login With Email</option>
+                            <option class="facebook-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Facebook.webp' /> <span class='ml-2'>Loging With Facebook</span>">Login With Facebook</option>
+                            <option class="google-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Google.webp' /> <span class='ml-2'>Loging With Google</span>">Login With Google</option>
+                            <option class="linkedin-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Linkedin.webp' /> <span class='ml-2'>Loging With Linkedin</span>">Login With Linkedin</option>
+                            <option class="instagram-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Instagram.webp' /> <span class='ml-2'>Loging With Instagram</span>">Login With Instagram</option>
+                            <option class="twitter-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Twitter.webp' /> <span class='ml-2'>Loging With Twitter</span>">Login With Linkedin</option>
+                            <option class="email-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Email.webp' /> <span class='ml-2'>Loging With Email</span>">Login With Email</option>
                         </select>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
             </div>
             <div class="carousel-inner" role="listbox">
                 <!-- Slide One - Set the background image for this slide in the line below -->
-                <div class="carousel-item active" style="background-image: url({{ asset('frontend/images/Slider/1.jpg') }})">
+                <div class="carousel-item active" style="background-image: url({{ asset('frontend/images/Slider/webp/1.webp') }})">
                     <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">
                             Find great places & people to <br> <span class="gr-text-yellow">share a home with</span>.
@@ -120,7 +120,7 @@
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/2.jpg') }})">
+                <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/2.webp') }})">
                     <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">
                             We believe in the potentialof people <br> <span class="gr-text-yellow">when they can come together</span>.
@@ -128,7 +128,7 @@
                     </div>
                 </div>
                 <!-- Slide Three - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/3.jpg') }})">
+                <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/3.webp') }})">
                     <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">
                             Live together with people who will <br> <span class="gr-text-yellow">
@@ -137,7 +137,7 @@
                     </div>
                 </div>
                 <!-- Slide Four - Set the background image for this slide in the line below -->
-                <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/4.jpg') }})">
+                <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/4.webp') }})">
                     <div class="carousel-caption  d-md-block">
                         <h2 class="display-5 text-light">Focus on what's important and <br> <span class="gr-text-yellow">
                                 spend less on rent</span>.
@@ -163,7 +163,7 @@
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <a href="#">
                                     <div class="city-box">
-                                        <img src="{{ asset('frontend/images/top-city/Atlanta.jpg') }}">
+                                        <img src="{{ asset('frontend/images/top-city/webp/Atlanta.webp') }}">
                                         <div class="content">
                                             <h2>Atlanta</h2>
                                             <div class="overlay"></div>
@@ -175,7 +175,7 @@
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <a href="#">
                                     <div class="city-box">
-                                        <img src="{{ asset('frontend/images/top-city/Boston.jpg') }}">
+                                        <img src="{{ asset('frontend/images/top-city/webp/Boston.webp') }}">
                                         <div class="content">
                                             <h2>Boston</h2>
                                             <div class="overlay"></div>
@@ -186,7 +186,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Chicago.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Chicago.webp') }}">
                                     <div class="content">
                                         <h2>Chicago</h2>
                                         <div class="overlay"></div>
@@ -196,7 +196,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Dallas.jpeg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Dallas.webp') }}">
                                     <div class="content">
                                         <h2>Dallas</h2>
                                         <div class="overlay"></div>
@@ -206,7 +206,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Denver.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Denver.webp') }}">
                                     <div class="content">
                                         <h2>Denver</h2>
                                         <div class="overlay"></div>
@@ -216,7 +216,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Houston.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Houston.webp') }}">
                                     <div class="content">
                                         <h2>Houston</h2>
                                         <div class="overlay"></div>
@@ -226,7 +226,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/LasVegas.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/LasVegas.webp') }}">
                                     <div class="content">
                                         <h2>Las Vegas</h2>
                                         <div class="overlay"></div>
@@ -236,7 +236,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/LosAngeles.png') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/LosAngeles.webp') }}">
                                     <div class="content">
                                         <h2>Los Angeles</h2>
                                         <div class="overlay"></div>
@@ -246,7 +246,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Miami.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Miami.webp') }}">
                                     <div class="content">
                                         <h2>Miami</h2>
                                         <div class="overlay"></div>
@@ -256,7 +256,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/NewYorkCity.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/NewYorkCity.webp') }}">
                                     <div class="content">
                                         <h2>New York City</h2>
                                         <div class="overlay"></div>
@@ -266,7 +266,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Philadelphia.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Philadelphia.webp') }}">
                                     <div class="content">
                                         <h2>Philadelphia</h2>
                                         <div class="overlay"></div>
@@ -276,7 +276,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Phoenix.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Phoenix.webp') }}">
                                     <div class="content">
                                         <h2>Phoenix</h2>
                                         <div class="overlay"></div>
@@ -286,7 +286,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/SanFrancisco.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/SanFrancisco.webp') }}">
                                     <div class="content">
                                         <h2>San Francisco</h2>
                                         <div class="overlay"></div>
@@ -296,7 +296,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Seattle.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Seattle.webp') }}">
                                     <div class="content">
                                         <h2>Seattle</h2>
                                         <div class="overlay"></div>
@@ -306,7 +306,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/WashingtonDC.jpg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/WashingtonDC.webp') }}">
                                     <div class="content">
                                         <h2>Washington DC</h2>
                                         <div class="overlay"></div>
@@ -316,7 +316,7 @@
                             </div>
                             <div class="col-12 col-sm-6 col-md-3 mb-3 same">
                                 <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/Athens.jpeg') }}">
+                                    <img src="{{ asset('frontend/images/top-city/webp/Athens.webp') }}">
                                     <div class="content">
                                         <h2>Athens</h2>
                                         <div class="overlay"></div>
@@ -381,24 +381,28 @@
                     </div>
                 </div>
                 <div class="row gr-border-t">
-                    <div class="col-sm-4">
-                        <ul class="nav flex-column text-center text-sm-left pt-3">
+                    <div class="col-6 col-sm-4">
+                        <ul class="nav flex-column  pt-3">
                             <li><a href="">Gettingroom Team</a></li>
                             <li><a href="">Contact Us</a></li>
                             <li><a href="">Sitemap</a></li>
                             <li><a href="">Setting</a></li>
+                            <li class="d-sm-none"><a href="">Tutorial</a></li>
+                            <li class="d-sm-none"><a href="">Help Center</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4">
-                        <ul class="nav flex-column text-center text-sm-left pt-3">
+                    <div class="col-6 col-sm-4">
+                        <ul class="nav flex-column  pt-3">
                             <li><a href="">Mailbox</a></li>
                             <li><a href="">Megaphone</a></li>
                             <li><a href="">Bookmarks</a></li>
                             <li><a href="">24/7 Support</a></li>
+                            <li class="d-sm-none"><a href="">Fair housing</a></li>
+                            <li class="d-sm-none"><a href="">Affiliate Program</a></li>
                         </ul>
                     </div>
-                    <div class="col-sm-4">
-                        <ul class="nav flex-column text-center text-sm-left pt-3">
+                    <div class="col-6 col-sm-4 d-none d-sm-block">
+                        <ul class="nav flex-column  pt-3">
                             <li><a href="">Tutorial</a></li>
                             <li><a href="">Help Center</a></li>
                             <li><a href="">Fair housing</a></li>
@@ -434,7 +438,7 @@
                                 <div class="col-md-3 col-sm-12">
                                     <h5>Top Cities</h5>
                                 </div>
-                                <div class="col-md-9 col-sm-12">
+                                <div class="col-md-9 d-none d-md-block">
                                     <nav class="nav gr-city-nav">
                                         <li class="nav-link"><a href="#">New York</a></li>
                                         <li class="nav-link"><a href="#">Los Angeles</a></li>
@@ -496,6 +500,77 @@
                                         <li class="nav-link"><a href="#">Mobile</a></li>
                                     </nav>
                                 </div>
+                                <div class="col-4 d-md-none">
+                                    <nav class="gr-city-nav">
+                                        <li class="nav-link"><a href="#">New York</a></li>
+                                        <li class="nav-link"><a href="#">Los Angeles</a></li>
+                                        <li class="nav-link"><a href="#">Chicago</a></li>
+                                        <li class="nav-link"><a href="#">Houston</a></li>
+                                        <li class="nav-link"><a href="#">Phoenix</a></li>
+                                        <li class="nav-link"><a href="#">Philadelphia</a></li>
+                                        <li class="nav-link"><a href="#">San Antonio</a></li>
+                                        <li class="nav-link"><a href="#">San Diego</a></li>
+                                        <li class="nav-link"><a href="#">Dallas</a></li>
+                                        <li class="nav-link"><a href="#">Austin</a></li>
+                                        <li class="nav-link"><a href="#">Jacksonville</a></li>
+                                        <li class="nav-link"><a href="#">Columbus</a></li>
+                                        <li class="nav-link"><a href="#">San Francisco</a></li>
+                                        <li class="nav-link"><a href="#">Charlotte</a></li>
+                                        <li class="nav-link"><a href="#">Indianapolis</a></li>
+                                        <li class="nav-link"><a href="#">Seattle</a></li>
+                                        <li class="nav-link"><a href="#">Denver</a></li>
+                                        <li class="nav-link"><a href="#">Washington DC</a></li>
+                                        <li class="nav-link"><a href="#">Boston</a></li>
+                                        <li class="nav-link"><a href="#">El Paso</a></li>
+                                    </nav>
+                                </div>
+                                <div class="col-4 d-md-none">
+                                    <nav class=" gr-city-nav">
+                                        <li class="nav-link"><a href="#">Detroit</a></li>
+                                        <li class="nav-link"><a href="#">Nashville</a></li>
+                                        <li class="nav-link"><a href="#">Portland</a></li>
+                                        <li class="nav-link"><a href="#">Memphis</a></li>
+                                        <li class="nav-link"><a href="#">Oklahoma City</a></li>
+                                        <li class="nav-link"><a href="#">Las Vegas</a></li>
+                                        <li class="nav-link"><a href="#">Louisville</a></li>
+                                        <li class="nav-link"><a href="#">Baltimore</a></li>
+                                        <li class="nav-link"><a href="#">Milwaukee</a></li>
+                                        <li class="nav-link"><a href="#">Albuquerque</a></li>
+                                        <li class="nav-link"><a href="#">Tucson</a></li>
+                                        <li class="nav-link"><a href="#">Fresno</a></li>
+                                        <li class="nav-link"><a href="#">Sacramento</a></li>
+                                        <li class="nav-link"><a href="#">Atlanta</a></li>
+                                        <li class="nav-link"><a href="#">Kansas City</a></li>
+                                        <li class="nav-link"><a href="#">Colorado Springs</a></li>
+                                        <li class="nav-link"><a href="#">Miami</a></li>
+                                        <li class="nav-link"><a href="#">Raleigh</a></li>
+                                        <li class="nav-link"><a href="#">Omaha</a></li>
+                                        
+                                    </nav>
+                                </div>
+                                <div class="col-4 d-md-none">
+                                    <nav class="gr-city-nav">
+                                        <li class="nav-link"><a href="#">Tampa</a></li>
+                                        <li class="nav-link"><a href="#">New Orleans</a></li>
+                                        <li class="nav-link"><a href="#">Jersey Shore</a></li>
+                                        <li class="nav-link"><a href="#">Birmingham</a></li>
+                                        <li class="nav-link"><a href="#">Delaware</a></li>
+                                        <li class="nav-link"><a href="#">Orlando</a></li>
+                                        <li class="nav-link"><a href="#">Ann Arbor</a></li>
+                                        <li class="nav-link"><a href="#">New Hampshire</a></li>
+                                        <li class="nav-link"><a href="#">Asheville</a></li>
+                                        <li class="nav-link"><a href="#">Athens</a></li>
+                                        <li class="nav-link"><a href="#">Cincinnati</a></li>
+                                        <li class="nav-link"><a href="#">Rhode Island</a></li>
+                                        <li class="nav-link"><a href="#">Columbia</a></li>
+                                        <li class="nav-link"><a href="#">Charleston</a></li>
+                                        <li class="nav-link"><a href="#">Hampton</a></li>
+                                        <li class="nav-link"><a href="#">Madison</a></li>
+                                        <li class="nav-link"><a href="#">Mobile</a></li>
+                                        <li class="nav-link"><a href="#">Minneapolis</a></li>
+                                        <li class="nav-link"><a href="#">Tulsa</a></li>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -522,10 +597,10 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
-    <script src="{{ asset('frontend/js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/js/jquery-3.3.1.slim.min.js') }}"></script>
     <script src="{{ asset('frontend/js/popper.min.js') }}"></script>
-    <script src="{{ asset('frontend/plugins/bootstrap-4.3.1/dist/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/plugins/bootstrap-4.3.1/dist/js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('frontend/plugins/fontawesome-free-5.11.2-web/js/all.min.js') }}"></script>
     <script src="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/js/bootstrap-select.min.js') }}"></script>
     <script src="{{ asset('js/placeAutocomplete.js') }}"></script>

@@ -4,7 +4,7 @@ body {
 	background: #fff;
 	position: relative;
 	font-family: lato, montserrat;
-	font-size: calc(12px + 1vw);
+	font-size: 14px;
 }
 
 /*reset css*/
@@ -99,14 +99,26 @@ body {
     font-size: 18px;
 }
 .custom-picker-mobile {
-    color: #000;
-    border: 2px solid #3e983e;
-    border-radius: 10px;
-    background: #fff;
-    padding: 5px 8px;
-    font-size: 16px;
+    color: #fff;
+    background: transparent;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: underline;
 }
+.gr-search .bootstrap-select .dropdown-item.active { background: #3e983e; color: #fff;}
 .main-menu .bootstrap-select .dropdown-item.active { background: #3e983e; color: #fff;}
+.bootstrap-select .dropdown-toggle.custom-picker-mobile:focus{
+    outline: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    background: transparent !important;
+}
+.bootstrap-select .dropdown-toggle.custom-picker-mobile:hover{
+    outline: none !important;
+    box-shadow: none !important;
+    color: #fff !important;
+    text-decoration: underline;
+}
 .bootstrap-select .dropdown-toggle.custom-picker:focus{
     outline: none !important;
     box-shadow: none !important;
@@ -370,7 +382,7 @@ body {
 .gr-add-lst {
 	min-height: 300px;
 	position: relative;
-	background: linear-gradient(45deg, rgba(21, 20, 20, 0.8), rgba(83, 78, 78, 0.8)), url(images/add-listing.jpg);
+	background: linear-gradient(45deg, rgba(21, 20, 20, 0.8), rgba(83, 78, 78, 0.8)), url(images/add-listing/add-listing.webp);
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -472,6 +484,25 @@ footer .gr-link:hover{
     .carousel-caption h2{
         font-size: 1.2rem !important;
     }
+
+    .gr-services .single-box {
+        padding: 30px 10px;
+    }
+    .content h2 {
+        font-size: 1.7rem;
+    }
+    .box {
+        margin: 0;
+    }
+    .inf-links ul li a {
+        padding: 0;
+    }
+    .cities .gr-city-nav li {
+        padding: 2px 0;
+    }
+    .cities .gr-city-nav li a {
+        font-size: 14px;
+    }
 }
 
 
@@ -498,6 +529,19 @@ footer .gr-link:hover{
     
     .carousel-caption h2{
         font-size: 1.5rem !important;
+    }
+    .gr-services .single-box {
+        padding: 30px 10px;
+    }
+
+    .content h2 {
+        font-size: 1.8rem;
+    }
+    .cities .gr-city-nav li {
+        padding: 3px 0;
+    }
+    .cities .gr-city-nav li a {
+        font-size: 15px;
     }
 } 
 
