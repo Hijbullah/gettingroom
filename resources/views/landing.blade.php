@@ -377,7 +377,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center text-sm-left">
-                        <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" class="grf-img">
+                        <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="grf-img">
                     </div>
                 </div>
                 <div class="row gr-border-t">
