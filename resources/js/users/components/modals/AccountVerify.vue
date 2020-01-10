@@ -8,7 +8,8 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
             </div>
         </div>
         
-        <p>Account Status: <span class="font-16 font-weight-bold" style="color: red">Unverified</span></p>
+        <p v-if="verified.email && verified.phone && verified.subscribed">Account Status: <span class="font-16 font-weight-bold color-main-text">Verified</span></p>
+        <p v-else>Account Status: <span class="font-16 font-weight-bold" style="color: red">Unverified</span></p>
         <p class="text-dark font-16 mb-2">Complete the steps marked with * to verify your account and send a message:</p>
         <div class="p-2 clearfix" v-if="verified.email">
             <span class="d-inline-block font-30 float-left color-main-text"><i class="fas fa-check-circle"></i></span>
@@ -40,7 +41,13 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
             </div>
             <span class="d-inline-block float-right font-weight-normal font-20 mt-2 color-verify"><i class="fas fa-greater-than"></i></span>
         </div>
-        <div class="mb-2 border radius-10 p-2 verify-block clearfix" @click="activeTrial">
+        <div class="p-2 clearfix" v-if="verified.subscribed">
+            <span class="d-inline-block font-30 float-left color-main-text"><i class="fas fa-check-circle"></i></span>
+            <div class="float-left ml-3">
+                <h2 class="text-dark font-16">You are a premium User!!</h2>
+            </div>
+        </div>
+        <div class="mb-2 border radius-10 p-2 verify-block clearfix" @click="activeTrial" v-else>
             <span class="d-inline-block font-30 float-left color-verify mt-2"><i class="far fa-circle"></i></span>
             <div class="float-left ml-3">
                 <h2 class="text-dark font-16">Active Trial Package! It's Free! <span class="text-danger font-20">*</span></h2>
@@ -51,19 +58,35 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
         <div class="mb-2 border radius-10 p-2">
             <h2 class="text-dark font-16">Verify Your Social Media</h2>
             <div class="verify-social-icons mt-4 text-center">
-                <a href="#" @click.prevent="popupVerification('/socialauth/facebook', 'facebook')">
+                <a href="#" @click.prevent="popupVerification('/socialauth/facebook', 'facebook')" v-if="!verified.facebook">
                     <img src="/frontend/images/social-icon/png/verify/fb-false.png" alt="facebook">
                 </a>
-                <a href="#">
+                <span class="d-inline-block social-verified" v-else>
+                   <img src="/frontend/images/social-icon/png/verify/fb-false.png" alt="facebook">
+                    <span class="d-inline-block font-20 color-main-text"><i class="fas fa-check-circle"></i></span>
+                </span>
+                <a href="#" v-if="!verified.twitter">
                     <img src="/frontend/images/social-icon/png/verify/twitter-false.png" alt="twitter">
                 </a>
+                <span class="d-inline-block social-verified" v-else>
+                    <img src="/frontend/images/social-icon/png/verify/twitter-false.png" alt="twitter">
+                    <span class="d-inline-block font-20 color-main-text"><i class="fas fa-check-circle"></i></span>
+                </span>
                 <!-- <a href="#" class="instagram"><i class="fab fa-instagram"></i></a> -->
-                <a href="#" @click.prevent="popupVerification('/socialauth/google', 'google')">
+                <a href="#" @click.prevent="popupVerification('/socialauth/google', 'google')" v-if="!verified.google">
                     <img src="/frontend/images/social-icon/png/verify/google-false.png" alt="google">
                 </a>
-                <a href="#">
+                <span class="d-inline-block social-verified" v-else>
+                    <img src="/frontend/images/social-icon/png/verify/google-false.png" alt="google">
+                    <span class="d-inline-block font-20 color-main-text"><i class="fas fa-check-circle"></i></span>
+                </span>
+                <a href="#" v-if="!verified.linkedin">
                     <img src="/frontend/images/social-icon/png/verify/linkedin-false.png" alt="linkedin">
                 </a>
+                <span class="d-inline-block social-verified" v-else>
+                    <img src="/frontend/images/social-icon/png/verify/linkedin-false.png" alt="linkedin">
+                    <span class="d-inline-block font-20 color-main-text"><i class="fas fa-check-circle"></i></span>
+                </span>
      
             </div>
         </div>
@@ -83,7 +106,8 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
                 verified: {
                     email: false,
                     phone: false,
-                    fb: false,
+                    subscribed: false,
+                    facebook: false,
                     google: false,
                     linkedin: false,
                     twitter: false,
@@ -132,7 +156,8 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
                         this.phone = response.data.phone;
                         this.verified.email = response.data.email_verified;
                         this.verified.phone = response.data.phone_verified;
-                        this.verified.fb = response.data.fb_verified;
+                        this.verified.subscribed = response.data.subscribed;
+                        this.verified.fb = response.data.facebook_verified;
                         this.verified.google = response.data.google_verified;
                         this.verified.instagram = response.data.instagram_verified;
                         this.verified.linkedin = response.data.linkedin_verified;
@@ -148,7 +173,7 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
                 window.location.href = '/upgrade/plans';
             },
             popupVerification(url,title, w=300, h=500){
-          
+                let _self = this; 
                 let newWindow = window.open(url, title, "width=300,height=400,toolbar=0,scrollbars=0,status=0,resizable=0,location=0,menuBar=0");
                 if (window.focus) newWindow.focus();
                 let tryingToClose = setInterval(function(){ 
@@ -156,6 +181,7 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
                     {
                         clearInterval(tryingToClose);
                         newWindow.close();
+                        _self.getVerificationInfo();
                     }
                  }, 100);
 
@@ -193,6 +219,34 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
     filter:drop-shadow(8px 8px 10px gray);
     transition: .5s;
 }
+.social-verified{
+    position: relative;
+    margin: 0 10px;
+}
+.social-verified > span{
+    position: absolute;
+    top: -10px;
+    right: -7px;
+}
+
+/* media query*/
+
+/* Extra small devices (phones, 576 and down) xs */
+@media only screen and (max-width: 575.98px) {
+    .social-verified{
+        margin: 0 5px;
+    }
+    .verify-social-icons img, .social-verified img{
+        width: 30px;
+    }
+    .verify-social-icons a{
+        padding: 5px;
+    }
+    .social-verified > span{
+        font-size: 16px !important;
+    }
+}
+
 </style>
 
 

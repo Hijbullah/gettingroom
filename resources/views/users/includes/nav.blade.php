@@ -78,8 +78,11 @@
                             <li class="list-group-item">
                                 <a href="{{ url('/lists/offerrooms') }}" class="text-dark"><span class="mr-2 color-main-text"><i class="fas fa-search"></i></span>Browse Listings</a>
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item d-none d-md-block">
                                 <a href="#" class="text-dark" @click.prevent="openVerifyModal()"><span class="mr-2 color-main-text"><i class="fas fa-user-check"></i></span>Account Verification</a>
+                            </li>
+                            <li class="list-group-item d-md-none">
+                                <a href="{{ url('/verification') }}" class="text-dark"><span class="mr-2 color-main-text"><i class="fas fa-user-check"></i></span>Account Verification</a>
                             </li>
                             <li class="list-group-item">
                                 <a href="{{ url('/setting') }}" class="text-dark"><span class="mr-2 color-main-text"><i class="fas fa-cogs"></i></span>Setting</a>
@@ -115,13 +118,3 @@
         </div>
     </nav>
 </div>
-
-{{-- <drawer-nav :direction="'left'" :exist="true" ref="navDrawer" v-cloak>
-    <ul>
-        <li>menu list 1</li>
-        <li>menu list 2</li>
-        <li>menu list 3</li>
-        <li>menu list 4</li>
-        <li>menu list 5</li>
-    </ul>
-</drawer-nav> --}}

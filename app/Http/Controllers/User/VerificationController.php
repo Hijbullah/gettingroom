@@ -11,6 +11,11 @@ use App\Notifications\SendEmailVerificationCode;
 
 class VerificationController extends Controller
 {
+    public function showVerification()
+    {
+        return view('users.verification');
+    }
+
     public function sendEmailCode($id)
     {  
         $user = Auth::user(); 

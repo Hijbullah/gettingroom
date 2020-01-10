@@ -10,6 +10,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicon-16x16.png') }} ">
     <link rel="manifest" href="{{ asset('frontend/images/site.webmanifest') }}">
     <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/plugins/fontawesome-free-5.11.2-web/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/autocomplete.css') }}">
     <title>Getting Room | Home</title>
@@ -64,20 +68,20 @@
     </div>
     <!--  slider With Title-->
     <header>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="gr-search">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-3 col-6">
+                        <div class="col-6 col-sm-3">
                             <a href="{{ route('listings.all', 'offerrooms') }}" data-type="offerrooms" class="gr-sb gr-active searchtype">Room </a>
                         </div>
-                        <div class="col-md-3 col-6">
+                        <div class="col-6 col-sm-3">
                             <a href="{{ route('listings.all', 'needapartments') }}" data-type="needapartments" class="gr-sb searchtype">Entire Place </a>
                         </div>
-                        <div class="col-md-3 col-6">
+                        <div class="col-6 col-sm-3">
                             <a href="{{ route('listings.all', 'needrooms') }}" data-type="needrooms" class="gr-sb searchtype">Roommate </a>
                         </div>
-                        <div class="col-md-3 col-6">
+                        <div class="col-6 col-sm-3">
                             <a href="{{ route('listings.all', 'offerapartments') }}" data-type="offerapartments" class="gr-sb searchtype">Tenant </a>
                         </div>
                     </div>
@@ -111,15 +115,15 @@
                 <!-- Slide One - Set the background image for this slide in the line below -->
                 <div class="carousel-item active" style="background-image: url({{ asset('frontend/images/Slider/webp/1.webp') }})">
                     <div class="carousel-caption  d-md-block">
-                        <h2 class="display-5 text-light">
-                            Find great places & people to <br> <span class="gr-text-yellow">share a home with</span>.
+                        <h2 class="carosel-title text-light">
+                            Find great places & people to <br><span class="gr-text-yellow">share a home with</span>.
                         </h2>
                     </div>
                 </div>
                 <!-- Slide Two - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/2.webp') }})">
                     <div class="carousel-caption  d-md-block">
-                        <h2 class="display-5 text-light">
+                        <h2 class="carosel-title text-light">
                             We believe in the potentialof people <br> <span class="gr-text-yellow">when they can come together</span>.
                         </h2>
                     </div>
@@ -127,17 +131,16 @@
                 <!-- Slide Three - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/3.webp') }})">
                     <div class="carousel-caption  d-md-block">
-                        <h2 class="display-5 text-light">
-                            Live together with people who will <br> <span class="gr-text-yellow">
-                                inspire you</span>.
+                        <h2 class="carosel-title text-light">
+                            Live together with people who <br> will <span class="gr-text-yellow">inspire you</span>.
                         </h2>
                     </div>
                 </div>
                 <!-- Slide Four - Set the background image for this slide in the line below -->
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/4.webp') }})">
                     <div class="carousel-caption  d-md-block">
-                        <h2 class="display-5 text-light">Focus on what's important and <br> <span class="gr-text-yellow">
-                                spend less on rent</span>.
+                        <h2 class="carosel-title text-light">Focus on what's important <br> and <span class="gr-text-yellow">
+                                spend  less on rent</span>.
                         </h2>
                     </div>
                 </div>
@@ -145,187 +148,160 @@
         </div>
     </header>
     <!-- Search Listings in Top Cities -->
-    <section class="gr-ct-lst-area">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="gr-ct-lst">
-                        <div class="row">
-                            <div class="col">
-                                <h4 class="text-center text-capitalize text-dark mb-3">Search Listings in Top Cities
-                                </h4>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <a href="#">
-                                    <div class="city-box">
-                                        <img src="{{ asset('frontend/images/top-city/webp/Atlanta.webp') }}">
-                                        <div class="content">
-                                            <h2>Atlanta</h2>
-                                            <div class="overlay"></div>
-                                            <h3><i class="fab fa-searchengin"></i> Atlanta Listings</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <a href="#">
-                                    <div class="city-box">
-                                        <img src="{{ asset('frontend/images/top-city/webp/Boston.webp') }}">
-                                        <div class="content">
-                                            <h2>Boston</h2>
-                                            <div class="overlay"></div>
-                                            <h3> <i class="fab fa-searchengin"></i>Boston Listings</h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Chicago.webp') }}">
-                                    <div class="content">
-                                        <h2>Chicago</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Chicago Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Dallas.webp') }}">
-                                    <div class="content">
-                                        <h2>Dallas</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Dallas Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Denver.webp') }}">
-                                    <div class="content">
-                                        <h2>Denver</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Denver Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Houston.webp') }}">
-                                    <div class="content">
-                                        <h2>Houston</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Houston Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/LasVegas.webp') }}">
-                                    <div class="content">
-                                        <h2>Las Vegas</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Las Vegas Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/LosAngeles.webp') }}">
-                                    <div class="content">
-                                        <h2>Los Angeles</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Los Angeles Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Miami.webp') }}">
-                                    <div class="content">
-                                        <h2>Miami</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Miami Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/NewYorkCity.webp') }}">
-                                    <div class="content">
-                                        <h2>New York City</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> New York City Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Philadelphia.webp') }}">
-                                    <div class="content">
-                                        <h2>Philadelphia</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Philadelphia Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Phoenix.webp') }}">
-                                    <div class="content">
-                                        <h2>Phoenix</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Phoenix Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/SanFrancisco.webp') }}">
-                                    <div class="content">
-                                        <h2>San Francisco</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> San Francisco Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Seattle.webp') }}">
-                                    <div class="content">
-                                        <h2>Seattle</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Seattle Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/WashingtonDC.webp') }}">
-                                    <div class="content">
-                                        <h2>Washington DC</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Washington DC Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6 col-md-3 mb-3 same">
-                                <div class="city-box">
-                                    <img src="{{ asset('frontend/images/top-city/webp/Athens.webp') }}">
-                                    <div class="content">
-                                        <h2>Athens</h2>
-                                        <div class="overlay"></div>
-                                        <h3> <i class="fab fa-searchengin"></i> Athens Listings</h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <section class="gr-city-gallery">
+        <h2 class="text-center text-capitalize text-dark city-gallery-heading">Search Listings in Top Cities</h2>
+        <div class="city-boxes">
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Atlanta.webp') }}">
+                    <div class="content">
+                        <h2>Atlanta</h2>
+                        <div class="overlay"></div>
+                        <h3><i class="fab fa-searchengin"></i> Atlanta <br> Listings</h3>
                     </div>
-                </div>
+                </a>
             </div>
-        </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Boston.webp') }}">
+                    <div class="content">
+                        <h2>Boston</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i>Boston <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Chicago.webp') }}">
+                    <div class="content">
+                        <h2>Chicago</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Chicago <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Dallas.webp') }}">
+                    <div class="content">
+                        <h2>Dallas</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Dallas <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Denver.webp') }}">
+                    <div class="content">
+                        <h2>Denver</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Denver <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Houston.webp') }}">
+                    <div class="content">
+                        <h2>Houston</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Houston <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/LasVegas.webp') }}">
+                    <div class="content">
+                        <h2>Las Vegas</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Las <br> Vegas <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/LosAngeles.webp') }}">
+                    <div class="content">
+                        <h2>Los Angeles</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Los <br> Angeles <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Miami.webp') }}">
+                    <div class="content">
+                        <h2>Miami</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Miami <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/NewYorkCity.webp') }}">
+                    <div class="content">
+                        <h2>New York</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> New York <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Philadelphia.webp') }}">
+                    <div class="content">
+                        <h2>Philadelphia</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Philadelphia <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Phoenix.webp') }}">
+                    <div class="content">
+                        <h2>Phoenix</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Phoenix <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/SanFrancisco.webp') }}">
+                    <div class="content">
+                        <h2>San Francisco</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> San <br> Francisco <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/Seattle.webp') }}">
+                    <div class="content">
+                        <h2>Seattle</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Seattle <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="city-box same">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/top-city/webp/WashingtonDC.webp') }}">
+                    <div class="content">
+                        <h2>Washington DC</h2>
+                        <div class="overlay"></div>
+                        <h3> <i class="fab fa-searchengin"></i> Washington <br> DC <br> Listings</h3>
+                    </div>
+                </a>
+            </div>
+        </div>        
     </section>
     <!-- add listing arear -->
     <section class="gr-add-lst bg-light">

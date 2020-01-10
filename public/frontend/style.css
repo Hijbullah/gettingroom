@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700,900|Roboto:300,400,700,900&display=swap');
 body {
 	margin: 0;
 	padding: 0;
 	background: #fff;
 	position: relative;
-	font-family: lato, montserrat;
+	font-family: 'Roboto', sans-serif;
 	font-size: 14px;
 }
 
@@ -48,7 +49,10 @@ body {
 .w-f-25{
 	width: 25px;
 }
-
+h1, h2, h3, h4, h5, h6{
+	font-family: 'Lato', sans-serif;
+	font-weight: 700;
+}
 .custom-picker-auth {
     color: #000;
     border: 2px solid #3e983e;
@@ -101,9 +105,8 @@ body {
 .custom-picker-mobile {
     color: #fff;
     background: transparent;
-    font-size: 18px;
-    font-weight: 500;
-    text-decoration: underline;
+    font-size: 15px;
+    font-weight: 400;
 }
 .gr-search .bootstrap-select .dropdown-item.active { background: #3e983e; color: #fff;}
 .main-menu .bootstrap-select .dropdown-item.active { background: #3e983e; color: #fff;}
@@ -189,8 +192,14 @@ body {
   background:rgba(0, 0, 0, 0.3);
 }
 .carousel-caption{
-	bottom: 0 !important;
-	top: 25%;
+    top: 25%;
+    left: 15%;
+    right: 15%;
+}
+.carosel-title{
+    font-size: 40px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
 }
 .gr-search{
 	position: absolute;
@@ -286,18 +295,33 @@ body {
 /*city css end*/
 
 /**/
-.gr-ct-lst{
-	padding: 30px 0px;
-	overflow: hidden;
+.gr-city-gallery{
+	padding: 20px 0 70px;
+    overflow: hidden;
+    width: 100%;
 
 }
+.city-gallery-heading{
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+.city-boxes{
+    overflow: hidden;
+    height: auto;
+    width: 100%;
+    padding: 0 20px;
+}
 .city-box{
-	position: relative;
+    position: relative;
+    float:left;
 	height: 150px;
-	width: 100%;
+    width: 20%;
 	overflow: hidden;
 	transition: .3s;
-	text-align: center;
+    text-align: center;
+    padding: 5px;
+    box-sizing: border-box;
 }
 .city-box img{
 	width: 100%;
@@ -305,12 +329,12 @@ body {
 }
 .content {
 	position: absolute;
-	left: 0;
-	top: 0;
-	height: 100%;
-	width: 100%;
+	left: 5px;
+    top: 5px;
+	height: 94%;
+    width: 96%;
 	transition: .3s;
-	background: rgba(49, 49, 49, 0.5);
+	background: rgba(0, 0, 0, 0.5);
 }
 /*.content:hover {
 	background: rgba(30, 255, 11, 0.6);
@@ -349,27 +373,29 @@ body {
 }
 .content h2 {
 	position: absolute;
-	font-size: 2rem;
-	left: 50%;
-	top: 50%;
-	transform: scale(1) translate(-50%, -50%);
+	font-size: 38px;
+	left: 0;
+    right: 0;
+    top: 50%;
+	transform: scale(1) translateY(-50%);
 	color: #fff;
-	font-weight: 800;
+	font-weight: 900;
 	transition: .3s;
 }
 .content:hover h2{
-	transform: scale(0) translate(-50%, -50%);
+	transform: scale(0) translateY(-50%);
 	transition: .3s;
 }
 .content h3{
 	position: absolute;
-	font-size: 1.4rem;
-	left: 5%;
-	bottom: 10%;
+	font-size: 25px;
+	left: 2%;
+	bottom: 5%;
 	transform: scale(0);
 	color: #fff;
-	font-weight: 800;
-	transition: .3s;
+	font-weight: 700;
+    transition: .3s;
+    text-align: left;
 }
 .content:hover h3{
 	transform: scale(1);
@@ -459,37 +485,61 @@ footer .gr-link:hover{
 	}
 	.main-menu .font-18{
 		font-size: 16px !important;
-	}
-	.gr-search {
-        transform: translateY(-5%) !important;
+    }
+    .carousel-caption {
         left: 5%;
         right: 5%;
-	}
-
+        top: 30%;
+    }
 	.gr-search .gr-sb {
-        padding: 10px;
-        margin-bottom: 15px;
-        font-size: 15px;
+        padding: 8px 0;
+        margin-bottom: 13px;
+        font-size: 14px;
     }
-
+	.gr-search {
+        transform: translateY(-20%) !important;
+        left: 2%;
+        right: 2%;
+    }
     .gr-text {
-        padding: 24px 4px;
+        padding: 20px 5px;
+        font-size: 14px;
     }
-
     .gr-search .input-group-text {
-        padding: 5px 8px;
-        font-size: 1.3rem;
+        padding: 5px 15px;
+        font-size: 20px;
     }
-
-    .carousel-caption h2{
-        font-size: 1.2rem !important;
+    .carosel-title {
+        font-size: 18px;
     }
 
     .gr-services .single-box {
-        padding: 30px 10px;
+        padding: 15px 10px;
     }
-    .content h2 {
-        font-size: 1.7rem;
+   .gr-city-gallery {
+        padding: 10px 0 30px;
+    }
+    .city-gallery-heading {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .city-boxes{
+        padding: 0 3px;
+    }
+    .city-box{
+        height: 80px;
+        width: 33.33%;
+    }
+    .content {
+        height: 88%;
+        width: 94%;
+        background: transparent;
+    }
+   .content h2 {
+        font-size: 18px;
+    }
+     .content h3{
+        font-size: 16px;
     }
     .box {
         margin: 0;
@@ -522,20 +572,52 @@ footer .gr-link:hover{
 	.menu-width-10{ 
 		width: 10% !important;
 	}
-
-	.gr-search {
-		transform: translateY(-5%) !important;
+    .gr-search .gr-sb {
+        padding: 10px 0;
+        margin-bottom: 15px;
+        font-size: 14px;
     }
-    
-    .carousel-caption h2{
-        font-size: 1.5rem !important;
+	.gr-search {
+        transform: translateY(-14%) !important;
+    }
+    .gr-text {
+        padding: 25px 10px;
+        font-size: 14px;
+    }
+    .gr-search .input-group-text {
+        padding: 7px 15px;
+        font-size: 25px;
+    }
+    .carosel-title {
+        font-size: 25px;
     }
     .gr-services .single-box {
-        padding: 30px 10px;
+        padding: 15px 10px;
     }
-
-    .content h2 {
-        font-size: 1.8rem;
+    .gr-city-gallery {
+        padding: 10px 0 30px;
+    }
+    .city-gallery-heading {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    .city-boxes{
+        padding: 0 5px;
+    }
+    .city-box{
+        height: 110px;
+        width: 25%;
+    }
+    .content {
+        height: 91%;
+        width: 94%;
+        background: transparent;
+    }
+   .content h2 {
+        font-size: 20px;
+    }
+     .content h3{
+        font-size: 18px;
     }
     .cities .gr-city-nav li {
         padding: 3px 0;
@@ -547,6 +629,15 @@ footer .gr-link:hover{
 
 /* Medium devices (landscape tablets, 768px and up)  md */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+    .carosel-title{
+        font-size: 30px;
+    }
+    .content h2 {
+        font-size: 28px;
+    }
+    .content h3{
+        font-size: 20px;
+    }
 	.main-menu ul.nav > li:first-child{
 		width: 40% !important;
 	}
@@ -558,12 +649,22 @@ footer .gr-link:hover{
 
 /* Large devices (laptops/desktops, 992px and up) lg */
 @media only screen and (min-width: 992px) and (max-width: 1199.98px) {
-	
+	.content h2 {
+        font-size: 32px;
+    }
+    .content h3{
+        font-size: 22px;
+    }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) xl */
 @media only screen and (min-width: 1200px) {
-	
+	.content h2 {
+        font-size: 38px;
+    }
+     .content h3{
+        font-size: 25px;
+    }
 } 
 
 

@@ -22,9 +22,7 @@ class SocialAuthController extends Controller
     {
         try {
             $user = Socialite::driver($provider)->user();
-            // return response()->json($user);
         } catch (\GuzzleHttp\Exception\ClientException $e) {
-            // return $e;
             if(Auth::check())
             {
                 return redirect('/social/error');

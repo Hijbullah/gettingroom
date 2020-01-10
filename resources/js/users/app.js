@@ -25,6 +25,7 @@ Vue.component('listing-component', require('./components/listings/ListingCompone
 Vue.component('single-listing-component', require('./components/listings/SingleListingComponent.vue').default);
 Vue.component('listing-new-component', require('./components/listings/ListingNewComponent.vue').default);
 Vue.component('messenger-component', require('./components/messenger/Messenger.vue').default);
+Vue.component('verification-component', require('./components/modals/AccountVerify.vue').default);
 
 //Date Picker
 

@@ -57,7 +57,7 @@ Route::get('/upgrade/thank', 'User\UpgradeController@thank');
 Route::get('/upgrade/cancel', 'User\UpgradeController@cancelSubscription');
 
 // verification
-
+Route::get('/verification', 'User\VerificationController@showVerification');
 Route::get('/verification/code/{user}/email', 'User\VerificationController@sendEmailCode');
 Route::get('/verification/code/{user}/phone/{phone}', 'User\VerificationController@sendSmsCode');
 Route::get('/verification/verify/{code}/email', 'User\VerificationController@verifyEmailCode');

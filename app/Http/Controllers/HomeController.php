@@ -132,6 +132,12 @@ class HomeController extends Controller
             ->select('id', 'email', 'phone', 'email_verified', 'phone_verified', 'facebook_verified', 'google_verified', 'instagram_verified', 'linkedin_verified', 'twitter_verified')
             ->where('id', Auth::id())
             ->first();
+        if(Auth::user()->subscribed('default')) 
+        {
+            $user->subscribed = 1;
+        }else{
+            $user->subscribed = 0;
+        }   
         return response()->json($user);     
     }
 

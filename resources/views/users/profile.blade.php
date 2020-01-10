@@ -5,10 +5,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-12">
-                @if(Auth::check() && Auth::id() === $user->id)
+                @if((Auth::check() && Auth::id() === $user->id) && (!$user->email_verified || !$user->phone_verified || !$user->subscribed('default')) )
                 <div class="bg-success py-5 px-3 mb-2 text-center">
                     <p class="text-white mb-3">Account verification is incomplete.</p>
-                    <button class="btn btn-light text-success rounded px-3 py-2 w-25">Verify</button>
+                    <a href="#" @click.prevent="openVerifyModal()" class="btn btn-light text-success rounded px-3 py-2 w-25 d-none d-md-inline-block">Verify</a>
+                    <a href="{{ url('/verification') }}" class="btn btn-light text-success rounded px-3 py-2 w-25 d-md-none">Verify</a>
                 </div>
                 @endif
                 <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
