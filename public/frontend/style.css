@@ -192,7 +192,8 @@ h1, h2, h3, h4, h5, h6{
   background:rgba(0, 0, 0, 0.3);
 }
 .carousel-caption{
-    top: 25%;
+    bottom: 50%;
+    transform: translateY(-40%);
     left: 15%;
     right: 15%;
 }
@@ -204,13 +205,14 @@ h1, h2, h3, h4, h5, h6{
 .gr-search{
 	position: absolute;
 	z-index: 500;
-	top: 50%;
+    top: 50%;
+    transform: translateY(-40%);
 	left: 10%;
 	right: 10%;
 }
 .gr-search .gr-sb {
 	width: 100%;
-	padding: 18px;
+	padding: 18px 0;
 	background: #fff;
 	color: #000;
 	border-radius: 4px;
@@ -489,7 +491,7 @@ footer .gr-link:hover{
     .carousel-caption {
         left: 5%;
         right: 5%;
-        top: 30%;
+        transform: translateY(-50%);
     }
 	.gr-search .gr-sb {
         padding: 8px 0;
@@ -497,9 +499,9 @@ footer .gr-link:hover{
         font-size: 14px;
     }
 	.gr-search {
-        transform: translateY(-20%) !important;
         left: 2%;
         right: 2%;
+        transform: translateY(-30%);
     }
     .gr-text {
         padding: 20px 5px;
@@ -571,14 +573,19 @@ footer .gr-link:hover{
 	}
 	.menu-width-10{ 
 		width: 10% !important;
-	}
+    }
+    .carousel-caption {
+        left: 5%;
+        right: 5%;
+        transform: translateY(-45%);
+    }
     .gr-search .gr-sb {
         padding: 10px 0;
         margin-bottom: 15px;
         font-size: 14px;
     }
-	.gr-search {
-        transform: translateY(-14%) !important;
+    .gr-search {
+       transform: translateY(-35%);
     }
     .gr-text {
         padding: 25px 10px;
@@ -629,6 +636,12 @@ footer .gr-link:hover{
 
 /* Medium devices (landscape tablets, 768px and up)  md */
 @media only screen and (min-width: 768px) and (max-width: 991.98px) {
+     .carousel-caption {
+        transform: translateY(-45%);
+    }
+     .gr-search {
+       transform: translateY(-35%);
+    }
     .carosel-title{
         font-size: 30px;
     }
