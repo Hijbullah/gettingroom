@@ -22,7 +22,7 @@
 <body>
     <!--  Top Navigation Bar-->
 
-    <div class="main-menu px-3 sticky-top">
+    <div class="main-menu px-3 sticky-top d-none d-md-block">
         <ul class="nav">
             <li class="float-left menu-width-45 py-2">
                 <a href="#">
@@ -62,6 +62,20 @@
                 <a href="{{ url('/support') }}" class="ml-2 d-none d-md-inline-block">
                     <span class="font-18 text-secondary">Help</span>
                     <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt="" class="w-f-25 ml-1">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-menu px-3 sticky-top d-md-none">
+        <ul class="m-0 p-0">
+            <li class="float-left py-2">
+                <a href="#">
+                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo">
+                </a>
+            </li>
+            <li class="py-2 px-2 float-right">
+                <a href="{{ route('login') }}" class="text-secondary d-md-none d-inline-block mobile-login">
+                    Login
                 </a>
             </li>
         </ul>
@@ -317,13 +331,13 @@
         </div>       
     </section>
     <section class="gr-services bg-light">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-md-4">
                     <div class="single-box">
                         <i class="fas fa-user-friends icon"></i>
-                        <h2>Discover amazing <br>people</h2>
-                        <p>Connect with users using <br> Roomster mailbox and <br> Social connect.</p>
+                        <h2>Discover amazing people</h2>
+                        <p class="mt-4">Connect with users using <br> <span class="color-text-main">GettingRoom mailbox</span> and <span class="color-text-main">Social connect</span>.</p>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -367,7 +381,7 @@
                     <div class="col-6 col-sm-4">
                         <ul class="nav flex-column  pt-3">
                             <li><a href="">Mailbox</a></li>
-                            <li><a href="">Megaphone</a></li>
+                            <li><a href="">Social Connects</a></li>
                             <li><a href="">Bookmarks</a></li>
                             <li><a href="">24/7 Support</a></li>
                             <li class="d-sm-none"><a href="">Fair housing</a></li>

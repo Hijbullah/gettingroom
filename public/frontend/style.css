@@ -15,6 +15,7 @@ body {
 /*reset css*/
 
 /*custom css start*/
+.color-text-main { color: #3e983e !important;}
 .gr-text-yellow { color: #3e983e !important;}
 .gr-active { background: #3e983e !important; color: #fff !important;}
 .gr-active:hover { background: #fff !important; color: #000 !important;}
@@ -422,7 +423,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .gr-add-lst .text{
     position: absolute;
-    bottom: 5%;
+    bottom: 20%;
     left: 15%;
 }
 /**/
@@ -433,7 +434,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .gr-services .single-box {
 	text-align: center;
-	padding: 50px 10px;
+	padding: 50px 0px;
 }
 .gr-services .single-box .icon {
 	font-size: 50px;
@@ -480,10 +481,10 @@ footer .gr-link:hover{
         box-shadow: none;
     }
 	.menu-width-10{ 
-		width: 20% !important;
+		width: 10% !important;
 	}
 	.main-menu ul.nav > li:first-child{
-		width: 60% !important;
+		width: 80% !important;
 	}
 	.main-menu .font-18{
 		font-size: 16px !important;
@@ -554,6 +555,23 @@ footer .gr-link:hover{
     }
     .cities .gr-city-nav li a {
         font-size: 14px;
+    }
+    
+    .gr-services {
+        padding: 10px 0px;
+    }
+    .inf-links .grf-img {
+        width: 170px;
+    }
+    .copyright-text{
+        font-size: 18px;
+        font-weight: 700;
+        color: #3e983e !important;
+        text-align: center;
+    }
+    footer{
+        border-bottom: 15px solid #3b6913;
+        border-radius: 0px 0px 15px 15px;
     }
 }
 
@@ -631,6 +649,16 @@ footer .gr-link:hover{
     }
     .cities .gr-city-nav li a {
         font-size: 15px;
+    }
+    .gr-services {
+        padding: 20px 0px;
+    }
+    .inf-links .grf-img {
+        width: 200px;
+    }
+    footer{
+        border-bottom: 15px solid #3b6913;
+        border-radius: 0px 0px 15px 15px;
     }
 } 
 
