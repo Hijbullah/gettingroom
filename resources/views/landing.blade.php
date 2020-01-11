@@ -102,13 +102,13 @@
                         <div class="col-md-12">
                             <div class="search-box">
                                 <label class="sr-only" for="placesearch">Enter an address, neighborhood, city or
-                                    ZIP code</label>
+                                    ZIP...</label>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
                                     </div>
                                     <input type="text" class="form-control gr-text" id="placesearch"
-                                        placeholder="Enter an address, neighborhood, city or ZIP code">
+                                        placeholder="Enter an address, neighborhood, city or ZIP...">
                                 </div>
                                 <div id="place-content" class="place-content d-none"></div>
                             </div>
@@ -137,7 +137,7 @@
                 <div class="carousel-item" style="background-image: url({{ asset('frontend/images/Slider/webp/2.webp') }})">
                     <div class="carousel-caption  d-md-block">
                         <h2 class="carosel-title text-light">
-                            We believe in the potentialof people <br> <span class="gr-text-yellow">when they can come together</span>.
+                            We believe in the potential of people <br> <span class="gr-text-yellow">when they can come together</span>.
                         </h2>
                     </div>
                 </div>
