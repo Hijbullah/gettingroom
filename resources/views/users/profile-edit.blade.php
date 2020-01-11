@@ -10,7 +10,7 @@
                     <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                         <div class="img-holder">
                             <a href="#" title="Change Avatar">
-                                <img src="{{ $user->avatar ? $user->avatar : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic" id="img-holder">
+                                <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic" id="img-holder">
                             </a>
                             <input type="file" name="avatar" class="d-none form-control @error('avatar') is-invalid @enderror" id="profileUpload">
                             @error('avatar')

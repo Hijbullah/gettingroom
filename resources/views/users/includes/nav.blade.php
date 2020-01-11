@@ -24,24 +24,24 @@
             
             @guest
                 <div class="px-3 py-2 d-none d-md-block">
-                    <select class="selectpicker form-control auth-social" data-width="300" id="loginwith" data-style="custom-picker-auth">
+                    <select class="selectpicker form-control auth-social" data-width="300" id="loginwith" data-style="custom-picker-auth" title="Login with Socials or Email ...">
                         <option class="facebook-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Facebook.png' /> <span class='ml-2'>Loging With Facebook</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Facebook.png' /> <span class='ml-2'>Login With Facebook</span>">
                             Login With Facebook</option>
                         <option class="google-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Google.png' /> <span class='ml-2'>Loging With Google</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Google.png' /> <span class='ml-2'>Login With Google</span>">
                             Login With Google</option>
                         <option class="linkedin-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Linkedin.png' /> <span class='ml-2'>Loging With Linkedin</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Linkedin.png' /> <span class='ml-2'>Login With Linkedin</span>">
                             Login With Linkedin</option>
                         <option class="instagram-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Instagram.png' /> <span class='ml-2'>Loging With Instagram</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Instagram.png' /> <span class='ml-2'>Login With Instagram</span>">
                             Login With Instagram</option>
                         <option class="twitter-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Twitter.png' /> <span class='ml-2'>Loging With Twitter</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Twitter.png' /> <span class='ml-2'>Login With Twitter</span>">
                             Login With Linkedin</option>
                         <option class="email-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Email.png' /> <span class='ml-2'>Loging With Email</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Email.png' /> <span class='ml-2'>Login With Email</span>">
                             Login With Email</option>
                     </select>
                 </div>
@@ -107,7 +107,7 @@
                 
             @else    
                 <div class="d-md-none">
-                    <a href="#" class="text-dark px-4 py-2 d-inline-block">
+                    <a href="#" class="color-main-text px-4 py-2 d-inline-block">
                         <span class="font-30 "><i class="fas fa-sign-in-alt"></i></span>
                     </a>
                 </div>

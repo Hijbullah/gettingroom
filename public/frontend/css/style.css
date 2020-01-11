@@ -193,11 +193,11 @@ a.color-main-bg:hover{
 
 .custom-picker-auth {
     color: #000;
-    border: 2px solid #3e983e;
+    border: 2px solid #3e983e !important;
     border-radius: 10px;
     background: #fff;
     padding: 6px 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .bootstrap-select.auth-social li.active { 
@@ -246,7 +246,7 @@ a.color-main-bg:hover{
     border-radius: 10px;
     background: #fff;
     padding: 8px 10px;
-    font-size: 18px;
+    font-size: 16px;
 }
 .dropdown-toggle.custom-picker:focus{
     outline: none !important;

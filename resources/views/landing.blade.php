@@ -27,7 +27,6 @@
             <li class="float-left menu-width-45 py-2">
                 <a href="#">
                     <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo">
-                    {{-- <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block"> --}}
                 </a>
             </li>
             <li class="float-left border-left border-right menu-width-45 py-2 px-2 d-none d-md-block">
@@ -44,13 +43,13 @@
                     </div>
 
                     <div class="col-md-6 d-none d-md-block">
-                        <select class="selectpicker form-control auth-social" id="loginwith" data-style="custom-picker-auth">
-                            <option class="facebook-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Facebook.webp' /> <span class='ml-2'>Loging With Facebook</span>">Login With Facebook</option>
-                            <option class="google-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Google.webp' /> <span class='ml-2'>Loging With Google</span>">Login With Google</option>
-                            <option class="linkedin-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Linkedin.webp' /> <span class='ml-2'>Loging With Linkedin</span>">Login With Linkedin</option>
-                            <option class="instagram-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Instagram.webp' /> <span class='ml-2'>Loging With Instagram</span>">Login With Instagram</option>
-                            <option class="twitter-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Twitter.webp' /> <span class='ml-2'>Loging With Twitter</span>">Login With Linkedin</option>
-                            <option class="email-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Email.webp' /> <span class='ml-2'>Loging With Email</span>">Login With Email</option>
+                        <select class="selectpicker form-control auth-social" id="loginwith" data-style="custom-picker-auth" title="Login with Social or Email...">
+                            <option class="facebook-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Facebook.webp' /> <span class='ml-2'>Login With Facebook</span>">Login With Facebook</option>
+                            <option class="google-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Google.webp' /> <span class='ml-2'>Login With Google</span>">Login With Google</option>
+                            <option class="linkedin-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Linkedin.webp' /> <span class='ml-2'>Login With Linkedin</span>">Login With Linkedin</option>
+                            <option class="instagram-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Instagram.webp' /> <span class='ml-2'>Login With Instagram</span>">Login With Instagram</option>
+                            <option class="twitter-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Twitter.webp' /> <span class='ml-2'>Login With Twitter</span>">Login With Linkedin</option>
+                            <option class="email-auth pad-tb-5 pl-3" data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Email.webp' /> <span class='ml-2'>Login With Email</span>">Login With Email</option>
                         </select>
                     </div>
                 </div>
@@ -67,7 +66,7 @@
         </ul>
     </div>
     <div class="main-menu px-3 sticky-top d-md-none">
-        <ul class="m-0 p-0">
+        <ul class="m-0 p-0" style="list-style: none;">
             <li class="float-left py-2">
                 <a href="#">
                     <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo">
@@ -569,7 +568,7 @@
         <section class="container">
             <div class="row gr-border-t py-3">
                 <div class="col-12 col-sm-4 mb-3 mb-sm-0">
-                    <p class="copyright-text">Getting Room &copy; 2019</p>
+                    <p class="copyright-text">Getting Room &copy; {{ date("Y") }}</p>
                 </div>
                 <div class="col-6 col-sm-4 text-left text-sm-center ">
                     <a href="{{ url('/terms') }}" class="gr-link">Terms of Use</a>

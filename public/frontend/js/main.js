@@ -18,7 +18,10 @@ $(document).ready(function() {
                     location = '/socialauth/linkedin';
                     break;
                 case 4:
-                    location = '/login';
+                    location = '/login'; //instagram
+                    break;
+                case 5:
+                    location = '/login'; //twitter
                     break;
                 default:
                     location = '/login';

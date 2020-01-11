@@ -56,7 +56,7 @@ h1, h2, h3, h4, h5, h6{
 }
 .custom-picker-auth {
     color: #000;
-    border: 2px solid #3e983e;
+    border: 2px solid #3e983e !important;
     border-radius: 10px;
     background: #fff;
     padding: 6px 10px;
@@ -429,11 +429,11 @@ h1, h2, h3, h4, h5, h6{
 
 /*services start*/
 .gr-services{
-	padding: 15px 0px;
+    padding: 10px 0;
 }
 .gr-services .single-box {
 	text-align: center;
-	padding: 40px 0px;
+	padding: 30px 0px;
 }
 .gr-services .single-box .icon {
 	font-size: 30px;
