@@ -28,7 +28,7 @@
                 </div>
             </div>
         </div>
-        <div class="budget mt-2 mb-5">
+        <div class="gallery budget mt-2 mb-5">
             <div class="row">
                 <div class="col-md-2 col-12">
                     <p class="m-0 p-0 font-18">Budget</p>
@@ -53,22 +53,26 @@
         </div>
         <div class="filer-control bg-white px-3 py-3">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-2 col-lg-4">
                     <div class="filter-area mb-sm-3 mb-3">
                         <a href="#" class="font-18 color-main-text" @click.prevent="showFilter = true">
                             <i class="fas fa-sliders-h "></i> Filters
                         </a>
-                        <span v-if="total" class="font-16 mx-3">Total: {{ total }} | showing: ({{ from }} - {{to}})</span>
+                        <a href="/listingNew" class="font-16 btn btn-outline-success text-center float-right d-sm-none">
+                            <i class="fas fa-plus"></i>
+                            Add New Listing
+                        </a>
+                        <span v-if="total" class="font-16 mx-3 d-none d-sm-inline-block d-md-none d-lg-inline-block float-right float-md-none">Total: {{ total }} | showing: ({{ from }} - {{to}})</span>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <a href="/listingNew" class="font-20 d-block   py-2 btn btn-outline-success text-center">
+                <div class="col-md-8 col-lg-6 d-none d-sm-block">
+                    <a href="/listingNew" class="font-20 d-block py-2 btn btn-outline-success text-center">
                         <i class="fas fa-plus"></i>
                         Add New Listing
                     </a>
                 </div>
 
-                <div class="col-md-4 d-none d-md-block text-right">
+                <div class="col-md-2 col-lg-2 d-none d-md-block text-right">
                     <div class="btn-group">
                         <button type="button" class="btn dropdown-toggle color-main-bg text-white"
                             data-toggle="dropdown" data-display="static" aria-haspopup="false" aria-expanded="false">
@@ -241,7 +245,7 @@
                         <div class="list-view d-none d-lg-block" >
                             <div class="row">
                                 <div class="col-md-6" 
-                                    v-for="listing in listings.data" 
+                                    v-for="listing in listings" 
                                     :key="listing.listing_id"
                                 >
                                     <div class="listing-single mar-bot-20 shadow-sm">
@@ -265,10 +269,10 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="col-6">
+                                            <div class="col-5">
                                                 <div class="listing-content">
                                                     <a :href="listing.listing_url">
-                                                        <h2 class="font-18 mb-2 text-dark">{{ listing.title }}</h2>
+                                                        <h2 class="font-16 mb-2 text-dark">{{ listing.title }}</h2>
                                                     </a>
                                                     <p class="font-14"><span class="color-main-text">{{ listingType }}</span> |
                                                         <span>{{ listing.location.location }}</span></p>
@@ -285,15 +289,15 @@
                                                     </div>
                                                     <div class="listing-contact mt-1">
                                                         <p class="font-14 mb-3">Contact {{ listing.user.name }}</p>
-                                                        <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
-                                                        <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
-                                                        <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
-                                                        <a href="#" v-if="listing.user.verified.phone"><i class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
-                                                        <a href="#" v-if="true"><i class="far fa-comments icon comments font-25 mr-2"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-16"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-16"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-16"></i></a>
+                                                        <a href="#" v-if="listing.user.verified.linkedin"><i class="fab fa-linkedin-in icon linkedin font-16"></i></a>
+                                                        <a href="#" v-if="true"><i class="far fa-comments icon comments font-16"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-2">
+                                            <div class="col-3">
                                                 <div class="listing-pricing text-center mx-3 mt-4">
                                                     <p class="color-main-text pricing">
                                                         <span class="dollar">$</span>
@@ -315,8 +319,8 @@
                         </div>
                         <div class="grid-view d-block d-lg-none">
                             <div class="row">
-                                <div class="col-md-4 col-sm-6 col-12"
-                                    v-for="listing in listings.data"
+                                <div class="col-12"
+                                    v-for="listing in listings"
                                     :key="listing.listing_id"
                                 >
                                     <div class="listing-single bg-white mar-bot-20 shadow-sm">
@@ -334,10 +338,12 @@
                                             </div>
                                             <div class="img-text-bottom clearfix w-100 p-2">
                                                 <div class="float-left text-light">
-                                                    <span class="font-30 font-weight-bold">
-                                                        <sup class="font-20">$</sup> {{ listing.rent.rent }} <sup class="font-20">{{ listing.rent.currency }}</sup>
-                                                    </span>
-                                                    <span class="font-20 font-weight-bold">per month</span>
+                                                    <p class="pricing">
+                                                        <span class="dollar">$</span>
+                                                        <span class="font-weight-bold font-40 price">{{ listing.rent.rent }}</span>
+                                                        <span class="dollar">{{ listing.rent.currency }}</span>
+                                                        <span class="font-16 font-weight-bold">per month</span>
+                                                    </p>
                                                 </div>
                                                 <div class="float-right text-light listing-user">
                                                     <a :href="listing.user.profile">
@@ -348,22 +354,24 @@
                                                             class="mb-2 d-inline-block font-weight-bold mr-2">{{ listing.user.name }}</span>
                                                         <span class="d-inline-block font-weight-bold">{{ listing.user.age }}</span>
                                                     </div>
-                                                   
+                                                
                                                 </div>
                                             </div>
-                                             <a :href="listing.listing_url">
+                                            <a :href="listing.listing_url">
                                                 <img :src="listing.image" alt="">
                                             </a>
                                         </div>
-                                        <div class="listing-contact mt-1 pb-2 pl-2">
-                                            <a :href="listing.listing_url">
-                                                <h2 class="font-18 my-2 text-dark">{{ listing.title }}</h2>
-                                            </a>
-                                            <p class="font-12 mb-3 ">
-                                                <span class="color-main-text">{{ listingType }}</span> | <span
-                                                    class="text-dark">{{ listing.location.location }}</span>
-                                            </p>
-                                            <div class="text-center">
+                                        <div class="listing-contact mt-1 pb-2 pl-2 clearfix">
+                                            <div class="float-sm-left float-md-left">
+                                                <a :href="listing.listing_url">
+                                                    <h2 class="font-18 my-2 text-dark">{{ listing.title }}</h2>
+                                                </a>
+                                                <p class="font-12 mb-3 ">
+                                                    <span class="color-main-text">{{ listingType }}</span> | <span
+                                                        class="text-dark">{{ listing.location.location }}</span>
+                                                </p>
+                                            </div>
+                                            <div class="text-center text-sm-right float-sm-right float-md-right mt-4 mr-2">
                                                 <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
                                                 <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
                                                 <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
@@ -377,40 +385,29 @@
                         </div>
                     </div>
                     <div class="not-found" v-else>
-                       <div class="row">
-                           <div class="col-md-8 offset-md-2">
-                                <div class="card radius-10">
-                                    <div class="card-body p-5">
-                                        <div class="py-3 font-20 text-dark font-weight-bold rounded text-center mb-3" style="background: rgb(236, 236, 236)">
-                                            Oops! We couldn't find anything
-                                        </div> 
-                                        <h4 class="font-18 mb-2">Expand area of your search</h4>
-                                        <ul style="list-style: none">
-                                            <li>- Search nearby neighborhoods</li> 
-                                            <li>- Refrain from using zip codes or exact addresses</li> 
-                                        </ul> 
-                                        <h4 class="font-18 mb-2">Expand your search criteria</h4> 
-                                        <ul style="list-style: none">
-                                            <li>- Increase filters ranges</li> 
-                                            <li>- Uncheck unnecessary filters</li>
-                                        </ul>
+                        <div class="row">
+                            <div class="col-md-8 offset-md-2">
+                                    <div class="card radius-10">
+                                        <div class="card-body p-5">
+                                            <div class="py-3 heading font-20 text-dark font-weight-bold rounded text-center mb-3" style="background: rgb(236, 236, 236)">
+                                                Oops! We couldn't find anything
+                                            </div> 
+                                            <h4 class="font-18 mb-2">Expand area of your search</h4>
+                                            <ul style="list-style: none">
+                                                <li>- Search nearby neighborhoods</li> 
+                                                <li>- Refrain from using zip codes or exact addresses</li> 
+                                            </ul> 
+                                            <h4 class="font-18 mb-2">Expand your search criteria</h4> 
+                                            <ul style="list-style: none">
+                                                <li>- Increase filters ranges</li> 
+                                                <li>- Uncheck unnecessary filters</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                           </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col">
-                <pagination 
-                    :data="listings" 
-                    align="center"
-                    :show-disabled="true"
-                    @pagination-change-page="getListings" 
-                >
-                    <span slot="prev-nav">&lt; Previous</span>
-	                <span slot="next-nav">Next &gt;</span>
-                </pagination>
             </div>
         </div>
     </div>
@@ -419,12 +416,10 @@
 <script>
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
-    import Pagination from 'laravel-vue-pagination'
 
     export default {
          components: {
-            VueSlider,
-            Pagination
+            VueSlider
         },
         props: {
             type: String,
@@ -434,10 +429,12 @@
         },
         data() {
             return{
-                listings: {},
+                listings: [],
+                page: 2,
                 total: null,
                 from: null,
                 to: null,
+                loadable: false,
                 priceRange: [0,5000],
                 sortBy: 'latest',
                 showFilter: false,
@@ -469,37 +466,70 @@
                 this.sortBy = sortBy;
                 this.getListings();
             },
-            getListings(page = 1){
-                const key = this.$dlg.mask()
-                axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.priceRange[0]}/${this.priceRange[1]}/${this.lat}/${this.lng}?page=${page}`)
-                    .then( res => {
-                        if(res.data.meta.total > 0) {
-                            this.listings = res.data;
-                            this.total = res.data.meta.total;
-                            this.from = res.data.meta.from;
-                            this.to = res.data.meta.to;
+            getListings(){
+                const key = this.$dlg.mask('Loading...',{language: 'en'});
+                axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.priceRange[0]}/${this.priceRange[1]}/${this.lat}/${this.lng}`)
+                    .then( ({ data }) => {
+                        if(data.meta.total > 0) {
+                            data.data.map(item => {
+                                this.listings.push(item);
+                            });
+                            this.total = data.meta.total;
+                            this.from = data.meta.from;
+                            this.to = data.meta.to;
+                            data.links.next ? this.loadable = true : false;
                             this.showListings = true;
-
                         }else{
                             this.showListings = false;
                         }
-                        this.$dlg.close(key)
-                        console.log(this.listings);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
+                        this.$dlg.close(key);
                     });
 
             },
-            priceChange(price)
-            {
+            priceChange(price){
                 this.priceRange = price;
                 this.getListings();
+            },
+            loadMore() {
+                const key = this.$dlg.mask('Loading...',{language: 'en'});
+                axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.priceRange[0]}/${this.priceRange[1]}/${this.lat}/${this.lng}?page=${this.page}`)
+                    .then( ({ data }) => {
+                        if(data.data.length > 0) {
+                            data.data.map(item => {
+                                this.listings.push(item);
+                            });
+                            this.page += 1;
+                            data.links.next ? this.loadable = true: false;
+
+                        }else{
+                            this.loadable = false;
+                            this.$dlg.toast('No more Listings!', {
+                                messageType: 'error',
+                                language: 'en',
+                                closeTime: 1 // auto close dialog time(second)
+                            });
+                        }
+                        this.$dlg.close(key);
+                    });
+                   
+            }, 
+            scrollBottom(){
+                window.onscroll = () => {
+                    let bottomOfWindow = Math.max(window.pageYOffset, document.documentElement.scrollTop, document.body.scrollTop) + window.innerHeight === document.documentElement.offsetHeight;
+                    if (bottomOfWindow && this.loadable) {
+                        this.loadMore();
+                    }
+                }
+                    
             }
+            
     
         },
         created() {
             this.getListings();
+        },
+        mounted(){
+            this.scrollBottom();
         }
     }
 </script>
@@ -519,9 +549,13 @@
     .pricing{
         word-spacing: -4px;
     }
-    .dollar{
+    .list-view .dollar{
         font-size: 10px;
         vertical-align: .33vw;
+    }
+    .grid-view .dollar{
+        font-size: 18px;
+        vertical-align: 1.88vw;
     }
     .budget >>> .vue-slider-process {
         background-color: #21880e;

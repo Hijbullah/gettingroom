@@ -7,9 +7,14 @@
                     <img src="{{ asset('frontend/images/logo-sm.png') }} " alt="logo" class="gr-logo-sm">
                 </a>
             </div>
-            <div class="search-box py-2 px-3" style="width: 100%">
+            {{-- <div class="search-box py-2 px-3" style="width: 100%">
                 <input class="w-100 form-control border-0 font-18" value="{{ session('location') ? session('location')['location'] : '' }}" type="search" id="placesearch" placeholder="Search Place" autocomplete="off">
                 <div id="place-content" class="place-content d-none"></div>
+            </div> --}}
+            <div class="search-box py-2 px-3" style="width: 100%">
+                @if(request()->is('lists*') || request()->is('listings/*'))
+                <input class="w-100 form-control border-0 font-18" type="text" id="autocomplete" placeholder="Search Place" autocomplete="off">
+                @endif
             </div>
             <div class="border-left px-3 py-2 d-none d-md-block">
                 <select class="selectpicker show-tick" data-size="3" data-width="100%" data-style="custom-picker">
@@ -45,8 +50,8 @@
                             Login With Email</option>
                     </select>
                 </div>
-                @endguest
-                <div class="b-r-1 px-3 py-2 d-md-block position-relative">
+            @endguest
+                <div class="b-r-1 px-3 py-2 d-none d-md-block position-relative">
                     <a href="{{ url('/support') }}" class="">
                         <span class="text-success font-30"><i class="far fa-question-circle"></i></span>
                         @if($supportCount)
@@ -63,7 +68,7 @@
                         @endif
                     </a>
                 </div>
-                <div class="b-r-1 px-3 py-2">
+                <div class="b-r-1 px-3 py-2 d-none d-md-block">
                     <a href="#" id="account-dropdown" class="user" data-toggle="dropdown">
                         <img src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : asset('frontend/images/user-defult.png') }}" alt="">
                     </a>
@@ -112,8 +117,8 @@
                     </a>
                 </div>
             @endauth
-            <div class=" px-3 py-2 color-main-bg d-none">
-                <a href="#" class="text-white font-30"><i class="fas fa-bars"></i></a>
+            <div class="drawer-toggle px-3 pt-2 d-md-none">
+                <a href="#" class="color-main-text font-30"><i class="fas fa-bars"></i></a>
             </div>
         </div>
     </nav>

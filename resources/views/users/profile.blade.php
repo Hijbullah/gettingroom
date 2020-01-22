@@ -4,7 +4,7 @@
 <section class="single-user-listing p-2 mt-4">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-4 col-md-5 col-12">
                 @if((Auth::check() && Auth::id() === $user->id) && (!$user->email_verified || !$user->phone_verified || !$user->subscribed('default')) )
                 <div class="bg-success py-5 px-3 mb-2 text-center">
                     <p class="text-white mb-3">Account verification is incomplete.</p>
@@ -14,13 +14,22 @@
                 @endif
                 <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                     <div class="single-user-img">
-                        <a href="#">
+                        <a href="{{ url('/profile') . '/' . $user->id }}">
                             <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic">
-                            <span class="badge badge-success profile-check"><i class="fas fa-check"></i></span>
                         </a>
                     </div>
                     <div class="single-user-info py-3">
-                        <a href="{{ url('/profile') . '/' . $user->id }}" class="text-success"><h3 class="font-25">{{ $user->first_name . ' ' . $user->last_name }}</h3></a>
+                        <a href="{{ url('/profile') . '/' . $user->id }}" class="text-success">
+                            <h3 class="font-25 profile-name">
+                                {{ $user->first_name . ' ' . $user->last_name }}
+                                @if($user->email_verified && $user->phone_verified && $user->subscribed('default'))
+                                <span class="badge badge-success profile-check"><i class="fas fa-check"></i></span>
+                                @else
+                                <span class="badge badge-secondary profile-check"><i class="fas fa-check"></i></span>
+                                @endif
+                            </h3>
+                        </a>
+                       
                         @if($user->dob)
                         <p class="font-20">{{ $user->dob ? Carbon\Carbon::parse($user->dob)->diffInYears(Carbon\Carbon::now()) : '' }}</p>
                         @endif
@@ -91,8 +100,8 @@
                 </div>
             </div>
 
-            <div class="col-lg-8 col-md-8 col-12">
-                <div class="gr-content pad-tb-20">
+            <div class="col-lg-8 col-md-7 col-12">
+                <div class="gr-content">
                     <div class="row">
                         @if (session('status'))
                         <div class="col">
@@ -103,7 +112,7 @@
                         @endif
                         @if($user->language || $user->city || $user->about)
                         <div class="col-12">
-                            <div class="card">
+                            <div class="card mb-3">
                                 <div class="card-body">
                                     <ul class="list-group">
                                         @if($user->language)

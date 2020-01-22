@@ -33,7 +33,7 @@ class ListingController extends Controller
                 }
             })
             ->whereBetween('monthly_rent', [$min, $max])
-            ->paginate(15);
+            ->paginate(2);
         
         return Listings::collection($data);
     }

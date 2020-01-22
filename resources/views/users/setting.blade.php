@@ -113,9 +113,9 @@
                             <h4 class="font-18 mb-3">Notifications</h4>
                         </div>
                         <div class="col-md-9">
-                            <p class="mb-2">Gettingroom notification settings allow you to control what notifications get
+                            <p class="mb-2 color-main-text">Gettingroom notification settings allow you to control what notifications get
                                 delivered via email to {{ Auth::user()->email }}</p>
-                            <p class="py-2">New messages waiting in your mailbox
+                            <p class="py-2">New messages waiting <span class="d-sm-none"><br></span> in your mailbox
                                 <label class="custom-switch float-right">
                                     <input type="checkbox" checked>
                                     <span class="slider round"></span>
@@ -148,7 +148,7 @@
                             <h4 class="font-18 mb-2">Status</h4>
                         </div>
                         <div class="col-sm-9">
-                            <p>Active. Visible to Gettingroom users
+                            <p>Active. Visible to Gettingroom <span class="d-sm-none"><br></span> users
                                 <label class="custom-switch float-right">
                                     <input type="checkbox" checked>
                                     <span class="slider round"></span>
@@ -165,14 +165,14 @@
                         </div>
                         <div class="col-sm-9">
                             @if(!Auth::user()->subscribed('default'))
-                                <p class="mb-3">You are a free user.</p>
+                                <p class="mb-3 font-weight-bold">You are a free user.</p>
                                 <p class="mb-3">Upgrade and Unlock Gettingroom Mailbox <br> and Gettingroom Social Connect</p>
-                                <a href="/upgrade/plans" class="btn btn-warning font-20">Upgrade Your Account</a>
+                                <a href="/upgrade/plans" class="btn btn-warning font-18">Upgrade Your Account</a>
                             @elseif(Auth::user()->subscription('default')->onGracePeriod())
                                 <p class="mb-3">
                                     You have cancelled your Subscription. <br>
                                     Your subscription Period will end at <span class="color-main-text">{{ Auth::user()->subscriptions->first()->ends_at->toDayDateTimeString() }}</span><br>
-                                    Till that you have fully access to the <span class="color-main-text font-wight-bold">Gettingroom Mailbox and Social Connect</span>
+                                    Till that you have fully access of the <span class="color-main-text font-wight-bold">Gettingroom Mailbox and Social Connect</span>
                                 </p>
                                 @if(Auth::user()->subscribedToPlan('311', 'default'))
                                 <p class="mb-3">Your plan was: 5 Days at $9.99</p>
@@ -192,8 +192,8 @@
                                 <p class="mb-3">Your plan was: 30 Days at $39.99</p>
                                 @endif
                             @else
-                                <p>You are a Premium user.</p>
-                                <p class="mb-3">Now you have fully access to the <span class="color-main-text font-wight-bold">Gettingroom Mailbox and Social
+                                <p class="font-weight-bold text-center text-sm-left">You are a Premium user.</p>
+                                <p class="mb-3">Now you have fully access of the <span class="color-main-text font-wight-bold">Gettingroom Mailbox and Social
                                     Connect</span></p>
                                 @if(Auth::user()->subscribedToPlan('311', 'default'))
                                 <p class="mb-3">Your plan is: 5 Days at $9.99</p>
@@ -213,7 +213,7 @@
                                 @if(Auth::user()->subscribedToPlan('313', 'default') && !Auth::user()->subscription('default')->onTrial())
                                 <p class="mb-3">Your plan is: 30 Days at $39.99</p>
                                 @endif
-                                <a href="/upgrade/cancel" class="btn btn-warning font-20">Cancel Subscription</a>
+                                <a href="/upgrade/cancel" class="btn btn-warning font-18">Cancel Subscription</a>
                             @endif
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr class="color-main-text">
-                                        <th>Date (Estern Time)</th>
+                                        <th>Date</th>
                                         <th>Duration</th>
                                         <th>price</th>
                                     </tr>

@@ -1,6 +1,6 @@
 <template>
     <div class="conversation">
-        <h1 class="py-4">{{ contact ? fullName : 'Select a Contact' }}</h1>
+        <h1 class="py-3 px-4">{{ contact ? fullName : 'Select a Contact' }}</h1>
         <MessagesFeed :contact="contact" :messages="messages"/>
         <MessageComposer @send="sendMessage"/>
     </div>
@@ -46,14 +46,13 @@
 
 <style lang="scss" scoped>
 .conversation {
-    flex: 5;
+    flex: 2;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
     h1 {
-        font-size: 20px;
-        padding: 10px;
+        font-size: 18px;
         margin: 0;
         border-bottom: 1px dashed lightgray;
     }

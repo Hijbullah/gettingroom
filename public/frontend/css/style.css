@@ -132,40 +132,40 @@ a.color-main-bg:hover{
 
 /* custom element */
 .custom-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 30px;
 }
 
 .custom-switch input { 
-  opacity: 0;
-  width: 0;
-  height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
 .custom-switch .slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .custom-switch .slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+    position: absolute;
+    content: "";
+    height: 23px;
+    width: 23px;
+    left: -2px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
 }
 
 .custom-switch input:checked + .slider {
@@ -245,7 +245,7 @@ a.color-main-bg:hover{
     border: 2px solid #3e983e;
     border-radius: 10px;
     background: #fff;
-    padding: 8px 10px;
+    padding: 6px 10px;
     font-size: 16px;
 }
 .dropdown-toggle.custom-picker:focus{
@@ -255,6 +255,61 @@ a.color-main-bg:hover{
 .dropdown-toggle.custom-picker:after {
     color: #3e983e !important;
 }
+.custom-picker-drawer {
+    color: #000;
+    border: 2px solid #3e983e;
+    border-radius: 10px;
+    background: #fff;
+    padding: 4px 10px;
+    font-size: 14px;
+}
+.dropdown-toggle.custom-picker-drawer:focus{
+    outline: none !important;
+    box-shadow: none !important;
+}
+.dropdown-toggle.custom-picker-drawer:after {
+    color: #3e983e !important;
+}
+
+/* mobile drawer */
+
+.drawer-nav {
+    z-index: 323332;
+}
+
+.drawer-nav .drawer-content{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.drawer-nav .user-profile{
+    height: 120px;
+    width: 100%;
+    padding: 30px 10px 10px;
+    background:  linear-gradient(
+      rgba(0, 0, 0, 0.3), 
+      rgba(0, 0, 0, 0.3)
+    ), url('/frontend/images/add-listing/add-listing.webp');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.drawer-nav .user-profile .avatar{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.drawer-nav .user-profile .avatar img{
+    height: 100%;
+    width: 100%;
+}
+.drawer-nav .bottom-btn{
+    position: absolute;
+    bottom: 10px;
+    left: 7px;
+}
+
 /* custom element */
 
 /*carousel css start*/
@@ -278,14 +333,12 @@ a.color-main-bg:hover{
 	border-radius: 20px;
 	width: 40px;
 	height: 40px;
-	display: inline-block;
-	text-align: center;
-	line-height: 32px;
-	padding-left: 2px;
+    display: inline-block;
+    overflow: hidden;
 }
 .main-menu .user img {
-	width: 25px;
-	height: 25px;
+	width: 100%;
+	height: 100%;
 }
 .menu-width-45{ width: 45%;}
 .menu-width-10{ width: 10%;}
@@ -416,10 +469,11 @@ a.color-main-bg:hover{
 	height: 55px;
 }
 .list-view .listing-single .listing-contact .icon {
-	padding: 8px;
-	width: 35px;
-	height: 35px;
-	border-radius: 5px;
+	padding: 4px 8px;
+	width: 28px;
+	height: 28px;
+    border-radius: 5px;
+    line-height: 20px;
 }
 /*Grid view start*/
 
@@ -433,7 +487,7 @@ a.color-main-bg:hover{
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	height: 200px;
+	height: 300px;
 }
 .grid-view .listing-single .listing-img .content:after{
 	content:"";
@@ -456,11 +510,11 @@ a.color-main-bg:hover{
 	left: 0;
 }
 .grid-view .listing-single .listing-user img {
-	width: 66px;
-	height: 66px;
+	width: 100px;
+	height:100px;
 	background: #fff;
 	position: absolute;
-	right: 15px;
+	right: 30px;
 	bottom: -15px;
 	border: 2px solid #fff;
 	box-sizing: border-box;
@@ -468,8 +522,9 @@ a.color-main-bg:hover{
 }
 .grid-view .listing-single .listing-user-text {
 	position: absolute;
-	right: 10px;
-	bottom: 36px;
+	right: 20px;
+    bottom: 75px;
+    font-size: 17px;
 }
 .grid-view .listing-single .listing-contact .icon {
 	padding: 8px;
@@ -492,16 +547,17 @@ a.color-main-bg:hover{
 	
 	border-radius: 50%;
 }
-.single-user-listing .user-profile .single-user-img .profile-check {
-	position: absolute;
-	bottom: 0px;
+.single-user-info .profile-name{
+    position: relative;
+}
+.single-user-listing .user-profile .profile-name .profile-check {
 	border-radius: 70px;
 	width: 25px;
 	height: 25px;
 	font-size: 14px;
 	line-height: 20px;
-	padding: 4px;
-	right: 5px;
+    padding: 4px;
+    margin-left: 5px;
 }
 .listing-user-social-verify-block .rounded {
 	border-radius: 50px !important;
@@ -509,6 +565,28 @@ a.color-main-bg:hover{
 	font-size: 12px;
 	line-height: 10px;
 	margin-right: 5px;
+}
+
+.listing-image-gellery{
+    position: relative;
+}
+.listing-image-gellery .intro-left{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    z-index: 999;
+}
+.listing-image-gellery .intro-right{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 999;
+}
+.listing-image-gellery .pricing{
+    position: absolute;
+    left: 10px;
+    bottom: 70px;
+    z-index: 999;
 }
 /*single-user-listing end*/
 
@@ -567,7 +645,7 @@ a.color-main-bg:hover{
 
 
 .new-listing-area .card {
-	padding: 100px 0;
+	padding: 100px 0 75px;
 	margin-bottom: 40px;
     border-radius: 15px;
     cursor: pointer;
@@ -673,8 +751,6 @@ a.color-main-bg:hover{
     height: 64px;
     width: 64px;
     border-radius: 50%;
-    border: 1px solid #e2e2e2;
-    background-color: #fff;
 }
 .support .support-form textarea {
     width: 100%;
@@ -717,9 +793,120 @@ a.color-main-bg:hover{
 	}
 	.choose-package .content p {
 		font-size: 16px !important;
-	}
+    }
+    
+    .new-listing-area .new-listing h2{
+        font-size: 18px !important;
+    }
+    .new-listing-area h4{
+        font-size: 16px;
+    }
 
+    .new-listing .button {
+        width: 40%;
+        padding: 5px 10px;
+    }
+
+    .new-listing-area .card {
+        padding: 40px 0 40px;
+        margin-bottom: 0;
+        font-size: 15px !important;
+    }
+
+    .single-user-listing div.bg-success{
+        padding: 15px 0 !important;
+    }
+
+    .gr-lokingn a {
+        margin: 0 2px;
+        padding: 8px 8px;
+        font-size: 14px;
+    }
+
+    .gallery.budget p{
+        font-size: 16px !important;
+    }
+
+    .grid-view .listing-single img {
+        height: 250px;
+    }
+
+    .grid-view .listing-single .listing-user img {
+        width: 60px;
+        height: 60px;
+        right: 15px;
+        bottom: -15px;
+    }
+
+    .grid-view .listing-single .listing-user-text {
+        right: 5px;
+        bottom: 34px;
+        font-size: 13px;
+    }
+
+    .grid-view .pricing .price{
+        font-size: 25px !important;
+    }
+    .grid-view .dollar{
+        font-size: 13px !important;
+        vertical-align: 1.88vw !important;
+    }
+    .not-found .card-body{
+        padding: 1rem !important;
+    }
+    .not-found .heading.font-20{
+        font-size: 16px !important;
+    }
+    .not-found h4{
+        font-size: 14px !important;
+    }
+    .setting p {
+        font-size: 15px;
+    }
+
+    .custom-switch {
+        width: 45px;
+        height: 25px;
+    }
+
+    .custom-switch .slider:before {
+        height: 20px;
+        width: 20px;
+        left: -4px;
+        bottom: 3px;
+    }
+
+    .payment .select-plan{
+        min-height: 105px !important;
+        padding-top: 10px !important;
+    }
+    .payment .select-plan h2{
+       font-size: 30px !important;
+    }
+    .payment .select-plan p{
+       margin: 10px 0 !important;
+       word-spacing: -5px;
+    }
+    .payment .select-plan p span:first-child, .payment .select-plan p span:last-child{
+       font-size: 16px !important;
+    }
+    .payment .select-plan p span{
+       font-size: 23px !important;
+    }
+    /* .contacts-list[data-v-7feb1f1e] {
+        -webkit-box-flex: 3 !important;
+        flex: 3 !important;
+    } */
 }
+
+@media only screen and (max-width: 410px){
+    .gr-lokingn a {
+        margin: 0 1px;
+        padding: 7px 2px;
+        font-size: 13px;
+    }
+}
+
 /* Small devices (portrait tablets and large phones, 600px and up) sm */
 @media only screen and (min-width: 576px) and (max-width: 767.98px){
 
@@ -745,7 +932,55 @@ a.color-main-bg:hover{
 	}
 	.choose-package .content p {
 		font-size: 16px !important;
-	}
+    }
+     
+    .new-listing-area .new-listing h2{
+        font-size: 25px !important;
+    }
+
+    .new-listing-area h4{
+        font-size: 18px;
+    }
+
+    .new-listing-area .card {
+        padding: 80px 0 50px;
+        margin-bottom: 0;
+    }
+
+    .new-listing .button {
+        width: 40%;
+        padding: 7px 10px;
+    }
+
+    .single-user-listing div.bg-success{
+        padding: 15px 0 !important;
+    }
+    .not-found .card-body{
+        padding: 2rem !important;
+    }
+    .not-found .heading.font-20{
+        font-size: 18px !important;
+    }
+    .not-found h4{
+        font-size: 15px !important;
+    }
+    .payment .select-plan{
+        min-height: 105px !important;
+        padding-top: 10px !important;
+    }
+    .payment .select-plan h2{
+       font-size: 30px !important;
+    }
+    .payment .select-plan p{
+       margin: 10px 0 !important;
+       word-spacing: -5px;
+    }
+    .payment .select-plan p span:first-child, .payment .select-plan p span:last-child{
+       font-size: 16px !important;
+    }
+    .payment .select-plan p span{
+       font-size: 23px !important;
+    }
 } 
 
 /* Medium devices (landscape tablets, 768px and up)  md */

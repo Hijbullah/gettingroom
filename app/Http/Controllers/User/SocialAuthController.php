@@ -14,11 +14,11 @@ class SocialAuthController extends Controller
 {
     public function redirectToProvider($provider)
     {
-        if($provider == 'linkedin')
-        {
-            return Socialite::driver($provider)
-                ->redirect();
-        }
+        // if($provider == 'linkedin')
+        // {
+        //     return Socialite::driver($provider)
+        //         ->redirect();
+        // }
         return Socialite::driver($provider)
             ->redirect();
     }
@@ -27,7 +27,7 @@ class SocialAuthController extends Controller
     {
         try {
             $user = Socialite::driver($provider)->user();
-            return response()->json($user);
+            // return response()->json($user);
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
             return $e->getMessage();

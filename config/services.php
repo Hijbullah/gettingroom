@@ -30,6 +30,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'google_maps' => [
+        'key' => env('GOOGLE_MAPS_API_KEY'),
+    ],
+
     'twilio' => [
         'TWILIO_AUTH_TOKEN'  => env('TWILIO_AUTH_TOKEN'),
         'TWILIO_ACCOUNT_SID' => env('TWILIO_ACCOUNT_SID')

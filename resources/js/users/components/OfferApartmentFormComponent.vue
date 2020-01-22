@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="listing-form-area py-5">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="form-basic-info">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 d-none d-md-block">
                                 <div class="basic-form mb-4">
                                     <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Continue</button>
                                     <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
@@ -43,18 +43,18 @@
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="title" class="label">Title</label>
+                                                <label for="title" class="label font-20 font-weight-bold text-muted">Headline</label>
                                                 <input id="title" 
                                                     name="title" 
                                                     type="text" 
-                                                    class="form-control" 
+                                                    class="form-control form-control-lg" 
                                                     v-model="formData.title"
-                                                    placeholder="Title Here"
+                                                    placeholder="Headline"
                                                 >
                                                 <has-error :form="formData" field="title"></has-error>
                                             </div>
                                             <div class="form-group">
-                                                <label class="label" for="location">Location</label>
+                                                <label class="label font-20 font-weight-bold text-muted" for="location">Location</label>
                                                 <PlaceAutocomplete 
                                                     @selected = 'placeSelected'
                                                     @clear = 'cancelled'
@@ -78,6 +78,7 @@
                                                         class="form-control" 
                                                         name="monthly_rent" 
                                                         v-model="formData.monthly_rent"
+                                                        placeholder="500"
                                                     >
                                                     <has-error :form="formData" field="monthly_rent"></has-error>
                                                 </div>
@@ -129,6 +130,7 @@
                                                     <v-select
                                                         v-model="formData.minimum_stay"
                                                         :options="storeData.minimumStay.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
@@ -139,8 +141,11 @@
                                 <div class="description mt-5">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
+                                            <h2 class="form-title">Description</h2>
                                             <div class="form-group">
-                                                <label for="description" class="label">Description</label>
+                                                <p
+                                                    class="form-text color-main-text mb-3"
+                                                >Try to have at least 20 words. Our most successful listings are more than 160 words long.</p>
                                                 <textarea name="description" 
                                                     class="form-control" 
                                                     id="description" 
@@ -159,20 +164,22 @@
                                         <div class="card-body">
                                             <h2 class="form-title">Residence</h2>
                                             <div class="form-group row">
-                                                <label for="bedroom" class="col-sm-3 col-form-label">Bed Room</label>
-                                                <div class="col-sm-9">
+                                                <label for="bedroom" class="col-sm-6 col-form-label">Bed Room</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.bedroom"
                                                         :options="storeData.bedroom.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="bathroom" class="col-sm-3 col-form-label">Bath Room</label>
-                                                <div class="col-sm-9">
+                                                <label for="bathroom" class="col-sm-6 col-form-label">Bath Room</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.bathroom"
                                                         :options="storeData.bathroom.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
@@ -184,6 +191,7 @@
                                                         class="form-control" 
                                                         name="measurement" 
                                                         v-model="formData.measurement"
+                                                        placeholder="Example: 1250"
                                                     >
                                                     <has-error :form="formData" field="measurement"></has-error>
                                                 </div>
@@ -192,13 +200,14 @@
                                                     <v-select 
                                                         :options="storeData.measurementUnit.options"
                                                         v-model="formData.measurement_unit"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                     <has-error :form="formData" field="measurement_unit"></has-error>
                                                 </div>
                                             </div>    
                                             <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Is Furnished?</label>
-                                                <div class="col-sm-9">
+                                                <label class="col-sm-6 col-form-label">Is Furnished?</label>
+                                                <div class="col-sm-6">
                                                     <div class="custom-control custom-radio mr-sm-2 custom-control-inline">
                                                         <input type="radio" 
                                                             name="is_furnished" 
@@ -221,7 +230,7 @@
                                             </div>
                                             <h2 class="form-title">Amenities</h2>
                                             <div class="form-row">
-                                                <div class="col-6" v-for="amenity in storeData.apartmentAmenities" :key="amenity.name">
+                                                <div class="col-12 col-sm-6" v-for="amenity in storeData.apartmentAmenities" :key="amenity.name">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" 
                                                             class="custom-control-input" 

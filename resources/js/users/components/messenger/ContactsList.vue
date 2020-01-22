@@ -1,12 +1,20 @@
 <template>
     <div class="contacts-list">
         <ul>
-            <li v-for="contact in sortedContacts" :key="contact.id" @click="selectContact(contact)" :class="{ 'selected': contact == selected }">
-                <div class="avatar">
-                    <img :src="contact.avatar ? contact.avatar : '/frontend/images/user-defult.png'" :alt="contact.name">
+            <li class="bg-white">
+                 <div class="avatar">
+                    <img :src="user.avatar ? '/storage/' + user.avatar : '/frontend/images/user-defult.png'" alt="user.first_name">
                 </div>
                 <div class="contact">
-                    <p class="name">{{ contact.first_name + ' ' + contact.last_name }}</p>
+                    <p class="name">{{ user.first_name }}</p>
+                </div>
+            </li>
+            <li v-for="contact in sortedContacts" :key="contact.id" @click="selectContact(contact)" :class="{ 'selected': contact == selected }">
+                <div class="avatar">
+                    <img :src="contact.avatar ? '/storage/' + contact.avatar : '/frontend/images/user-defult.png'" :alt="contact.name">
+                </div>
+                <div class="contact">
+                    <p class="name">{{ contact.first_name }}</p>
                 </div>
                 <span class="unread" v-if="contact.unread">{{ contact.unread }}</span>
             </li>
@@ -20,6 +28,10 @@
             contacts: {
                 type: Array,
                 default: []
+            },
+            user: {
+                type: Object,
+                required: true
             }
         },
         data() {
@@ -53,10 +65,10 @@
 
 <style lang="scss" scoped>
 .contacts-list {
-    flex: 2;
+    flex: 1;
     max-height: 100%;
     height: 600px;
-    overflow: scroll;
+    overflow: auto;
     border-left: 1px solid #a6a6a6;
     
     ul {
@@ -67,7 +79,7 @@
             display: flex;
             padding: 2px;
             border-bottom: 1px solid #aaaaaa;
-            height: 80px;
+            height: 50px;
             position: relative;
             cursor: pointer;
 
@@ -116,8 +128,8 @@
                     margin: 0;
 
                     &.name {
-                        font-weight: bold;
-                        font-size: 18px;
+                        font-weight: 400;
+                        font-size: 16px;
                     }
                 }
             }

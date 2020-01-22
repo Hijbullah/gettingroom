@@ -18,12 +18,13 @@
     </div>
     <div class="images-preview" v-show="images.length">
         <div class="row no-gutters">
-            <div class="col-3">
+            <div class="col-12 col-md-3">
                 <div class="upload-control" v-show="images.length">
-                    <label for="file"><span>+</span></label>
+                    <label for="file" class="d-none d-md-block"><span>+</span></label>
+                    <label for="file" class="d-md-none"><span>Add more images</span></label>
                 </div>
             </div>
-            <div class="col-9">
+            <div class="col-12 col-md-9">
                 <div class="img-wrapper">
                     <swiper :options="swiperOption">
                         <swiper-slide v-for="(image, index) in images" :key="index">
@@ -171,11 +172,11 @@ export default{
         }
     }
 </style>
-<style>
-    .upload-main-control{
-        margin-top: 30px;
-    }
-   .swiper-container {
+<style scoped>
+.upload-main-control{
+    margin-top: 30px;
+}
+.swiper-container {
     width: 100%;
     height:100%;
 }
@@ -196,4 +197,31 @@ export default{
     font-size: 25px;
     cursor: pointer;
 }
+
+ /* Extra small devices (phones, 576 and down) xs */
+@media only screen and (max-width: 575.98px) {
+    .images-preview .upload-control {
+        width: 100%;
+        height: 40px;
+        border-radius: 15px;
+        margin-bottom: 3px; 
+    }
+    .images-preview .upload-control label span{
+        font-size: 16px;
+        font-weight: 700;
+    }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) sm */
+@media only screen and (min-width: 576px) and (max-width: 767.98px){
+ .images-preview .upload-control {
+        width: 100%;
+        height: 40px;
+        border-radius: 15px;
+        margin-bottom: 3px; 
+    }
+    .images-preview .upload-control label span{
+        font-size: 16px;
+        font-weight: 700;
+    }
+} 
 </style>

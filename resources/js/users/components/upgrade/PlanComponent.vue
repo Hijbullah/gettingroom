@@ -3,7 +3,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-11 m-auto">
-						<h1 class="p-3 mb-3 font-weight-normal text-center">1. Choose a package</h1>
+						<h1 class="p-3 mb-3 font-weight-normal text-center">Choose a package</h1>
 						<div class="row">
 							<div class="col-md-3 col-sm-6">
 								<div class="g-card font-20 text-center py-3 mb-4" 
@@ -68,46 +68,6 @@
 				</div>
 			</div>
 		</section>
-    <!-- <div class="container">
-        <h2 class="my-5 text-center">Choose Packages</h2>
-        <div class="row justify-content-center">
-            <div class="col-3"  
-                v-for="plan in plans"
-                :key="plan.id"
-            >
-                <div
-                    class="card shadow-none package"
-                    :class="[selectedPlan == plan.id ? 'active' : '']"
-                    @click="selectPlan(plan.id)" 
-                >
-                    <div class="card-body bg-light text-center">
-                        <h2 class="text-success">{{ plan.nickname }} </h2>
-                        <p>(Trials: {{ plan.trial_period_days }} days )</p>
-                        <hr>
-                        <p>Price: ${{ plan.amount_decimal / 100}} <sup>{{ plan.currency }}</sup></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-3"  
-            >
-                <div
-                    class="card shadow-none package"
-                >
-                    <div class="card-body bg-light text-center">
-                        <h2 class="text-success">1 Days Free </h2>
-                        <p>this is full free for one days</p>
-                        <hr>
-                        <p>Price: 0 </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col text-center mt-5">
-                <button class="btn btn-success" :disabled="disabled" @click="continueToPay">Continue</button>
-            </div>
-        </div>
-    </div> -->
 </template>
 
 <script>

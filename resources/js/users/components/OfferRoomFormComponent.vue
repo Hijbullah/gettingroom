@@ -29,10 +29,10 @@
                 </div>
             </div>
             <div class="listing-form-area py-5">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="form-basic-info">
                         <div class="row">
-                            <div class="col-12">
+                            <div class="col-12 d-none d-md-block">
                                 <div class="basic-form mb-4">
                                     <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Continue</button>
                                     <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
@@ -43,18 +43,18 @@
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="title" class="label">Title</label>
+                                                <label for="title" class="label font-20 font-weight-bold text-muted">Headline</label>
                                                 <input id="title" 
                                                     name="title" 
                                                     type="text" 
-                                                    class="form-control" 
+                                                    class="form-control form-control-lg" 
                                                     v-model="formData.title"
-                                                    placeholder="Title Here"
+                                                    placeholder="Headline"
                                                 >
                                                 <has-error :form="formData" field="title"></has-error>
                                             </div>
                                             <div class="form-group">
-                                                <label class="label" for="location">Location</label>
+                                                <label class="label font-20 font-weight-bold text-muted" for="location">Location</label>
                                                 <PlaceAutocomplete 
                                                     @selected = 'placeSelected'
                                                     @clear = 'cancelled'
@@ -77,6 +77,7 @@
                                                         id="monthly_rent" 
                                                         class="form-control" 
                                                         name="monthly_rent" 
+                                                        placeholder="500"
                                                         v-model="formData.monthly_rent"
                                                     >
                                                     <has-error :form="formData" field="monthly_rent"></has-error>
@@ -128,6 +129,7 @@
                                                     <label for="minimum_stay">Minimum Stay</label>
                                                     <v-select
                                                         v-model="formData.minimum_stay"
+                                                        placeholder="Select"
                                                         :options="storeData.minimumStay.options"
                                                     ></v-select>
                                                 </div>
@@ -138,8 +140,11 @@
                                 <div class="description mt-5">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
+                                            <h2 class="form-title">Description</h2>
                                             <div class="form-group">
-                                                <label for="description" class="label">Description</label>
+                                                <p
+                                                    class="form-text color-main-text mb-3"
+                                                >Try to have at least 20 words. Our most successful listings are more than 160 words long.</p>
                                                 <textarea name="description" 
                                                     class="form-control" 
                                                     id="description" 
@@ -156,6 +161,7 @@
                                                     <v-select
                                                         v-model="formData.building_type"
                                                         :options="storeData.buildingType.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
@@ -217,7 +223,7 @@
                                             </div>
                                             <h2 class="form-title">Amenities</h2>
                                             <div class="form-row">
-                                                <div class="col-6" v-for="amenity in storeData.amenities" :key="amenity.name">
+                                                <div class="col-12 col-sm-6" v-for="amenity in storeData.amenities" :key="amenity.name">
                                                     <div class="custom-control custom-checkbox">
                                                         <input type="checkbox" 
                                                             class="custom-control-input" 
@@ -240,9 +246,9 @@
                                         <div class="card-body">
                                             <h2 class="form-title">Household</h2>
                                             <div class="form-group row age">
-                                                <label for="customRange1" class="col-sm-3 col-form-label">Household
+                                                <label for="customRange1" class="col-sm-4 col-form-label">Household
                                                     Age</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-8">
                                                     <vue-slider 
                                                         v-model= "formData.household_age" 
                                                         :min= "18" 
@@ -252,15 +258,15 @@
                                                         :height= "5"
                                                         :dotSize= "16"
                                                     ></vue-slider>
-                                                    <p>Min Age: {{ formData.household_age[0] }} and Max Age: {{ formData.household_age[1] }}</p>
+                                                    <p class="text-center">Min: {{ formData.household_age[0] }} and Max: {{ formData.household_age[1] }}</p>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="people_in_household" class="col-sm-3 col-form-label">People in
+                                                <label for="people_in_household" class="col-sm-6 col-form-label">People in
                                                     Household</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
-                                                        placeholder="People in household"
+                                                        placeholder="Select"
                                                         v-model="formData.people_in_household"
                                                         :options="storeData.peopleInHousehold.options"
                                                     >
@@ -268,106 +274,116 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="household_sex" class="col-sm-3 col-form-label">Household
+                                                <label for="household_sex" class="col-sm-6 col-form-label">Household
                                                     Sex</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.household_sex"
                                                         :options="storeData.householdSex.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <h2 class="form-title">Life Style</h2>
                                             <div class="form-group row">
-                                                <label for="cleanliness" class="col-sm-3 col-form-label">Cleanliness</label>
-                                                <div class="col-sm-9">
+                                                <label for="cleanliness" class="col-sm-6 col-form-label">Cleanliness</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.cleanliness"
                                                         :options="storeData.cleanliness.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="overnight_guest" class="col-sm-3 col-form-label">Overnight
+                                                <label for="overnight_guest" class="col-sm-6 col-form-label">Overnight
                                                     Guast</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.overnight_guest"
                                                         :options="storeData.overnightGuests.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="party_habit" class="col-sm-3 col-form-label">Party
+                                                <label for="party_habit" class="col-sm-6 col-form-label">Party
                                                     Habit</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.party_habit"
                                                         :options="storeData.partyHabits.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="get_up" class="col-sm-3 col-form-label">Get Up</label>
-                                                <div class="col-sm-9">
+                                                <label for="get_up" class="col-sm-6 col-form-label">Get Up</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.get_up"
                                                         :options="storeData.getUp.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="go_to_bed" class="col-sm-3 col-form-label">Go to Bed</label>
-                                                <div class="col-sm-9">
+                                                <label for="go_to_bed" class="col-sm-6 col-form-label">Go to Bed</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.go_to_bed"
                                                         :options="storeData.goToBed.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="food_preference" class="col-sm-3 col-form-label">Food
+                                                <label for="food_preference" class="col-sm-6 col-form-label">Food
                                                     Preference</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.food_preference"
                                                         :options="storeData.foodPreference.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="smoker" class="col-sm-3 col-form-label">Smoker</label>
-                                                <div class="col-sm-9">
+                                                <label for="smoker" class="col-sm-6 col-form-label">Smoker</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.smoker"
                                                         :options="storeData.smoker.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="work_schedule" class="col-sm-3 col-form-label">Work
+                                                <label for="work_schedule" class="col-sm-6 col-form-label">Work
                                                     Schedule</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.work_schedule"
                                                         :options="storeData.workSchedule.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="occupation"
-                                                    class="col-sm-3 col-form-label">Occupation</label>
-                                                <div class="col-sm-9">
+                                                    class="col-sm-6 col-form-label">Occupation</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.occupation"
                                                         :options="storeData.occupation.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <h2 class="form-title">Room Mate Preference</h2>
                                             <div class="form-group row age">
-                                                <label for="age" class="col-sm-3 col-form-label">Age</label>
-                                                <div class="col-sm-9">
+                                                <label for="age" class="col-sm-4 col-form-label">Age</label>
+                                                <div class="col-sm-8">
                                                     <vue-slider 
                                                         v-model= "formData.prefer_age" 
                                                         :min= "18" 
@@ -377,23 +393,24 @@
                                                         :height= "5"
                                                         :dotSize= "16"
                                                     ></vue-slider>
-                                                    <p>Min Age: {{ formData.prefer_age[0] }} and Max Age: {{ formData.prefer_age[1] }}</p>
+                                                    <p class="text-center">Min: {{ formData.prefer_age[0] }} and Max: {{ formData.prefer_age[1] }}</p>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="prefer_smoker" class="col-sm-3 col-form-label">Smoke
+                                                <label for="prefer_smoker" class="col-sm-6 col-form-label">Smoke
                                                     Preference</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.prefer_smoker"
                                                         :options="storeData.preferSmoker.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Students
+                                                <label class="col-sm-6 col-form-label">Students
                                                     Only</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <div class="custom-control custom-radio mr-sm-2 custom-control-inline">
                                                         <input type="radio" 
                                                             name="prefer_student" 

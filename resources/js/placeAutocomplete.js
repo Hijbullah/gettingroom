@@ -45,7 +45,6 @@ $(document).on('click', '.address-item', function () {
 
 });
 
-$('clear')
 
 function generateDom(result){
     let html = `<ul class="list-group">`;

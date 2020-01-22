@@ -6,7 +6,7 @@
         @csrf
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-12">
+                <div class="col-lg-4 col-md-5 col-12">
                     <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                         <div class="img-holder">
                             <a href="#" title="Change Avatar">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
     
-                <div class="col-lg-8 col-md-8 col-12">
+                <div class="col-lg-8 col-md-7 col-12">
                     <div class="gr-content">
                         <div class="row">
                             <div class="col-12">
@@ -72,8 +72,8 @@
                                             <div class="col-md-6">
                                                 <label for="gender">Gender</label>
                                                 <select class="form-control" id="gender" name="gender">
-                                                    <option>Male</option>
-                                                    <option>Female</option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -109,8 +109,8 @@
                                             @enderror
                                         </div>
                                         <div class="form-group mt-5 text-center">
-                                            <button type="submit" class="btn btn-lg btn-success text-white w-25 mr-2">Update Profile</button>
-                                            <a href="{{ route('profile.show', $user->id) }}" class="btn btn-lg btn-warning text-white w-25" >Cancel</a>
+                                            <button type="submit" class="btn btn-success text-white mr-2">Update Profile</button>
+                                            <a href="{{ route('profile.show', $user->id) }}" class="btn btn-warning text-white" >Cancel</a>
                                         </div>
                                     </div>
                                 </div>

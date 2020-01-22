@@ -92,6 +92,7 @@ class HomeController extends Controller
             'language' => 'nullable|string',
             'dob' => 'nullable|date',
             'city' => 'nullable|string',
+            'gender' => 'nullable|string',
             'phone' => 'sometimes|nullable|string',
             'email' => 'sometimes|nullable|email|string|unique:users',
             'about' => 'nullable|string',
@@ -111,6 +112,7 @@ class HomeController extends Controller
         $user = User::findOrFail($id);
         $user->language = $request->language;
         $user->dob = $request->dob;
+        $user->gender = $request->gender;
         $user->city = $request->city;
         if($request->email){
             $user->email = $request->email;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Resources;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -51,8 +51,7 @@ class SingleListing extends JsonResource
                 'lng' => $this->lng
             ],
             'duration' => [
-                'move_date' => $this->move_date,
-                'leave_date' => $this->leave_date,
+                'move_date' => (Carbon::parse($this->move_date)->isFuture() && Carbon::parse($this->move_date)->addDays(3)->diffInDays(Carbon::now()) > 4) ? Carbon::parse($this->move_date)->toFormattedDateString() : 'Immediate',
                 'minimum_stay' => $this->minimum_stay
             ],
 
@@ -155,7 +154,8 @@ class SingleListing extends JsonResource
             'user' => [
                 'id' => $this->user->id,
                 'name' => $this->user->first_name . ' ' . $this->user->last_name,
-                'age' => Carbon::parse($this->user->dob)->diffInyears(Carbon::now()),
+                'gender' => $this->user->gender,
+                'age' => $this->user->dob ? Carbon::parse($this->user->dob)->diffInyears(Carbon::now()) : null,
                 'profile_url' => '/profile/' . $this->user->id,
                 'avatar' => $this->user->avatar ? Storage::url($this->user->avatar) : '/frontend/images/user-defult.png',
                 'phone' => $this->user->phone ? $this->user->phone : null,
@@ -164,6 +164,9 @@ class SingleListing extends JsonResource
                     'twitter' => $this->user->twitter_verified,
                     'instagram' => $this->user->instagram_verified,
                     'linkedin' => $this->user->linkedin_verified,
+                    'phone' => $this->user->phone_verified,
+                    'email' => $this->user->email_verified,
+                    'premium_user' => $this->user->subscribed('default')
                 ]
             ],
             'created_at' => $this->created_at->diffForHumans(),

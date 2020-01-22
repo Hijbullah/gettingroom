@@ -2,18 +2,14 @@
 
 @section('main-content')
 <!-- content area start-->
-<section class="choose-package p-2 mt-4">
+<section class="payment p-2">
     <div class="container">
         <div class="row">
             <div class="col-md-11 m-auto">
                 <h1 class="p-3 mb-3 font-weight-normal text-center">Payment</h1>
-                <div class="text-center mb-5">
-                    <span class="d-inline-block active py-2 px-3 font-18 mr-2 radius-10"><i class="fas fa-check"></i></span>
-                    <span class="d-inline-block py-2 px-3 main-color-border font-18 radius-10">2</span>
-                </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="color-main-bg radius-10 font-20  text-white text-center pt-5"
+                        <div class="color-main-bg radius-10 font-20  text-white text-center pt-5 select-plan"
                             style="min-height: 380px">
                             <h2 class="display-4">{{ $plan['nickname'] }}</h2>
                             <p class="text-center d-inline-block text-white mt-5 mb-4">
@@ -21,9 +17,9 @@
                                 <span class="font-30">{{ $plan['amount'] / 100 }}</span>
                                 <span class=" align-top font-20 font-weight-bold">{{ $plan['currency'] }}</span>
                             </p>
-                            <span class="border border-white p-2 btn-block w-50 m-auto mt-3 rounded">Selected</span>
+                            <span class="border border-white d-none d-md-block p-2 btn-block w-50 m-auto mt-3 rounded">Selected</span>
                         </div>
-                        <p class="mt-3 font-18 color-main-text">* You can cancel your subscription at any time</p>
+                        <p class="mt-3 font-16">You can cancel your subscription at any time</p>
                     </div>
                     <div class="col-md-8">
                         <div class="row">

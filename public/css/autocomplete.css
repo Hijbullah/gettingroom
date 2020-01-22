@@ -1,4 +1,4 @@
-.search-box {
+/* .search-box {
     position: relative;
 }
 
@@ -14,4 +14,34 @@
 
 .place-content .address-item {
     cursor: pointer;
+} */
+
+.search-box{
+    position: relative;
+    height: auto;
+    width: 100%;
+}
+
+/* .pac-container{
+    position: absolute !important;
+    top: 60px !important;
+    box-shadow: none !important;
+} */
+
+.pac-item{
+    padding: 8px 10px !important;
+    font-size: 15px !important;
+    cursor: pointer;
+}
+
+.pac-item:hover {
+    background-color: #3e983e !important;
+    color: #fff !important;
+}
+.pac-item:hover .pac-item-query{
+    color: #fff !important;
+}
+
+.pac-item-query{
+    font-size: 15px !important;
 }

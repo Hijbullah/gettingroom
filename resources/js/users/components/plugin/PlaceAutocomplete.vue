@@ -7,7 +7,7 @@
                     <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
                 </div>
                 <input type="text" class="form-control form-control-sm"
-                    placeholder="Enter an address, neighborhood, city or ZIP code"
+                    placeholder="Example: 'Chicago, IL'"
                     v-model="value"  
                     @keyup.prevent="handlePlace"  
                 >

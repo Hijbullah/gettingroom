@@ -2,9 +2,9 @@
     <section class="new-listing-area p-2 mt-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-12">
                     <div class="new-listing text-center mb-5">
-                        <h2 class="display-4 p-3 mb-3 font-weight-normal">What are you looking for?</h2>
+                        <h2 class="font-40 p-3 mb-3 font-weight-normal">What are you looking for?</h2>
                         <div class="left d-inline-block button"
                             @click.prevent="selected = 'place'"
                             :class="this.selected == 'place' ? 'active' : ''"
@@ -17,17 +17,17 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7 m-auto">
+                <div class="col-12 col-md-10 col-lg-8 offset-md-1 offset-lg-2">
                     <h4 class="text-center mb-3">Select one:</h4>
                     <div class="places" v-if="selected == 'place'">
                         <div class="row">
                             <div class="col-6">
-                                <div class="card font-20 text-center" @click.stop="selectedOption('needrooms', $event)">
+                                <div class="card font-20 text-center h-100" @click.stop="selectedOption('needrooms', $event)">
                                     <p>I'm looking for a room</p>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card font-20 text-center" @click.stop="selectedOption('needapartments', $event)">
+                                <div class="card font-20 text-center h-100" @click.stop="selectedOption('needapartments', $event)">
                                     <p>I'm looking for an entire place</p>
                                 </div>
                             </div>
@@ -36,12 +36,12 @@
                     <div class="people" v-else>
                         <div class="row">
                             <div class="col-6">
-                                <div class="card font-20 text-center" @click.stop="selectedOption('offerrooms', $event)">
+                                <div class="card font-20 text-center h-100" @click.stop="selectedOption('offerrooms', $event)">
                                     <p>I'm Offering for a room</p>
                                 </div>
                             </div>
                             <div class="col-6">
-                                <div class="card font-20 text-center" @click.stop="selectedOption('offerapartments', $event)">
+                                <div class="card font-20 text-center h-100" @click.stop="selectedOption('offerapartments', $event)">
                                     <p>I'm Offering for an entire place</p>
                                 </div>
                             </div>

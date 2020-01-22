@@ -107,7 +107,7 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text"><i class="fas fa-map-marker-alt"></i></div>
                                     </div>
-                                    <input type="text" class="form-control gr-text" id="placesearch"
+                                    <input type="text" class="form-control gr-text" id="autocomplete"
                                         placeholder="Enter an address, neighborhood, city or ZIP...">
                                 </div>
                                 <div id="place-content" class="place-content d-none"></div>
@@ -584,7 +584,10 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{ asset('js/landing.js') }}"></script>
-    <script src="{{ asset('js/placeAutocomplete.js') }}"></script>
+    {{-- <script src="{{ asset('js/placeAutocomplete.js') }}"></script> --}}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwyZimvA9z_SzFmL55fpJSoeYrloU6RF4&libraries=places">
+    </script>
+    <script src="{{ asset('js/googlePlaceAutocomplete.js') }} "></script>
 </body>
 
 </html>
