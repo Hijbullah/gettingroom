@@ -9,7 +9,6 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/images/favicon-32x32.png') }}">
 		<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicon-16x16.png') }}">
 		<link rel="manifest" href="{{ asset('frontend/images/site.webmanifest') }}">
-		<link rel="stylesheet" href="{{ asset('frontend/plugins/fontawesome-free-5.11.2-web/css/all.min.css') }}">
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{{ asset('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css') }}">
@@ -18,8 +17,10 @@
 
         <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('css/autocomplete.css') }}">
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwyZimvA9z_SzFmL55fpJSoeYrloU6RF4&libraries=places">
+        </script>
         @stack('page-css')
-		<title>Getting Room | Home</title>
+		<title>@yield('title')</title>
 	</head>
 	<body class="drawer drawer--left">
         <div id="app">
@@ -34,12 +35,10 @@
         
 		<script src="{{ asset('js/app.js') }}"></script>
         <script src="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/js/bootstrap-select.min.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwyZimvA9z_SzFmL55fpJSoeYrloU6RF4&libraries=places"></script>
         <script src="{{ asset('js/googlePlaceAutocomplete.js') }} "></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
         <!-- drawer.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.2.2/js/drawer.min.js"></script>
-        {{-- <script src="{{ asset('js/placeAutocomplete.js') }} "></script> --}}
         <script src="{{ asset('frontend/js/main.js') }} "></script>
         @stack('page-script')
         <script>

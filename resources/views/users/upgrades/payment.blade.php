@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Payment')
 @section('main-content')
 <!-- content area start-->
 <section class="payment p-2">

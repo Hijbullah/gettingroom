@@ -379,6 +379,20 @@ a.color-main-bg:hover{
     right: 10px;
 }
 
+.search-box > input.nav-search{
+    height: 100%;
+    padding: 5px 10px;
+}
+
+.search-box .clearsearch{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 17px;
+    cursor: pointer;
+}
+
 /*gr-lokingn*/
 .gr-content{
 	min-height: 60vh;

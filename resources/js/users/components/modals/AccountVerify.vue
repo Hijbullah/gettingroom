@@ -4,13 +4,14 @@
             <div class="card-body verify-intro">
                 <h2 class="text-center text-white font-22 mb-2 text-uppercase">Account Varification</h2>
                 <p class="text-center text-white font-16 p-2">
-GettingRoom takes member safety and security very seriously. We don’t even want people that aren’t easily identifiable from their Social profile. Every Profile goes through a security filter from a GettingRoom team member.</p>
+                    GettingRoom takes member safety and security very seriously. We don’t even want people that aren’t easily identifiable from their Social profile. Every Profile goes through a security filter from a GettingRoom team member.
+                </p>
             </div>
         </div>
         
         <p v-if="verified.email && verified.phone && verified.subscribed">Account Status: <span class="font-16 font-weight-bold color-main-text">Verified</span></p>
         <p v-else>Account Status: <span class="font-16 font-weight-bold" style="color: red">Unverified</span></p>
-        <p class="text-dark font-16 mb-2">Complete the steps marked with * to verify your account and send a message:</p>
+        <p class="text-dark font-16 mb-2 verify-condition">Complete the steps marked with * to verify your account and send a message:</p>
         <div class="p-2 clearfix" v-if="verified.email">
             <span class="d-inline-block font-30 float-left color-main-text"><i class="fas fa-check-circle"></i></span>
             <div class="float-left ml-3">
@@ -19,12 +20,12 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
             </div>
         </div>
         <div class="mb-2 border radius-10 p-2 verify-block clearfix" v-else @click="openEmailVerifyModel">
-            <span class="d-inline-block font-30 float-left color-verify"><i class="far fa-circle"></i></span>
-            <div class="float-left ml-3">
+            <span class="d-inline-block font-30 float-left color-verify span"><i class="far fa-circle"></i></span>
+            <div class="float-left pl-3 content">
                 <h2 class="text-dark font-16">Confirm Your Email <span class="text-danger font-20">*</span></h2>
                 <p>Account Verification is need to validate your Account</p>
             </div>
-            <span class="d-inline-block float-right font-weight-normal font-20 mt-2 color-verify"><i class="fas fa-greater-than"></i></span>
+            <span class="d-inline-block float-right font-weight-normal font-20 mt-2 color-verify span"><i class="fas fa-greater-than"></i></span>
         </div>
         <div class="p-2 clearfix" v-if="verified.phone">
             <span class="d-inline-block font-30 float-left color-main-text"><i class="fas fa-check-circle"></i></span>
@@ -34,12 +35,12 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
             </div>
         </div>
         <div class="mb-2 border radius-10 p-2 verify-block clearfix" v-else @click="openPhoneVerifyModel">
-            <span class="d-inline-block font-30 float-left color-verify"><i class="far fa-circle"></i></span>
-            <div class="float-left ml-3">
+            <span class="d-inline-block font-30 float-left color-verify span"><i class="far fa-circle"></i></span>
+            <div class="float-left pl-3 content">
                 <h2 class="text-dark font-16">Verify Your Phone Number <span class="text-danger font-20">*</span></h2>
                 <p>verifying your phone number helps prospective matches contact you faster</p>
             </div>
-            <span class="d-inline-block float-right font-weight-normal font-20 mt-2 color-verify"><i class="fas fa-greater-than"></i></span>
+            <span class="d-inline-block float-right font-weight-normal font-20 mt-2 color-verify span"><i class="fas fa-greater-than"></i></span>
         </div>
         <div class="p-2 clearfix" v-if="verified.subscribed">
             <span class="d-inline-block font-30 float-left color-main-text"><i class="fas fa-check-circle"></i></span>
@@ -48,15 +49,16 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
             </div>
         </div>
         <div class="mb-2 border radius-10 p-2 verify-block clearfix" @click="activeTrial" v-else>
-            <span class="d-inline-block font-30 float-left color-verify mt-2"><i class="far fa-circle"></i></span>
-            <div class="float-left ml-3">
+            <span class="d-inline-block font-30 float-left color-verify mt-2 span"><i class="far fa-circle"></i></span>
+            <div class="float-left pl-3 content">
                 <h2 class="text-dark font-16">Active Trial Package! It's Free! <span class="text-danger font-20">*</span></h2>
                 <p>Trial package has fully premium featured and it's completely free <br> for 24 hours! to enjoy the service</p>
             </div>
-            <span class="d-inline-block float-right font-weight-normal font-20 mt-3 color-verify"><i class="fas fa-greater-than"></i></span>
+            <span class="d-inline-block float-right font-weight-normal font-20 mt-3 color-verify span"><i class="fas fa-greater-than"></i></span>
         </div>
         <div class="mb-2 border radius-10 p-2">
             <h2 class="text-dark font-16">Verify Your Social Media</h2>
+            <p>Get more badge for your account.</p>
             <div class="verify-social-icons mt-4 text-center">
                 <a href="#" @click.prevent="popupVerification('/socialauth/facebook', 'facebook')" v-if="!verified.facebook">
                     <img src="/frontend/images/social-icon/png/verify/fb-false.png" alt="facebook">
@@ -118,7 +120,7 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
         methods: {
             openEmailVerifyModel(){
                 this.$dlg.modal(EmailVerify, {
-                    width: 400,
+                    width: 300,
                     height: 200,
                     title: '',
                     params: {
@@ -134,7 +136,7 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
             },
             openPhoneVerifyModel(){
                 this.$dlg.modal(PhoneVerify, {
-                    width: 400,
+                    width: 300,
                     height: 200,
                     title: '',
                     params: {
@@ -233,6 +235,30 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
 
 /* Extra small devices (phones, 576 and down) xs */
 @media only screen and (max-width: 575.98px) {
+    .verify-intro{
+        padding: 10px 5px;
+    }
+    .verify-intro h2{
+        font-size: 20px !important;
+    }
+    .verify-intro p{
+        font-size: 15px !important;
+    }
+    .verify-block span.span{
+        width: 8%;
+        box-sizing: border-box;
+        margin-top: 10px !important;
+    }
+    .verify-block span.span:last-child{
+        margin-top: 18px !important;
+    }
+    .verify-block .content{
+        width: 84%;
+        box-sizing: border-box;
+    }
+    .verify-block .content h2{
+        font-size: 15px !important;
+    }
     .social-verified{
         margin: 0 5px;
     }
@@ -245,7 +271,16 @@ GettingRoom takes member safety and security very seriously. We don’t even wan
     .social-verified > span{
         font-size: 16px !important;
     }
+    .verify-condition{
+        font-size: 14px !important;
+        line-height: 1.3;
+    }
 }
+
+@media only screen and (min-width: 576px) and (max-width: 767.98px){
+
+	
+} 
 
 </style>
 

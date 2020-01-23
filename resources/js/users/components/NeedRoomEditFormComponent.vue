@@ -2,37 +2,39 @@
     <div class="content">
         <form  class="needs-validation" @submit.prevent="formSubmitted" @keydown="formData.onKeydown($event)">
             <div class="listing-form-area py-5">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="form-basic-info">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="basic-form mb-4">
                                     <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Update</button>
                                     <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
                                 </div>
-
+                            </div>
+                            <div class="col-md-6">
                                 <div class="basic-form">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="title" class="label">Title</label>
+                                                <label for="title" class="label font-20 font-weight-bold text-muted">Headline</label>
                                                 <input id="title" 
                                                     name="title" 
                                                     type="text" 
-                                                    class="form-control" 
+                                                    class="form-control form-control-lg" 
                                                     v-model="formData.title"
-                                                    placeholder="Title Here"
+                                                    placeholder="Headline"
                                                 >
                                                 <has-error :form="formData" field="title"></has-error>
                                             </div>
                                             <div class="form-group">
-                                                <label class="label" for="location">Location</label>
-                                               
+                                                <label class="label font-20 font-weight-bold text-muted" for="location">Location</label>
                                                 <PlaceAutocomplete 
-                                                    @selected = 'placeSelected'
-                                                    @clear = 'cancelled'
-                                                    :location = "formData.location"
-                                                /> 
+                                                    id="place-need"
+                                                    classname="form-control form-control-lg font-16"
+                                                    placeholder="Example: 'Chicago, IL'"
+                                                    v-on:placechanged="getAddressData"
+                                                    :value="formData.location"
+                                                />
                                            
                                                 <has-error :form="formData" field="location"></has-error>
                                             </div>
@@ -43,6 +45,7 @@
                                                     <v-select 
                                                         :options="['USD']"
                                                         v-model="formData.rental_currency"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                     <has-error :form="formData" field="rental_currency"></has-error>
                                                 </div>
@@ -80,7 +83,8 @@
                                                         :validate="true"
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
-                                                        v-model="formData.move_date" 
+                                                        v-model="formData.move_date"
+                                                        color="#3e983e"  
                                                     />
                                                     <has-error :form="formData" field="move_date"></has-error>
                                                 </div>
@@ -93,7 +97,8 @@
                                                         :validate="true"
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
-                                                        v-model="formData.leave_date" 
+                                                        v-model="formData.leave_date"
+                                                        color="#3e983e"  
                                                     />
                                                     <has-error :form="formData" field="leave_date"></has-error>
                                                 </div>
@@ -104,8 +109,12 @@
                                 <div class="description mt-5">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
+                                            <h2 class="form-title">Description</h2>
                                             <div class="form-group">
-                                                <label for="description" class="label">Description</label>
+                                                <p
+                                                    class="form-text color-main-text mb-3"
+                                                >Try to have at least 20 words. Our most successful listings are more than 160 words long.</p>
+                                            
                                                 <textarea name="description" 
                                                     class="form-control" 
                                                     id="description" 
@@ -119,100 +128,109 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="description-household mt-5">
+                                <div class="description-household">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <h2 class="form-title">Life Style</h2>
                                              <div class="form-group row">
-                                                <label for="cleanliness" class="col-sm-3 col-form-label">Cleanliness</label>
-                                                <div class="col-sm-9">
+                                                <label for="cleanliness" class="col-sm-6 col-form-label">Cleanliness</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.cleanliness"
                                                         :options="storeData.cleanliness.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="overnight_guest" class="col-sm-3 col-form-label">Overnight
+                                                <label for="overnight_guest" class="col-sm-6 col-form-label">Overnight
                                                     Guast</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.overnight_guest"
                                                         :options="storeData.overnightGuests.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="party_habit" class="col-sm-3 col-form-label">Party
+                                                <label for="party_habit" class="col-sm-6 col-form-label">Party
                                                     Habit</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.party_habit"
                                                         :options="storeData.partyHabits.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="get_up" class="col-sm-3 col-form-label">Get Up</label>
-                                                <div class="col-sm-9">
+                                                <label for="get_up" class="col-sm-6 col-form-label">Get Up</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.get_up"
                                                         :options="storeData.getUp.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="go_to_bed" class="col-sm-3 col-form-label">Go to Bed</label>
-                                                <div class="col-sm-9">
+                                                <label for="go_to_bed" class="col-sm-6 col-form-label">Go to Bed</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.go_to_bed"
                                                         :options="storeData.goToBed.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="food_preference" class="col-sm-3 col-form-label">Food
+                                                <label for="food_preference" class="col-sm-6 col-form-label">Food
                                                     Preference</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.food_preference"
                                                         :options="storeData.foodPreference.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="smoker" class="col-sm-3 col-form-label">Smoker</label>
-                                                <div class="col-sm-9">
+                                                <label for="smoker" class="col-sm-6 col-form-label">Smoker</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.smoker"
                                                         :options="storeData.smoker.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="work_schedule" class="col-sm-3 col-form-label">Work
+                                                <label for="work_schedule" class="col-sm-6 col-form-label">Work
                                                     Schedule</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.work_schedule"
                                                         :options="storeData.workSchedule.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="occupation"
-                                                    class="col-sm-3 col-form-label">Occupation</label>
-                                                <div class="col-sm-9">
+                                                    class="col-sm-6 col-form-label">Occupation</label>
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.occupation"
                                                         :options="storeData.occupation.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <h2 class="form-title">Room Mate Preference</h2>
-                                             <div class="form-group row">
-                                                <label for="age" class="col-sm-3 col-form-label">Age</label>
-                                                <div class="col-sm-9">
+                                             <div class="form-group row age">
+                                                <label for="age" class="col-sm-4 col-form-label">Age</label>
+                                                <div class="col-sm-8">
                                                     <vue-slider 
                                                         v-model= "formData.prefer_age" 
                                                         :min= "18" 
@@ -222,23 +240,24 @@
                                                         :height= "5"
                                                         :dotSize= "16"
                                                     ></vue-slider>
-                                                    <p>Min Age: {{ formData.prefer_age[0] }} and Max Age: {{ formData.prefer_age[1] }}</p>
+                                                    <p class="text-center">Min: {{ formData.prefer_age[0] }} and Max: {{ formData.prefer_age[1] }}</p>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="prefer_smoker" class="col-sm-3 col-form-label">Smoke
+                                                <label for="prefer_smoker" class="col-sm-6 col-form-label">Smoke
                                                     Preference</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <v-select
                                                         v-model="formData.prefer_smoker"
                                                         :options="storeData.preferSmoker.options"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">Students
+                                                <label class="col-sm-6 col-form-label">Students
                                                     Only</label>
-                                                <div class="col-sm-9">
+                                                <div class="col-sm-6">
                                                     <div class="custom-control custom-radio mr-sm-2 custom-control-inline">
                                                         <input type="radio" 
                                                             name="prefer_student" 
@@ -265,6 +284,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="basic-form mt-4 text-center">
+                                    <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Update</button>
+                                    <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -278,8 +303,7 @@
     import { store } from '../store/store'
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
-    // import Places from 'vue-places'
-   import PlaceAutocomplete from './plugin/PlaceAutocomplete'
+   import PlaceAutocomplete from './plugin/GooglePlaceAutocomplete'
 
     export default {
         props: ['listing'],
@@ -337,15 +361,10 @@
             formCancelled(){
                 window.location.href = `/listings/${this.formData.listing_id}`;
             },
-            placeSelected(place){
-                this.formData.location = place.label;
-                this.formData.lng = place.x;
-                this.formData.lat = place.y;
-            },
-            cancelled(){
-                this.formData.location = '';
-                this.formData.lat = null;
-                this.formData.lng = null;
+            getAddressData(addressData){
+                this.formData.location = addressData.adress;
+                this.formData.lng = addressData.longitude;
+                this.formData.lat = addressData.latitude;
             },
             setFormData(listing){
                 this.formData.listing_id = listing.listing_id;
@@ -354,8 +373,8 @@
                 this.formData.lat = listing.lat;
                 this.formData.lng = listing.lng;
         
-                this.formData.rental_currency =  listing.rental_currency;
-                this.formData.monthly_rent =  listing.monthly_rent;
+                this.formData.rental_currency = listing.rental_currency;
+                this.formData.monthly_rent =  Number(listing.monthly_rent);
                 this.formData.is_short_term =  listing.is_short_term;
                 this.formData.move_date =  listing.move_date;
                 this.formData.leave_date =  listing.leave_date;
@@ -391,5 +410,11 @@
     display: block !important;
     font-weight: 700;
 }
-
+.age >>> .vue-slider-process {
+    background-color: #21880e;
+}
+.age >>> .vue-slider-dot-tooltip-inner {
+    border-color: #3e983e;
+    background-color: #3e983e;
+}
 </style>

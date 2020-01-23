@@ -1,6 +1,6 @@
 let autocomplete;
 let types = ['needrooms', 'offerrooms', 'needapartments', 'offerapartments']
-let type = types.includes(window.location.href.substring(window.location.href.lastIndexOf('/') + 1)) ? window.location.href.substring(window.location.href.lastIndexOf('/') + 1) : 'needrooms';
+let type = types.includes(window.location.href.substring(window.location.href.lastIndexOf('/') + 1)) ? window.location.href.substring(window.location.href.lastIndexOf('/') + 1) : 'offerrooms';
 
 
 function initAutocomplete() {
@@ -16,18 +16,40 @@ function initAutocomplete() {
 initAutocomplete();
 
 
-// Bias the autocomplete object to the user's geographical location,
-// as supplied by the browser's 'navigator.geolocation' object.
-// function geolocate() {
-//     if (navigator.geolocation) {
-//         navigator.geolocation.getCurrentPosition(function (position) {
-//             var geolocation = {
-//                 lat: position.coords.latitude,
-//                 lng: position.coords.longitude
-//             };
-//             var circle = new google.maps.Circle(
-//                 { center: geolocation, radius: position.coords.accuracy });
-//             autocomplete.setBounds(circle.getBounds());
-//         });
-//     }
-// }
+
+$('.searchtype').click(function (e) {
+    e.preventDefault();
+
+    if ($('#autocomplete').val()) {
+        $('.searchtype').removeClass('gr-active');
+        $(this).addClass('gr-active');
+        type = $(this).data('type');
+    } else {
+        window.location.href = $(this).attr('href');
+    }
+});
+
+$('#autocomplete').keyup(function(){
+    if ($(this).val().length > 0){
+        $('.clearsearch').removeClass('d-none');
+    }else{
+        $('.clearsearch').addClass('d-none');
+    }
+})
+
+$('.clearsearch').click(function(e){
+    e.preventDefault();
+    if($('#autocomplete').val()){
+        $('#autocomplete').val('');
+        axios.get('/clear-search');
+        history.pushState(null, null, window.location.pathname);
+        $(this).addClass('d-none');
+        return;
+    }else{
+        return;
+    }
+})
+
+if ($('#autocomplete').val()){
+    $('.clearsearch').removeClass('d-none');
+};

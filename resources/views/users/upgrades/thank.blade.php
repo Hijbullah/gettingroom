@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Thank You')
 @section('main-content')
 <!-- content area start-->
 <section class="choose-package p-2 mt-5" style="min-height: 60vh">

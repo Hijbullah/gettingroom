@@ -2,35 +2,38 @@
     <div class="content">
         <form  class="needs-validation" @submit.prevent="formSubmitted" @keydown="formData.onKeydown($event)">
             <div class="listing-form-area py-5">
-                <div class="container">
+                <div class="container-fluid">
                     <div class="form-basic-info">
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-12">
                                 <div class="basic-form mb-4">
                                     <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Update</button>
                                     <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
                                 </div>
-
+                            </div>
+                            <div class="col-md-6">
                                 <div class="basic-form">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <div class="form-group">
-                                                <label for="title" class="label">Title</label>
+                                                <label for="title" class="label font-20 font-weight-bold text-muted">Headline</label>
                                                 <input id="title" 
                                                     name="title" 
                                                     type="text" 
-                                                    class="form-control" 
+                                                    class="form-control form-control-lg" 
                                                     v-model="formData.title"
-                                                    placeholder="Title Here"
+                                                    placeholder="Headline"
                                                 >
                                                 <has-error :form="formData" field="title"></has-error>
                                             </div>
                                             <div class="form-group">
-                                                <label class="label" for="location">Location</label>
+                                                <label class="label font-20 font-weight-bold text-muted" for="location">Location</label>
                                                 <PlaceAutocomplete 
-                                                    @selected = 'placeSelected'
-                                                    @clear = 'cancelled'
-                                                    :location = "formData.location"
+                                                    id="place-need"
+                                                    classname="form-control form-control-lg font-16"
+                                                    placeholder="Example: 'Chicago, IL'"
+                                                    v-on:placechanged="getAddressData"
+                                                    :value="formData.location"
                                                 /> 
                                                 <has-error :form="formData" field="location"></has-error>
                                             </div>
@@ -41,6 +44,7 @@
                                                     <v-select 
                                                         :options="['USD']"
                                                         v-model="formData.rental_currency"
+                                                        placeholder="Select"
                                                     ></v-select>
                                                     <has-error :form="formData" field="rental_currency"></has-error>
                                                 </div>
@@ -79,6 +83,7 @@
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
                                                         v-model="formData.move_date" 
+                                                        color="#3e983e"  
                                                     />
                                                     <has-error :form="formData" field="move_date"></has-error>
                                                 </div>
@@ -92,6 +97,7 @@
                                                         :no-input="true"
                                                         :fullscreen-mobile="true"
                                                         v-model="formData.leave_date" 
+                                                        color="#3e983e"  
                                                     />
                                                     <has-error :form="formData" field="leave_date"></has-error>
                                                 </div>
@@ -102,8 +108,11 @@
                                 <div class="description mt-5">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
+                                            <h2 class="form-title">Description</h2>
                                             <div class="form-group">
-                                                <label for="description" class="label">Description</label>
+                                                 <p
+                                                    class="form-text color-main-text mb-3"
+                                                >Try to have at least 20 words. Our most successful listings are more than 160 words long.</p>
                                                 <textarea name="description" 
                                                     class="form-control" 
                                                     id="description" 
@@ -117,7 +126,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="description-household mt-5">
+                                <div class="description-household">
                                     <div class="card shadow-none border-0 rounded-0 p-md-4">
                                         <div class="card-body">
                                             <h2 class="form-title">Apartment Types</h2>
@@ -177,6 +186,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-12">
+                                <div class="basic-form mb-4">
+                                    <button class="btn btn-success w-md-25 mr-3 btn-lg" @click.prevent="formSubmitted">Update</button>
+                                    <button class="btn btn-dark w-md-25 btn-lg" @click.prevent="formCancelled">Cancel</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +203,7 @@
 <script>
 
     import { store } from '../store/store'
-    import PlaceAutocomplete from './plugin/PlaceAutocomplete'
+    import PlaceAutocomplete from './plugin/GooglePlaceAutocomplete'
 
     export default {
         props: ['listing'],
@@ -233,17 +248,12 @@
             formCancelled(){
                 window.location.href = `/listings/${this.formData.listing_id}`;
             },
-             placeSelected(place){
-                this.formData.location = place.label;
-                this.formData.lng = place.x;
-                this.formData.lat = place.y;
+            getAddressData(addressData){
+                this.formData.location = addressData.adress;
+                this.formData.lng = addressData.longitude;
+                this.formData.lat = addressData.latitude;
             },
-            cancelled(){
-                this.formData.location = '';
-                this.formData.lat = null;
-                this.formData.lng = null;
-            },
-             setFormData(listing){
+            setFormData(listing){
                 this.formData.listing_id = listing.listing_id;
                 this.formData.title = listing.title;
                 this.formData.location = listing.location;
@@ -251,7 +261,7 @@
                 this.formData.lng = listing.lng;
         
                 this.formData.rental_currency =  listing.rental_currency;
-                this.formData.monthly_rent =  listing.monthly_rent;
+                this.formData.monthly_rent =  Number(listing.monthly_rent);
                 this.formData.is_short_term =  listing.is_short_term;
                 this.formData.move_date =  listing.move_date;
                 this.formData.leave_date =  listing.leave_date;

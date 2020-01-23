@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Profile')
 @section('main-content')
 <section class="single-user-listing p-2 mt-4">
     <form action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">

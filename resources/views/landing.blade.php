@@ -10,10 +10,6 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicon-16x16.png') }} ">
     <link rel="manifest" href="{{ asset('frontend/images/site.webmanifest') }}">
     <link rel="stylesheet" href="{{ asset('css/landing.css') }}">
-    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('frontend/plugins/bootstrap-select-1.13.9/dist/css/bootstrap-select.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('frontend/plugins/fontawesome-free-5.11.2-web/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/autocomplete.css') }}">
     <title>Getting Room | Home</title>
@@ -25,7 +21,7 @@
     <div class="main-menu px-3 sticky-top d-none d-md-block">
         <ul class="nav">
             <li class="float-left menu-width-45 py-2">
-                <a href="#">
+                <a href="{{ url('/') }}">
                     <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo">
                 </a>
             </li>
@@ -165,7 +161,7 @@
         <h2 class="text-center text-capitalize text-dark city-gallery-heading">Search Listings in Top Cities</h2>
         <div class="city-boxes">
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Atlanta, GA, USA&lat=33.7489954&lng=-84.3879824') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Atlanta.webp') }}">
                     <div class="content">
                         <h2>Atlanta</h2>
@@ -175,7 +171,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Boston, MA, USA&lat=42.3600825&lng=-71.0588801') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Boston.webp') }}">
                     <div class="content">
                         <h2>Boston</h2>
@@ -185,7 +181,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Chicago, IL, USA&lat=41.8781136&lng=-87.6297982') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Chicago.webp') }}">
                     <div class="content">
                         <h2>Chicago</h2>
@@ -195,7 +191,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/needrooms?loc=Dallas, TX, USA&lat=32.7766642&lng=-96.79698789999999') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Dallas.webp') }}">
                     <div class="content">
                         <h2>Dallas</h2>
@@ -205,7 +201,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Denver, CO, USA&lat=39.7392358&lng=-104.990251') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Denver.webp') }}">
                     <div class="content">
                         <h2>Denver</h2>
@@ -215,7 +211,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Houston, TX, USA&lat=29.7604267&lng=-95.3698028') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Houston.webp') }}">
                     <div class="content">
                         <h2>Houston</h2>
@@ -225,7 +221,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Las Vegas, NV, USA&lat=36.1699412&lng=-115.1398296') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/LasVegas.webp') }}">
                     <div class="content">
                         <h2>Las Vegas</h2>
@@ -235,7 +231,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Los Angeles, CA, USA&lat=34.0522342&lng=-118.2436849') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/LosAngeles.webp') }}">
                     <div class="content">
                         <h2>Los Angeles</h2>
@@ -245,7 +241,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Miami, FL, USA&lat=25.7616798&lng=-80.1917902') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Miami.webp') }}">
                     <div class="content">
                         <h2>Miami</h2>
@@ -255,7 +251,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=New York, NY, USA&lat=40.7127753&lng=-74.0059728') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/NewYorkCity.webp') }}">
                     <div class="content">
                         <h2>New York</h2>
@@ -265,7 +261,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Philadelphia, PA, USA&lat=39.9525839&lng=-75.1652215') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Philadelphia.webp') }}">
                     <div class="content">
                         <h2>Philadelphia</h2>
@@ -275,7 +271,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Phoenix, AZ, USA&lat=33.4483771&lng=-112.0740373') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Phoenix.webp') }}">
                     <div class="content">
                         <h2>Phoenix</h2>
@@ -285,7 +281,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=San Francisco, CA, USA&lat=37.7749295&lng=-122.4194155') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/SanFrancisco.webp') }}">
                     <div class="content">
                         <h2>San Francisco</h2>
@@ -295,7 +291,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Seattle, WA, USA&lat=47.6062095&lng=-122.3320708') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/Seattle.webp') }}">
                     <div class="content">
                         <h2>Seattle</h2>
@@ -305,7 +301,7 @@
                 </a>
             </div>
             <div class="city-box same">
-                <a href="#">
+                <a href="{{ url('/lists/offerrooms?loc=Washington, DC, USA&lat=38.9071923&lng=-77.0368707') }}">
                     <img src="{{ asset('frontend/images/top-city/webp/WashingtonDC.webp') }}">
                     <div class="content">
                         <h2>Washington DC</h2>
@@ -580,11 +576,7 @@
         </section>
     </footer>
 
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="{{ asset('js/landing.js') }}"></script>
-    {{-- <script src="{{ asset('js/placeAutocomplete.js') }}"></script> --}}
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwyZimvA9z_SzFmL55fpJSoeYrloU6RF4&libraries=places">
     </script>
     <script src="{{ asset('js/googlePlaceAutocomplete.js') }} "></script>

@@ -4,16 +4,13 @@
         <div class="d-flex">
             <div class="px-3 b-r-1  py-2">
                 <a href="{{ url('/') }}" class="navbar-brand m-0">
-                    <img src="{{ asset('frontend/images/logo-sm.png') }} " alt="logo" class="gr-logo-sm">
+                    <img src="{{ asset('frontend/images/logo/logo-sm.webp') }} " alt="logo" class="gr-logo-sm">
                 </a>
             </div>
-            {{-- <div class="search-box py-2 px-3" style="width: 100%">
-                <input class="w-100 form-control border-0 font-18" value="{{ session('location') ? session('location')['location'] : '' }}" type="search" id="placesearch" placeholder="Search Place" autocomplete="off">
-                <div id="place-content" class="place-content d-none"></div>
-            </div> --}}
-            <div class="search-box py-2 px-3" style="width: 100%">
+            <div class="search-box w-100">
                 @if(request()->is('lists*') || request()->is('listings/*'))
-                <input class="w-100 form-control border-0 font-18" type="text" id="autocomplete" placeholder="Search Place" autocomplete="off">
+                <input class="w-100 form-control border-0 font-18 nav-search" value="{{ session('location') ? session('location')['location'] : '' }}" type="text" id="autocomplete" placeholder="Search Place" autocomplete="off">
+                <span class="clearsearch d-none text-danger"><i class="fas fa-times"></i></span>
                 @endif
             </div>
             <div class="border-left px-3 py-2 d-none d-md-block">
@@ -31,22 +28,22 @@
                 <div class="px-3 py-2 d-none d-md-block">
                     <select class="selectpicker form-control auth-social" data-width="300" id="loginwith" data-style="custom-picker-auth" title="Login with Socials or Email ...">
                         <option class="facebook-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Facebook.png' /> <span class='ml-2'>Login With Facebook</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Facebook.webp' /> <span class='ml-2'>Login With Facebook</span>">
                             Login With Facebook</option>
                         <option class="google-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Google.png' /> <span class='ml-2'>Login With Google</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Google.webp' /> <span class='ml-2'>Login With Google</span>">
                             Login With Google</option>
                         <option class="linkedin-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Linkedin.png' /> <span class='ml-2'>Login With Linkedin</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Linkedin.webp' /> <span class='ml-2'>Login With Linkedin</span>">
                             Login With Linkedin</option>
                         <option class="instagram-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Instagram.png' /> <span class='ml-2'>Login With Instagram</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Instagram.webp' /> <span class='ml-2'>Login With Instagram</span>">
                             Login With Instagram</option>
                         <option class="twitter-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Twitter.png' /> <span class='ml-2'>Login With Twitter</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Twitter.webp' /> <span class='ml-2'>Login With Twitter</span>">
                             Login With Linkedin</option>
                         <option class="email-auth pad-tb-5 pl-3"
-                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/png/Email.png' /> <span class='ml-2'>Login With Email</span>">
+                            data-content="<img height='30' width='30' src='/frontend/images/social-icon/webp/Email.webp' /> <span class='ml-2'>Login With Email</span>">
                             Login With Email</option>
                     </select>
                 </div>

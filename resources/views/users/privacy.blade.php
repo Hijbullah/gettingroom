@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Privacy')
 @section('main-content')
 <section class="privacy pad-tb-50">
     <div class="container">

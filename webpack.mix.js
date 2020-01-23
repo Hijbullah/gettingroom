@@ -12,7 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/users/app.js', 'public/js')
-    .js('resources/js/placeAutocomplete.js', 'public/js')
     .sass('resources/sass/users/app.scss', 'public/css')
     .js('resources/js/admins/app.js', 'public/admins/js')
     .sass('resources/sass/admins/app.scss', 'public/admins/css')

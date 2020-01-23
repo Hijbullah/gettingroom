@@ -32,6 +32,7 @@ Vue.component('verification-component', require('./components/modals/AccountVeri
 import VueDatePicker from '@mathieustan/vue-datepicker';
 Vue.use(VueDatePicker);
 
+
 // VForm registration
 import { Form, HasError, AlertError } from 'vform'
 window.Form = Form

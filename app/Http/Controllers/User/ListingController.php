@@ -10,7 +10,7 @@ class ListingController extends Controller
 
     public function showAllListings(Request $request, $type)
     {
-        if($request->query()){
+        if($request->query('loc')){
             $location = array(
                 'location' => $request->query('loc'),
                 'lat' => $request->query('lat'),
@@ -60,8 +60,17 @@ class ListingController extends Controller
             default:
                 $type = 'OfferApartment';
         }
-        
-        return view('users.listings.single', compact('type', 'listing_id'));
+        $model = 'App\Models\\' . $type;
+        $title = $model::where('listing_id', $listing_id)->first('title');
+        return view('users.listings.single', compact('type', 'listing_id', 'title'));
+    }
+
+    public function clearSearch()
+    {
+        if(session()->has('location')){
+            session()->forget('location');
+        }
+
     }
 
    

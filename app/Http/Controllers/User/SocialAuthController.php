@@ -30,7 +30,6 @@ class SocialAuthController extends Controller
             // return response()->json($user);
 
         } catch (\GuzzleHttp\Exception\ClientException $e) {
-            return $e->getMessage();
             if(Auth::check())
             {
                 return redirect('/social/error');
@@ -89,6 +88,10 @@ class SocialAuthController extends Controller
  
             return array($user, '/listingNew');
         }
+    }
+    public function socialStatus($status)
+    {
+        return $status;
     }
 
 }

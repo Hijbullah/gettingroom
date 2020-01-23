@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Support')
 @section('main-content')
 <section class="support pad-tb-50">
     <div class="container">

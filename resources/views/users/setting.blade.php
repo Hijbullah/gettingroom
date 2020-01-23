@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Setting')
 @section('main-content')
 <section class="setting p-2 mt-4">
     <div class="container">

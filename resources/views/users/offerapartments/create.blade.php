@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Offering an aprtment')
 @section('main-content')
 <section>
     <div class="main-container" v-cloak>

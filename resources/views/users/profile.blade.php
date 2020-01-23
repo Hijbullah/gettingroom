@@ -1,5 +1,5 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Profile')
 @section('main-content')
 <section class="single-user-listing p-2 mt-4">
     <div class="container">
@@ -166,12 +166,12 @@
                                                             </div>
                                                            
                                                         </div>
-                                                        <img src="{{ $listing->images ? Storage::url(explode(',', $listing->images)[0]) : asset('no-image.png') }}" alt="">
+                                                        <img src="{{ $listing->images ? Storage::url(explode(',', $listing->images)[0]) : asset('no-image.png') }}" alt="" style="height: 200px;">
                                                     </div>
                                                     <div class="listing-contact mt-1 pb-2 pl-2">
-                                                        <h2 class="font-16 my-1 text-dark">{{ $listing->title }}</h2>
+                                                        <h2 class="font-16 my-1 text-dark">{{ str_limit($listing->title , 30) }}</h2>
                                                         <p class="font-12 mb-3 ">
-                                                            <span class="color-main-text">Private Room</span> | <span class="text-dark">{{ $listing->location }}</span>
+                                                            <span class="text-dark">{{ str_limit($listing->location, 30) }}</span>
                                                         </p>
                                                     </div>
                                                 </div>

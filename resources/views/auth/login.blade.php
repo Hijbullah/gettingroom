@@ -23,8 +23,8 @@
         <ul class="nav">
             <li class="py-2">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('frontend/images/logo.png') }}" alt="logo" class="gr-logo d-none d-md-block d-sm-none">
-                    <img src="{{ asset('frontend/images/logo-sm.png') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block">
+                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo d-none d-md-block d-sm-none">
+                    <img src="{{ asset('frontend/images/logo/logo-sm.webp') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block">
                 </a>
             </li>
             <li class="py-2 px-2 ml-auto">
@@ -65,8 +65,8 @@
                                             <a href="{{ url('/socialauth/google') }}" class="mb-1">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/google.svg') }}"
                                                     alt="">
-                                                <span class="d-sm-inline-block d-md-none icon facebook mr-2">
-                                                    <i class="fab fa-facebook-f"></i>
+                                                <span class="d-sm-inline-block d-md-none icon comments mr-2">
+                                                    <i class="fab fa-google"></i>
                                                 </span>
                                             </a>
                                             <a href="#" class="mb-1">
@@ -79,8 +79,8 @@
                                             <a href="{{ url('/socialauth/linkedin') }}" class="">
                                                 <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/linkedin.sv') }}g"
                                                     alt="">
-                                                <span class="d-sm-inline-block d-md-none icon facebook mr-2">
-                                                    <i class="fab fa-facebook-f"></i>
+                                                <span class="d-sm-inline-block d-md-none icon linkedin mr-2">
+                                                    <i class="fab fa-linkedin-in"></i>
                                                 </span>
                                             </a>
                                         </div>

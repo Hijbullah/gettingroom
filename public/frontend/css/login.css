@@ -3,9 +3,9 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
-	background: url('../images/login-2.jpg');
+	background: url('../images/login-2.webp');
 	background-repeat: no-repeat;
-	background-position: top left;
+	background-position: left top;
 	background-size: cover;
 }
 .facebook {background: #3B5999 !important; color: #fff !important;}
@@ -50,9 +50,6 @@ h1, h2, h3, h4, h5, h6, p, a{
 }
 .gr-logo-sm{
 	width: 45px;
-}
-.main-menu {
-	/*background: rgba(0,0,0,.1);*/
 }
 /*menu css*/
 /**/
@@ -129,7 +126,7 @@ h1, h2, h3, h4, h5, h6, p, a{
 	.right{
 		padding: 1rem !important;
 	}
-	.right.registration{
+	.right.registration , .right{
 		margin-top: 80px !important;
 	}
 

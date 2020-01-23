@@ -20,13 +20,8 @@ Auth::routes();
 
 Route::get('socialauth/{provider}', 'User\SocialAuthController@redirectToProvider');
 Route::get('socialauth/{provider}/callback','User\SocialAuthController@handleProviderCallback');
-Route::get('/social/{status}', function($status){
-    return $status;
-});
+Route::get('/social/{status}','User\SocialAuthController@socialStatus');
 
-
-
-// Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile/{id}', 'HomeController@showProfile')->name('profile.show');
 Route::post('/profile/{id}', 'HomeController@updateProfile')->name('profile.update');
 Route::get('/profile/{id}/edit', 'HomeController@editProfile')->name('profile.edit');
@@ -36,7 +31,7 @@ Route::get('/profile/{id}/edit', 'HomeController@editProfile')->name('profile.ed
 Route::view('/listingNew', 'users.listings.listing-new')->middleware('auth');
 Route::get('/lists/{type}', 'User\ListingController@showAllListings')->name('listings.all');
 Route::get('/listings/{listing_id}', 'User\ListingController@showSingleListing')->where('listing_id', '[0-9]+');
-
+Route::get('/clear-search', 'User\ListingController@clearSearch');
 
 //listings
 Route::resource('/offerrooms','User\OfferRoomController')->middleware('auth');
@@ -65,8 +60,6 @@ Route::get('/verification/verify/{code}/phone', 'User\VerificationController@ver
 
 Route::get('/clear/{type}', 'User\VerificationController@clearCode');
 Route::get('sendsms', 'User\VerificationController@sendSms');
-
-
 
 // messenger
 Route::get('/message', 'User\MessengerController@showMessanger');

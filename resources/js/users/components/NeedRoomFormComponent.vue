@@ -29,8 +29,10 @@
                                             <div class="form-group">
                                                 <label class="label font-20 font-weight-bold text-muted" for="location">Location</label>
                                                 <PlaceAutocomplete 
-                                                    @selected = 'placeSelected'
-                                                    @clear = 'cancelled'
+                                                    id="place-need"
+                                                    classname="form-control form-control-lg"
+                                                    placeholder="Example: 'Chicago, IL'"
+                                                    v-on:placechanged="getAddressData"
                                                 /> 
                                            
                                                 <has-error :form="formData" field="location"></has-error>
@@ -333,8 +335,7 @@
     import { store } from '../store/store'
     import VueSlider from 'vue-slider-component'
     import 'vue-slider-component/theme/default.css'
-    // import Places from 'vue-places'
-   import PlaceAutocomplete from './plugin/PlaceAutocomplete'
+    import PlaceAutocomplete from './plugin/GooglePlaceAutocomplete'
 
     export default {
         components: {
@@ -390,18 +391,12 @@
             },
             formCancelled(){
                 window.location.href = '/listingNew';
-                // alert('cancelled');
             },
-            placeSelected(place){
-                this.formData.location = place.label;
-                this.formData.lng = place.x;
-                this.formData.lat = place.y;
-            },
-            cancelled(){
-                this.formData.location = '';
-                this.formData.lat = null;
-                this.formData.lng = null;
-            },
+            getAddressData(addressData){
+                this.formData.location = addressData.adress;
+                this.formData.lng = addressData.longitude;
+                this.formData.lat = addressData.latitude;
+            }
         },
         computed: {
             

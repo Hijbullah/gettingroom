@@ -1,11 +1,7 @@
 @extends('users.master')
-
+@section('title', 'Getting Room | Verification')
 @section('main-content')
-<section class="pad-tb-50 main-container" v-cloak>
-    <div class="container">
-        <div class="col-12">
-           <verification-component></verification-component>
-        </div>
-    </div>
+<section class="main-container p-3" v-cloak>
+    <verification-component></verification-component>
 </section>
 @endsection

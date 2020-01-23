@@ -42,7 +42,12 @@
                           class="label font-20 font-weight-bold text-muted"
                           for="location"
                         >Location</label>
-                        <PlaceAutocomplete @selected="placeSelected" @clear="cancelled" />
+                        <PlaceAutocomplete 
+                            id="place-need"
+                            classname="form-control form-control-lg"
+                            placeholder="Example: 'Chicago, IL'"
+                            v-on:placechanged="getAddressData"
+                        />
                         <has-error :form="formData" field="location"></has-error>
                       </div>
                       <h2 class="form-title">Monthly Rental Rate</h2>
@@ -234,7 +239,7 @@
 
 <script>
 import { store } from "../store/store";
-import PlaceAutocomplete from "./plugin/PlaceAutocomplete";
+import PlaceAutocomplete from './plugin/GooglePlaceAutocomplete'
 
 export default {
   components: {
@@ -273,15 +278,10 @@ export default {
     formCancelled() {
       window.location.href = "/listingNew";
     },
-    placeSelected(place) {
-      this.formData.location = place.label;
-      this.formData.lng = place.x;
-      this.formData.lat = place.y;
-    },
-    cancelled() {
-      this.formData.location = "";
-      this.formData.lat = null;
-      this.formData.lng = null;
+    getAddressData(addressData){
+        this.formData.location = addressData.adress;
+        this.formData.lng = addressData.longitude;
+        this.formData.lat = addressData.latitude;
     }
   }
 };
