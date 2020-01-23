@@ -24,7 +24,7 @@
                 </li>
                 @else
                 <li class="list-group-item">
-                    <a href="{{ url('/lists/offerrooms') }}" class="text-dark"><span class="mr-2 color-main-text"><i
+                    <a href="{{ url('/listigNew') }}" class="text-dark"><span class="mr-2 color-main-text"><i
                                 class="fas fa-search"></i></span>Add Your Listings</a>
                 </li>
                 @endauth

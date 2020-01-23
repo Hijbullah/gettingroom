@@ -109,7 +109,7 @@
                 
             @else    
                 <div class="d-md-none">
-                    <a href="#" class="color-main-text px-4 py-2 d-inline-block">
+                    <a href="{{ url('/login') }}" class="color-main-text px-4 py-2 d-inline-block">
                         <span class="font-30 "><i class="fas fa-sign-in-alt"></i></span>
                     </a>
                 </div>
