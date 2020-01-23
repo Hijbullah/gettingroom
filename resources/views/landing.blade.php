@@ -64,7 +64,7 @@
     <div class="main-menu px-3 sticky-top d-md-none">
         <ul class="m-0 p-0" style="list-style: none;">
             <li class="float-left py-2">
-                <a href="#">
+                <a href="{{ url('/') }}">
                     <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo">
                 </a>
             </li>
