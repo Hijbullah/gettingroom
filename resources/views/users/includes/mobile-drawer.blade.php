@@ -4,7 +4,7 @@
             <div class="user-profile clearfix">
                 @if(Auth::check())
                 <div class="avatar float-left mr-2">
-                    <img src="{{ Storage::url(Auth::user()->avatar) }}" alt="">
+                    <img src="{{ Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : asset('frontend/images/user-defult.png') }}" alt="">
                 </div>
                 <div class="user-details float-left">
                     <h2 class="font-18 mt-2 text-white">{{ Auth::user()->first_name }}</h2>

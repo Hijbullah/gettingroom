@@ -82,7 +82,7 @@
                     <img src="/frontend/images/social-icon/png/verify/google-false.png" alt="google">
                     <span class="d-inline-block font-20 color-main-text"><i class="fas fa-check-circle"></i></span>
                 </span>
-                <a href="#" v-if="!verified.linkedin">
+                <a href="#" v-if="!verified.linkedin" @click.prevent="popupVerification('/socialauth/linkedin', 'linkedin')">
                     <img src="/frontend/images/social-icon/png/verify/linkedin-false.png" alt="linkedin">
                 </a>
                 <span class="d-inline-block social-verified" v-else>

@@ -621,9 +621,9 @@
                 this.formData.description =  listing.description;
 
                 this.formData.building_type = listing.building_type;
-                this.formData.move_in_fee = Number(listing.move_in_fee);
-                this.formData.utility_cost = Number(listing.utility_cost);
-                this.formData.parking_rent = Number(listing.parking_rent);
+                this.formData.move_in_fee = listing.move_in_fee ? Number(listing.move_in_fee) : null;
+                this.formData.utility_cost = listing.utility_cost ? Number(listing.utility_cost) : null;
+                this.formData.parking_rent = listing.parking_rent ? Number(listing.parking_rent) : null;
                 this.formData.is_furnished = listing.is_furnished;
 
                 this.formData.amenities = listing.amenities ? listing.amenities.split(',') : [];

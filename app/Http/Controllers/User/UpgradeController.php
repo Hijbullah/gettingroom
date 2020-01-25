@@ -23,22 +23,20 @@ class UpgradeController extends Controller
 
     public function showPlans()
     {
-        $previous_url =  str_replace(url('/'), '', url()->previous());
+        // $previous_url =  str_replace(url('/'), '', url()->previous());
 
-        if(Str::is('/listings*', $previous_url))
-        {
-            session(['from_listing' => $previous_url]);
-            return session('from_listing');
-        }
+        // if(Str::is('/listings*', $previous_url))
+        // {
+        //     session(['from_listing' => $previous_url]);
+        //     return session('from_listing');
+        // }
         
 
         if(Auth::user()->subscribed('default'))
         {
             return redirect('/setting');
         }
-
-        // $plans = Stripe::plans()->all();
-        // $plans = json_encode($plans['data']);
+        
         return view('users.upgrades.plan');
     }
 

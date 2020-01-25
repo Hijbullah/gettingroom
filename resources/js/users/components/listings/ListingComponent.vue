@@ -255,9 +255,9 @@
                                                     <a :href="listing.listing_url">
                                                         <div class="img-text clearfix w-100 p-2">
                                                             <div class="float-right text-light">
-                                                                <span class="mr-2 font-14 color-main-text">{{ listing.created_at }}</span> <br />
-                                                                <span
-                                                                    class="btn btn-warning p-0 px-3 mt-2 text-light">New</span>
+                                                                <!-- <span class="mr-2 font-14 color-main-text">{{ listing.created_at }}</span> <br /> -->
+                                                                <span class="mr-2 mt-2 d-inline-block font-weight-bold font-14 color-main-text">Check Availability</span> <br />
+                                                                <!-- <span class="btn btn-warning p-0 px-3 mt-2 text-light">New</span> -->
                                                             </div>
                                                             <div class="float-left">
                                                                 <span class="font-25 text-light">
@@ -289,11 +289,11 @@
                                                     </div>
                                                     <div class="listing-contact mt-1">
                                                         <p class="font-14 mb-3">Contact {{ listing.user.name }}</p>
-                                                        <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-16"></i></a>
-                                                        <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-16"></i></a>
-                                                        <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-16"></i></a>
-                                                        <a href="#" v-if="listing.user.verified.linkedin"><i class="fab fa-linkedin-in icon linkedin font-16"></i></a>
-                                                        <a href="#" v-if="true"><i class="far fa-comments icon comments font-16"></i></a>
+                                                        <a :href="listing.listing_url" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-16"></i></a>
+                                                        <a :href="listing.listing_url" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-16"></i></a>
+                                                        <a :href="listing.listing_url" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-16"></i></a>
+                                                        <a :href="listing.listing_url" v-if="listing.user.verified.linkedin"><i class="fab fa-linkedin-in icon linkedin font-16"></i></a>
+                                                        <a :href="listing.listing_url" v-if="true"><i class="far fa-comments icon comments font-16"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -332,8 +332,11 @@
                                                     </span>
                                                 </div>
                                                 <div class="float-right text-light">
-                                                    <span class="mr-2 font-14">{{ listing.created_at }}</span> <br />
-                                                    <span class="btn btn-warning p-0 px-3 mt-2 text-light">New</span>
+                                                    <a :href="listing.listing_url" class="text-white font-weight-bold">
+                                                        <span class="mr-2 d-inline-block mt-2 font-14">Check Availability</span>
+                                                    </a>
+                                                    <!-- <span class="mr-2 font-14">{{ listing.created_at }}</span> <br /> -->
+                                                    <!-- <span class="btn btn-warning p-0 px-3 mt-2 text-light">New</span> -->
                                                 </div>
                                             </div>
                                             <div class="img-text-bottom clearfix w-100 p-2">
@@ -372,11 +375,11 @@
                                                 </p>
                                             </div>
                                             <div class="text-center text-sm-right float-sm-right float-md-right mt-4 mr-2">
-                                                <a href="#" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
-                                                <a href="#" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
-                                                <a href="#" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
-                                                <a href="#" v-if="listing.user.verified.phone"><i class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
-                                                <a href="#" v-if="true"><i class="far fa-comments icon comments font-25 mr-2"></i></a>
+                                                <a :href="listing.listing_url" v-if="listing.user.verified.facebook"><i class="fab fa-facebook-f icon facebook font-25 mr-2"></i></a>
+                                                <a :href="listing.listing_url" v-if="listing.user.verified.twitter"><i class="fab fa-twitter icon twitter font-25 mr-2"></i></a>
+                                                <a :href="listing.listing_url" v-if="listing.user.verified.instagram"><i class="fab fa-instagram icon instagram font-25 mr-2"></i></a>
+                                                <a :href="listing.listing_url" v-if="listing.user.verified.phone"><i class="fas fa-phone-alt icon phone-book font-25 mr-2"></i></a>
+                                                <a :href="listing.listing_url" v-if="true"><i class="far fa-comments icon comments font-25 mr-2"></i></a>
                                             </div>
                                         </div>
                                     </div>

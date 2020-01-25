@@ -552,6 +552,23 @@ a.color-main-bg:hover{
 
 
 /*single-user-listing start*/
+.single-user-listing .amenities .amenity{
+    float: left;
+    padding: 7px 0px;
+    width: 20%;
+}
+.single-user-listing .amenities .amenity .image{
+    height: 25px;
+    width: 25px;
+    display: inline-block;
+}
+.single-user-listing .amenities .amenity .name{
+    height: 35px;
+    line-height: 1;
+    word-break: break-word;
+    font-size: 15px;
+    overflow: hidden;
+}
 .single-user-listing .user-profile .single-user-img{
 	position: relative;
 	width: 200px;
@@ -700,6 +717,14 @@ a.color-main-bg:hover{
 	font-size: 70px;
 	margin-top: 15px;
 }
+.choose-package .package-price {
+    word-spacing: -4px;
+}
+.choose-package .package-price span {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    vertical-align: .33vw;
+}
 /*choose-package style end*/
 
 /*payment style start*/
@@ -798,13 +823,43 @@ a.color-main-bg:hover{
 	.other-footer.profile{
 		margin-bottom: 150px !important;
 	}
+	.choose-package .heading {
+        font-size: 30px;
+        padding: 0 !important;
+        margin-bottom: 15px !important;
+    }
+    .choose-package .g-card{
+        padding: 0 !important;
+        margin-bottom: 10px !important;
+        overflow: hidden;
+    }
+    .choose-package .package-info{
+        float: left;
+        padding: 5px 25px;
+    }
+    .choose-package .g-card p{
+        font-size: 13px !important;
+        line-height: 1.2;
+	}
+    .choose-package p.package-price{
+        float: right;
+        margin: 28px 25px 0 0;
+        font-size: 18px !important;
+    }
+    .choose-package .package-price span {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        vertical-align: .55vw;
+    }
+    .choose-package .g-card hr{
+        display: none;
+    }
 	.choose-package .g-card h2 {
-		font-size: 30px;
-		font-weight: 700;
+		font-size: 22px;
+        font-weight: 700;
+        margin: 0;
 	}
-	.choose-package .g-card p{
-		font-size: 16px !important;
-	}
+	
 	.choose-package .content p {
 		font-size: 16px !important;
     }
@@ -907,10 +962,19 @@ a.color-main-bg:hover{
     .payment .select-plan p span{
        font-size: 23px !important;
     }
-    /* .contacts-list[data-v-7feb1f1e] {
-        -webkit-box-flex: 3 !important;
-        flex: 3 !important;
-    } */
+    .single-user-listing .amenities .amenity{
+        width: 25%;
+        padding: 10px 0;
+    }
+    .single-user-listing .amenities .amenity .image{
+        height: 20px;
+        width: 20px;
+    }
+    .single-user-listing .amenities .amenity .name{
+        font-size: 14px;
+        height: 35px;
+        line-height: 1;
+    }
 }
 
 @media only screen and (max-width: 410px){
@@ -918,6 +982,16 @@ a.color-main-bg:hover{
         margin: 0 1px;
         padding: 7px 2px;
         font-size: 13px;
+    }
+    .single-user-listing .amenities .amenity{
+        width: 33.33%;
+        padding: 10px 0;
+        word-break: break-word;
+    }
+    .single-user-listing .amenities .amenity .name{
+        font-size: 14px;
+        height: 35px;
+        line-height: 1;
     }
 }
 
@@ -934,15 +1008,44 @@ a.color-main-bg:hover{
 	.gr-search {
 		transform: translateY(-50%) !important;
 	}
-		.other-footer.profile{
+	.other-footer.profile{
 		margin-bottom: 150px !important;
 	}
-	.choose-package .g-card h2 {
-		font-size: 50px;
-		font-weight: 700;
+	.choose-package .heading {
+        font-size: 30px;
+        padding: 0 !important;
+        margin-bottom: 15px !important;
+    }
+    .choose-package .g-card{
+        padding: 0 !important;
+        margin-bottom: 10px !important;
+        overflow: hidden;
+    }
+    .choose-package .package-info{
+        float: left;
+        padding: 5px 25px;
+    }
+    .choose-package .g-card p{
+        font-size: 13px !important;
+        line-height: 1.2;
 	}
-	.choose-package .g-card p{
-		font-size: 16px !important;
+    .choose-package p.package-price{
+        float: right;
+        margin: 28px 25px 0 0;
+        font-size: 18px !important;
+    }
+    .choose-package .package-price span {
+        font-size: 13px !important;
+        font-weight: 700 !important;
+        vertical-align: .55vw;
+    }
+    .choose-package .g-card hr{
+        display: none;
+    }
+	.choose-package .g-card h2 {
+		font-size: 22px;
+        font-weight: 700;
+        margin: 0;
 	}
 	.choose-package .content p {
 		font-size: 16px !important;

@@ -61,13 +61,13 @@ class SingleListing extends JsonResource
                         'Building Type' => ucwords($this->building_type)
                     ]),
                     $this->mergeWhen($this->move_in_fee,[
-                        'Move in Fee' => $this->move_in_fee
+                        'Move in Fee' => (int) $this->move_in_fee
                     ]),
                     $this->mergeWhen($this->utility_cost,[
-                        'Utility Cost' => $this->utility_cost
+                        'Utility Cost' => (int) $this->utility_cost
                     ]),
                     $this->mergeWhen($this->parking_rent,[
-                        'Parking Rent' => $this->parking_rent
+                        'Parking Rent' => (int) $this->parking_rent
                     ]),
                     'Furnished' => ucwords($this->is_furnished)
                 ],

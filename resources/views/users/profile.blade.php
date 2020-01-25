@@ -15,7 +15,7 @@
                 <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                     <div class="single-user-img">
                         <a href="{{ url('/profile') . '/' . $user->id }}">
-                            <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic">
+                            <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic w-100">
                         </a>
                     </div>
                     <div class="single-user-info py-3">

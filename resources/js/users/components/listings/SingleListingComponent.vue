@@ -129,7 +129,7 @@
                                 <p class="font-16">{{ listing.location.location }}</p>
                             </div>
                         </div>
-                        <div class="user-listing-description bg-white p-4 mb-3">
+                        <div class="user-listing-description bg-white p-3 p-md-4 mb-3">
                             <p class="font-16 mb-2 font-weight-bold" id="listing-description">
                                 <span class="color-main-text mr-2"><i class="fas fa-receipt font-25"></i></span>
                                 Description</p>
@@ -142,22 +142,21 @@
                                     </span>
                                     Amenities
                                 </p>
-                                <div class="amenities text-center">
-                                    <p class="text-center d-inline-block m-3"
-                                        style="width: 90px;"  
+                                <div class="amenities clearfix">
+                                    <div class="amenity text-center" 
                                         v-for="(item, index) in listing.amenities" 
                                         :key="index"
                                     >
-                                        <span class="d-inline-block mb-2" style="height: 30px; width:30px;"><img class="w-100 h-100" :src="item|getAmenitiesIcon"></span>
-                                        <span class="name d-block font-16" style="line-height:16px;">{{ item }}</span>
-                                    </p> 
+                                        <p class="mb-2 image"><img class="w-100 h-100" :src="item|getAmenitiesIcon"></p>
+                                        <p class="name">{{ item }}</p>
+                                    </div> 
                                 </div>
                             </div>
                             <div class="household" v-if="listing.household && Object.keys(listing.household).length > 0">
                                 <hr>
                                 <p class="font-16 mb-2 font-weight-bold">
                                     <span class="text-success mr-2"><i class="fas fa-home font-25"></i></span>
-                                    HourseHold</p>
+                                    Household</p>
                                 <p class="font-16 text-justify" 
                                     v-for="(value, key) in listing.household" 
                                     :key="key"
@@ -244,7 +243,7 @@
                         <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                             <div class="single-user-img">
                                 <a href="#">
-                                    <img :src="listing.user.avatar" alt="" class="profile-pic">
+                                    <img :src="listing.user.avatar" alt="" class="profile-pic w-100">
                                 </a>
                             </div>
                             <div class="single-user-info py-3">
@@ -321,7 +320,9 @@
 			<div class="container-fluid">
 				<div class="row">
 					<div class="col-10 m-auto">
-						<p class="font-18 font-weight-bold color-main-text">{{ listing.user.name }}</p>
+                        <a :href="'/profile/' + listing.user.id">
+						    <p class="font-18 font-weight-bold color-main-text">{{ listing.user.name }}</p>
+                        </a>
 					</div>
 					<div class="col-12">
 						<div class="d-flex justify-content-around py-2">
@@ -330,15 +331,15 @@
 									<i class="far fa-comment font-20"></i> <br /> Message</a>
 							</div>
 							<div class="text-center px-2">
-								<a href="#" class="d-inline-block text-dark font-16">
+								<a href="#" class="d-inline-block text-dark font-16 color-main-text">
 									<i class="fas fa-phone-alt font-20"></i> <br /> Call</a>
 							</div>
 							<div class="text-center px-2">
-								<a href="#" class="d-inline-block text-dark font-16">
+								<a href="#" class="d-inline-block text-dark font-16 color-main-text">
 									<i class="far fa-comments font-20"></i> <br /> SMS</a>
 							</div>
 							<div class="text-center px-2">
-								<a href="#" class="d-inline-block text-dark font-16">
+								<a href="#" class="d-inline-block text-dark font-16 color-main-text">
 									<i class="fas fa-icons font-20"></i> <br />  Social</a>
 							</div>
 							<div class="text-center px-2">
