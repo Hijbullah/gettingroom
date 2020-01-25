@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css"
         integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">   
-     <link rel="stylesheet" href="{{ asset('frontend/css/login.css') }}">
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('frontend/css/login.css') }}">
     <title>Getting Room | Login</title>
 </head>
 
@@ -23,14 +23,17 @@
         <ul class="nav">
             <li class="py-2">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo d-none d-md-block d-sm-none">
-                    <img src="{{ asset('frontend/images/logo/logo-sm.webp') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block">
+                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo"
+                        class="gr-logo d-none d-md-block d-sm-none">
+                    <img src="{{ asset('frontend/images/logo/logo-sm.webp') }}" alt="logo"
+                        class="gr-logo-sm d-none d-md-none d-sm-block d-block">
                 </a>
             </li>
             <li class="py-2 px-2 ml-auto">
                 <a href="#" class="ml-2">
                     <span class="font-18 text-white d-none d-md-inline-block">Help</span>
-                    <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt="" class="w-f-25 ml-1 text-white">
+                    <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt=""
+                        class="w-f-25 ml-1 text-white">
                 </a>
             </li>
         </ul>
@@ -48,39 +51,51 @@
                                     <div class="or border rounded-circle p-2 border-light d-inline-block">OR</div>
                                     <div class="social-link mt-3 text-center">
                                         <div class="position-center">
-                                            <p class="font-18 text-uppercase text-white mb-2">Connect with your social accounts</p>
+                                            <p class="font-18 text-uppercase text-white mb-2">Connect with your social
+                                                accounts</p>
                                             <a href="{{ url('/socialauth/facebook') }}" class="mb-1">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}"
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}"
                                                     alt="">
-                                                <span class="d-sm-inline-block d-md-none icon facebook mr-2">
-                                                    <i class="fab fa-facebook-f"></i>
+                                                <span class="d-sm-inline-block d-md-none ">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Facebook.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="#" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon instagram mr-2">
-                                                    <i class="fab fa-instagram"></i>
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}"
+                                                    alt="">
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Instagram.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="{{ url('/socialauth/google') }}" class="mb-1">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/google.svg') }}"
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/google.svg') }}"
                                                     alt="">
-                                                <span class="d-sm-inline-block d-md-none icon comments mr-2">
-                                                    <i class="fab fa-google"></i>
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Google.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="#" class="mb-1">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/twitter.svg') }}"
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/twitter.svg') }}"
                                                     alt="">
-                                                <span class="d-sm-inline-block d-md-none icon twitter  mr-2">
-                                                    <i class="fab fa-twitter"></i>
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Twitter.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="{{ url('/socialauth/linkedin') }}" class="">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/linkedin.sv') }}g"
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/linkedin.sv') }}g"
                                                     alt="">
-                                                <span class="d-sm-inline-block d-md-none icon linkedin mr-2">
-                                                    <i class="fab fa-linkedin-in"></i>
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Linkedin.webp') }}">
                                                 </span>
                                             </a>
                                         </div>
@@ -90,14 +105,18 @@
                             <div class="col-md-7 order-0">
                                 <div class="right text-white h-100 px-5 ptb-50 ">
                                     <h2 class="font-20 mb-3 text-uppercase text-center">Login</h2>
-                                    <p>Don't have a account? <a href="{{ route('register') }}" class="text-success"> Sign Up Free!</a></p>
+                                    <p>Don't have a account? <a href="{{ route('register') }}" class="text-success">
+                                            Sign Up Free!</a></p>
                                     <div class="form-body mt-3">
                                         <form method="POST" action="{{ route('login') }}">
                                             @csrf
 
                                             <div class="form-group">
                                                 <label for="email">Email address</label>
-                                                <input type="email" class="form-control form-control-sm bg-transparent @error('email') is-invalid @enderror" id="email" placeholder="Enter email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                <input type="email"
+                                                    class="form-control form-control-sm bg-transparent @error('email') is-invalid @enderror"
+                                                    id="email" placeholder="Enter email" name="email"
+                                                    value="{{ old('email') }}" required autocomplete="email" autofocus>
                                                 @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -106,7 +125,10 @@
                                             </div>
                                             <div class="form-group text-light">
                                                 <label for="password">Password</label>
-                                                <input type="password" class="form-control form-control-sm bg-transparent @error('password') is-invalid @enderror" id="password" placeholder="Password" name="password" required autocomplete="current-password">
+                                                <input type="password"
+                                                    class="form-control form-control-sm bg-transparent @error('password') is-invalid @enderror"
+                                                    id="password" placeholder="Password" name="password" required
+                                                    autocomplete="current-password">
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -116,12 +138,14 @@
                                             <div class="form-group row">
                                                 <div class="col-6">
                                                     <div class="form-check">
-                                                        <input type="checkbox" class="form-check-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                        <input type="checkbox" class="form-check-input" name="remember"
+                                                            id="remember" {{ old('remember') ? 'checked' : '' }}>
                                                         <label class="form-check-label" for="remember">Remember</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-6 text-right">
-                                                    <a href="{{ route('password.request') }}" class="text-success">Forgot Password</a>
+                                                    <a href="{{ route('password.request') }}"
+                                                        class="text-success">Forgot Password</a>
                                                 </div>
                                             </div>
                                             <button type="submit"

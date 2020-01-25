@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('frontend/css/login.css') }}">
-    <title>Getting Room | Regist</title>
+    <title>Getting Room | Register</title>
 </head>
 
 <body>
@@ -23,14 +23,17 @@
         <ul class="nav">
             <li class="py-2">
                 <a href="{{ url('/') }}">
-                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo" class="gr-logo d-none d-md-block d-sm-none">
-                    <img src="{{ asset('frontend/images/logo/logo-sm.webp') }}" alt="logo" class="gr-logo-sm d-none d-md-none d-sm-block d-block">
+                    <img src="{{ asset('frontend/images/logo/logo.webp') }}" alt="logo"
+                        class="gr-logo d-none d-md-block d-sm-none">
+                    <img src="{{ asset('frontend/images/logo/logo-sm.webp') }}" alt="logo"
+                        class="gr-logo-sm d-none d-md-none d-sm-block d-block">
                 </a>
             </li>
             <li class="py-2 px-2 ml-auto">
                 <a href="#" class="ml-2">
                     <span class="font-18 text-white d-none d-md-inline-block">Help</span>
-                    <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt="" class="w-f-25 ml-1 text-white">
+                    <img src="{{ asset('frontend/images/546042c1a6139c4cd7a33a524e77d0e3.svg') }}" alt=""
+                        class="w-f-25 ml-1 text-white">
                 </a>
             </li>
         </ul>
@@ -47,35 +50,51 @@
                                     <div class="or border rounded-circle p-2 border-light d-inline-block">OR</div>
                                     <div class="social-link mt-3 text-center">
                                         <div class="position-center">
-                                            <p class="font-18 text-uppercase text-white mb-2">Connect with your social <br> accounts</p>
+                                            <p class="font-18 text-uppercase text-white mb-2">Connect with your social
+                                                <span class="d-none d-md-inline-block"><br></span> accounts</p>
                                             <a href="{{ url('/socialauth/facebook') }}" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon facebook mr-2">
-                                                    <i class="fab fa-facebook-f"></i>
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/facebook.svg') }}"
+                                                    alt="">
+                                                <span class="d-sm-inline-block d-md-none ">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Facebook.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="#" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon instagram mr-2">
-                                                    <i class="fab fa-instagram"></i>
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/instra-sm.svg') }}"
+                                                    alt="">
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Instagram.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="{{ url('/socialauth/google') }}" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/google.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon comments mr-2">
-                                                    <i class="fab fa-google"></i>
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/google.svg') }}"
+                                                    alt="">
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Google.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="#" class="mb-2">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/twitter.svg') }}" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon twitter  mr-2">
-                                                    <i class="fab fa-twitter"></i>
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/twitter.svg') }}"
+                                                    alt="">
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Twitter.webp') }}">
                                                 </span>
                                             </a>
                                             <a href="{{ url('/socialauth/linkedin') }}" class="">
-                                                <img class="d-none d-md-block" src="{{ asset('frontend/images/social-icon/svg/linkedin.sv') }}g" alt="">
-                                                <span class="d-sm-inline-block d-md-none icon linkedin mr-2">
-                                                    <i class="fab fa-linkedin-in"></i>
+                                                <img class="d-none d-md-block"
+                                                    src="{{ asset('frontend/images/social-icon/svg/linkedin.sv') }}g"
+                                                    alt="">
+                                                <span class="d-sm-inline-block d-md-none">
+                                                    <img
+                                                        src="{{ asset('frontend/images/social-icon/webp/Linkedin.webp') }}">
                                                 </span>
                                             </a>
                                         </div>
@@ -85,7 +104,8 @@
                             <div class="col-lg-7 col-md-8 order-0">
                                 <div class="right text-white h-100 px-5 py-4 registration">
                                     <h2 class="font-20 mb-3 text-uppercase text-center">Sign up</h2>
-                                    <p>Already have an account? <a href="{{ route('login') }}" class="text-success"> Login With Email</a>
+                                    <p>Already have an account? <a href="{{ route('login') }}" class="text-success">
+                                            Login With Email</a>
                                     </p>
                                     <div class="form-body mt-3">
                                         <form method="POST" action="{{ route('register') }}">
@@ -95,44 +115,53 @@
                                                 <div class="col-md-6">
                                                     <label for="first_name">First Name</label>
                                                     <input type="text"
-                                                        class="form-control form-control-sm bg-transparent @error('first_name') is-invalid @enderror" id="first_name"
-                                                        placeholder="Enter first name" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
-                                                     @error('first_name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                        class="form-control form-control-sm bg-transparent @error('first_name') is-invalid @enderror"
+                                                        id="first_name" placeholder="Enter first name" name="first_name"
+                                                        value="{{ old('first_name') }}" required
+                                                        autocomplete="first_name" autofocus>
+                                                    @error('first_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="last_name">Last Name</label>
                                                     <input type="text"
-                                                        class="form-control form-control-sm bg-transparent @error('last_name') is-invalid @enderror" id="last_name"
-                                                        placeholder="Enter last name" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
-                                                     @error('last_name')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                        class="form-control form-control-sm bg-transparent @error('last_name') is-invalid @enderror"
+                                                        id="last_name" placeholder="Enter last name" name="last_name"
+                                                        value="{{ old('last_name') }}" required
+                                                        autocomplete="last_name">
+                                                    @error('last_name')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="email">Email Address</label>
-                                                <input type="email" class="form-control form-control-sm bg-transparent @error('email') is-invalid @enderror"
-                                                    id="email" placeholder="Enter email" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                                 @error('email')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $message }}</strong>
-                                                    </span>
+                                                <input type="email"
+                                                    class="form-control form-control-sm bg-transparent @error('email') is-invalid @enderror"
+                                                    id="email" placeholder="Enter email" name="email"
+                                                    value="{{ old('email') }}" required autocomplete="email">
+                                                @error('email')
+                                                <span class="invalid-feedback" role="alert">
+                                                    <strong>{{ $message }}</strong>
+                                                </span>
                                                 @enderror
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-6 col-md-3">
                                                     <label for="day" class="label">Day</label>
-                                                    <select name="day" id="day" class="form-control form-control-sm custom-select bg-transparent @error('day') is-invalid @enderror" required>
+                                                    <select name="day" id="day"
+                                                        class="form-control form-control-sm custom-select bg-transparent @error('day') is-invalid @enderror"
+                                                        required>
                                                         <option selected disabled>Day</option>
-                                                        @for ($i = 1; $i <= 31; $i++) 
-                                                            <option {{ old('day') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                                                        @endfor
+                                                        @for ($i = 1; $i <= 31; $i++) <option
+                                                            {{ old('day') == $i ? 'selected' : '' }} value="{{ $i }}">
+                                                            {{ $i }}</option>
+                                                            @endfor
                                                     </select>
 
                                                     @error('day')
@@ -143,20 +172,34 @@
                                                 </div>
                                                 <div class="col-6 col-md-3">
                                                     <label for="month" class="label">Month</label>
-                                                    <select name="month" id="month" class="form-control form-control-sm custom-select bg-transparent @error('month') is-invalid @enderror" required>
+                                                    <select name="month" id="month"
+                                                        class="form-control form-control-sm custom-select bg-transparent @error('month') is-invalid @enderror"
+                                                        required>
                                                         <option selected disabled>Month</option>
-                                                        <option {{ old('month') == '1' ? 'selected' : '' }} value="1">Jan</option>
-                                                        <option {{ old('month') == '2' ? 'selected' : '' }} value="2">Feb</option>
-                                                        <option {{ old('month') == '3' ? 'selected' : '' }} value="3">Mar</option>
-                                                        <option {{ old('month') == '4' ? 'selected' : '' }} value="4">Apr</option>
-                                                        <option {{ old('month') == '5' ? 'selected' : '' }} value="5">May</option>
-                                                        <option {{ old('month') == '6' ? 'selected' : '' }} value="6">Jun</option>
-                                                        <option {{ old('month') == '7' ? 'selected' : '' }} value="7">Jul</option>
-                                                        <option {{ old('month') == '8' ? 'selected' : '' }} value="8">Aug</option>
-                                                        <option {{ old('month') == '9' ? 'selected' : '' }} value="9">Sep</option>
-                                                        <option {{ old('month') == '10' ? 'selected' : '' }} value="10">Oct</option>
-                                                        <option {{ old('month') == '11' ? 'selected' : '' }} value="11">Nov</option>
-                                                        <option {{ old('month') == '12' ? 'selected' : '' }} value="12">Dec</option>
+                                                        <option {{ old('month') == '1' ? 'selected' : '' }} value="1">
+                                                            Jan</option>
+                                                        <option {{ old('month') == '2' ? 'selected' : '' }} value="2">
+                                                            Feb</option>
+                                                        <option {{ old('month') == '3' ? 'selected' : '' }} value="3">
+                                                            Mar</option>
+                                                        <option {{ old('month') == '4' ? 'selected' : '' }} value="4">
+                                                            Apr</option>
+                                                        <option {{ old('month') == '5' ? 'selected' : '' }} value="5">
+                                                            May</option>
+                                                        <option {{ old('month') == '6' ? 'selected' : '' }} value="6">
+                                                            Jun</option>
+                                                        <option {{ old('month') == '7' ? 'selected' : '' }} value="7">
+                                                            Jul</option>
+                                                        <option {{ old('month') == '8' ? 'selected' : '' }} value="8">
+                                                            Aug</option>
+                                                        <option {{ old('month') == '9' ? 'selected' : '' }} value="9">
+                                                            Sep</option>
+                                                        <option {{ old('month') == '10' ? 'selected' : '' }} value="10">
+                                                            Oct</option>
+                                                        <option {{ old('month') == '11' ? 'selected' : '' }} value="11">
+                                                            Nov</option>
+                                                        <option {{ old('month') == '12' ? 'selected' : '' }} value="12">
+                                                            Dec</option>
                                                     </select>
                                                     @error('month')
                                                     <span class="invalid-feedback" role="alert">
@@ -166,10 +209,13 @@
                                                 </div>
                                                 <div class="col-6 col-md-3">
                                                     <label for="year" class="label">Year</label>
-                                                    <select name="year" id="year" class="form-control form-control-sm custom-select bg-transparent @error('year') is-invalid @enderror" required>
+                                                    <select name="year" id="year"
+                                                        class="form-control form-control-sm custom-select bg-transparent @error('year') is-invalid @enderror"
+                                                        required>
                                                         <option selected disabled>Year</option>
                                                         @for ($i = 2019; $i >= 1980; $i--)
-                                                        <option {{ old('year') == $i ? 'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
+                                                        <option {{ old('year') == $i ? 'selected' : '' }}
+                                                            value="{{ $i }}">{{ $i }}</option>
                                                         @endfor
                                                     </select>
                                                     @error('year')
@@ -181,7 +227,8 @@
                                                 <div class="col-6 col-md-3">
                                                     <label for="gender">Gender</label>
                                                     <select id="gender"
-                                                        class="form-control form-control-sm custom-select bg-transparent @error('gender') is-invalid @enderror" name="gender" required>
+                                                        class="form-control form-control-sm custom-select bg-transparent @error('gender') is-invalid @enderror"
+                                                        name="gender" required>
                                                         <option value="male">Male</option>
                                                         <option value="female">Femail</option>
                                                     </select>
@@ -197,18 +244,22 @@
                                                     <label for="password">Password</label>
                                                     <input type="password"
                                                         class="form-control form-control-sm bg-transparent @error('password') is-invalid @enderror"
-                                                        id="password" placeholder="Password" name="password" value="{{ old('password') }}" required autocomplete="new-password">
-                                                     @error('password')
-                                                        <span class="invalid-feedback" role="alert">
-                                                            <strong>{{ $message }}</strong>
-                                                        </span>
+                                                        id="password" placeholder="Password" name="password"
+                                                        value="{{ old('password') }}" required
+                                                        autocomplete="new-password">
+                                                    @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
                                                     @enderror
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="cpassword">Confirm Password</label>
                                                     <input type="password"
                                                         class="form-control form-control-sm bg-transparent"
-                                                        id="cpassword" placeholder="Confirm Password" name="password_confirmation" required autocomplete="new-password">
+                                                        id="cpassword" placeholder="Confirm Password"
+                                                        name="password_confirmation" required
+                                                        autocomplete="new-password">
                                                 </div>
                                             </div>
 

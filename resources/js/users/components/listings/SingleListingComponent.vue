@@ -191,7 +191,7 @@
 
                                 <div class="pets" v-if="listing.pets && listing.pets.have && listing.pets.have.length > 0">
                                     <p class="font-16 my-3 font-weight-bold">
-                                        Pets I have: 
+                                        Owner's Pets: 
                                     </p>
                                     <div class="pets-holder">
                                         <p class="text-center d-inline-block mr-3"  
@@ -272,7 +272,7 @@
                                 <p class="font-18 color-main-text font-weight-bold">{{ listingType }}</p>
                             </div>
                             <div class="listing-user-sms-block p-3 ">
-                                <textarea v-model="message" rows="5" class="form-control noresize text-left"></textarea>
+                                <textarea v-model="message" rows="5" class="form-control noresize text-left" :placeholder="'Write a message to ' + listing.user.name "></textarea>
                             </div>
                             <button class="btn btn-success w-50" @click.prevent="sendMessage">
                                 Send Message

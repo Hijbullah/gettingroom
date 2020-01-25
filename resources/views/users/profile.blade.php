@@ -5,17 +5,21 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 col-md-5 col-12">
-                @if((Auth::check() && Auth::id() === $user->id) && (!$user->email_verified || !$user->phone_verified || !$user->subscribed('default')) )
+                @if((Auth::check() && Auth::id() === $user->id) && (!$user->email_verified || !$user->phone_verified ||
+                !$user->subscribed('default')) )
                 <div class="bg-success py-5 px-3 mb-2 text-center">
                     <p class="text-white mb-3">Account verification is incomplete.</p>
-                    <a href="#" @click.prevent="openVerifyModal()" class="btn btn-light text-success rounded px-3 py-2 w-25 d-none d-md-inline-block">Verify</a>
-                    <a href="{{ url('/verification') }}" class="btn btn-light text-success rounded px-3 py-2 w-25 d-md-none">Verify</a>
+                    <a href="#" @click.prevent="openVerifyModal()"
+                        class="btn btn-light text-success rounded px-3 py-2 w-25 d-none d-md-inline-block">Verify</a>
+                    <a href="{{ url('/verification') }}"
+                        class="btn btn-light text-success rounded px-3 py-2 w-25 d-md-none">Verify</a>
                 </div>
                 @endif
                 <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
                     <div class="single-user-img">
                         <a href="{{ url('/profile') . '/' . $user->id }}">
-                            <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}" alt="" class="profile-pic w-100">
+                            <img src="{{ $user->avatar ? Storage::url($user->avatar) : asset('frontend/images/user-defult.png') }}"
+                                alt="" class="profile-pic w-100">
                         </a>
                     </div>
                     <div class="single-user-info py-3">
@@ -29,9 +33,11 @@
                                 @endif
                             </h3>
                         </a>
-                       
+
                         @if($user->dob)
-                        <p class="font-20">{{ $user->dob ? Carbon\Carbon::parse($user->dob)->diffInYears(Carbon\Carbon::now()) : '' }}</p>
+                        <p class="font-20">
+                            {{ $user->dob ? Carbon\Carbon::parse($user->dob)->diffInYears(Carbon\Carbon::now()) : '' }}
+                        </p>
                         @endif
                     </div>
                     @if(Auth::check() && Auth::id() === $user->id)
@@ -39,7 +45,7 @@
                         Edit Profile
                     </a>
                     @endif
-                   
+
                     <div class="listing-user-social-verify-block font-12">
                         @if($user->email_verified)
                         <p class="text-right d-inline-block m-2">
@@ -142,7 +148,7 @@
                                 </li>
                             </nav>
                         </div>
-                        
+
                         <div class="col-md-12">
                             <div class="listing-area">
                                 <div class="grid-view">
@@ -154,24 +160,31 @@
                                                     <div class="listing-img">
                                                         <div class="img-text-top clearfix w-100 px-3 py-2">
                                                             <div class="float-right text-light">
-                                                                <span class="mr-2 font-14">{{ $listing->created_at->diffForHumans() }}</span> <br />
+                                                                <span
+                                                                    class="mr-2 font-14">{{ $listing->created_at->diffForHumans() }}</span>
+                                                                <br />
                                                             </div>
                                                         </div>
                                                         <div class="img-text-bottom clearfix w-100 p-2">
                                                             <div class="float-left text-light">
                                                                 <span class="font-30 font-weight-bold">
-                                                                    <sup class="font-20">$</sup> {{ $listing->monthly_rent }} <sup class="font-20">{{ $listing->rental_currency }}</sup>
+                                                                    <sup class="font-20">$</sup>
+                                                                    {{ $listing->monthly_rent }} <sup
+                                                                        class="font-20">{{ $listing->rental_currency }}</sup>
                                                                 </span>
                                                                 <span class="font-20 font-weight-bold">per month</span>
                                                             </div>
-                                                           
+
                                                         </div>
-                                                        <img src="{{ $listing->images ? Storage::url(explode(',', $listing->images)[0]) : asset('no-image.png') }}" alt="" style="height: 200px;">
+                                                        <img src="{{ $listing->images ? Storage::url(explode(',', $listing->images)[0]) : asset('no-image.png') }}"
+                                                            alt="" style="height: 200px;">
                                                     </div>
                                                     <div class="listing-contact mt-1 pb-2 pl-2">
-                                                        <h2 class="font-16 my-1 text-dark">{{ str_limit($listing->title , 30) }}</h2>
+                                                        <h2 class="font-16 my-1 text-dark">
+                                                            {{ Str::limit($listing->title , 30) }}</h2>
                                                         <p class="font-12 mb-3 ">
-                                                            <span class="text-dark">{{ str_limit($listing->location, 30) }}</span>
+                                                            <span
+                                                                class="text-dark">{{ Str::limit($listing->location, 30) }}</span>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -190,5 +203,3 @@
     </div>
 </section>
 @endsection
-
-

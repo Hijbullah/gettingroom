@@ -95,8 +95,9 @@
                                             <div class="col-sm-6 col-md-5 col-12  mb-3 mb-md-0">
                                                 <div id="card-expiry-element" class="field"></div>
                                             </div>
-                                            <div class="col-sm-6 col-md-4 col-12 mt-2">
-                                                <img src="{{ asset('frontend/images/cards.png') }}" alt="">
+                                            <div class="col-sm-6 col-md-4 col-12">
+                                                <img src="{{ asset('frontend/images/cards.webp') }}" class="w-100"
+                                                    alt="cards">
                                             </div>
                                         </div>
                                     </form>
