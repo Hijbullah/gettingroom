@@ -57,7 +57,7 @@
                             <a href="#" @click.prevent="deleteListing" class="btn btn-sm btn-success text-white p-2">Delete Listing</a>
                         </div>
                     </div>
-                    <div class="col-lg-6 offset-lg-1 col-md-6 offset-md-1 col-12 order-md-0 order-1">
+                    <div class="col-lg-5 offset-lg-2 col-md-6 offset-md-1 col-12 order-md-0 order-1">
                         <div class="user-listing-info bg-white p-4 mb-3 d-none d-md-block">
                             <div class="d-flex">
                                 <p class="text-dark text-left flex-grow-1">{{ listing.created_at }} <span
@@ -239,8 +239,8 @@
                             <p>Map Area</p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-4 col-12 order-md-1 order-0 d-none d-md-block">
-                        <div class="user-profile bg-white py-5 px-3 mb-2 text-center">
+                    <div class="col-lg-3 col-md-4 col-12 order-md-1 order-0 d-none d-md-block">
+                        <div class="user-profile bg-white py-3 px-3 mb-2 text-center">
                             <div class="single-user-img">
                                 <a href="#">
                                     <img :src="listing.user.avatar" alt="" class="profile-pic w-100">
@@ -248,7 +248,7 @@
                             </div>
                             <div class="single-user-info py-3">
                                 <a :href="listing.user.profile_url" class="text-success">
-                                    <h3 class="font-25 profile-name">
+                                    <h3 class="font-20 profile-name">
                                         {{ listing.user.name }}
                                         
                                         <span 
