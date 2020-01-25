@@ -474,9 +474,7 @@
                 axios.get(`/api/get-listings/${this.type}/${this.sortBy}/${this.priceRange[0]}/${this.priceRange[1]}/${this.lat}/${this.lng}`)
                     .then( ({ data }) => {
                         if(data.meta.total > 0) {
-                            data.data.map(item => {
-                                this.listings.push(item);
-                            });
+                            this.listings = data.data;
                             this.total = data.meta.total;
                             this.from = data.meta.from;
                             this.to = data.meta.to;

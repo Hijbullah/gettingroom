@@ -40,8 +40,8 @@
 					<div class="col-md-12 ">
 						<nav class="navbar nav nav-fill">
 							<li><a href="#listing-description" class="text-white">Description</a></li>
-							<li><a href="#" class="text-white">Amenities</a></li>
-							<li><a href="#" class="text-white">Roommate preference</a></li>
+							<li><a href="#listing-amenities" class="text-white">Amenities</a></li>
+							<li><a href="#listing-roommate" class="text-white">Roommate preference</a></li>
 							<li><a href="#" class="text-white">$USD per month</a></li>
 						</nav>
 					</div>
@@ -134,7 +134,7 @@
                                 <span class="color-main-text mr-2"><i class="fas fa-receipt font-25"></i></span>
                                 Description</p>
                             <p class="font-16 text-justify text-break pre-line">{{ listing.description }}</p>
-                            <div class="household" v-if="listing.amenities && listing.amenities.length > 0">
+                            <div class="household" id="listing-amenities" v-if="listing.amenities && listing.amenities.length > 0">
                                 <hr>
                                 <p class="font-16 mb-3 font-weight-bold">
                                     <span class="color-main-text mr-2">
@@ -205,7 +205,7 @@
                                 </div>
 
                             </div>
-                            <div class="roommate-preference" v-if="listing.roomMatePreference && Object.keys(listing.roomMatePreference).length > 0">
+                            <div class="roommate-preference" id="listing-roommate" v-if="listing.roomMatePreference && Object.keys(listing.roomMatePreference).length > 0">
                                 <hr>
                                 <p class="font-16 mb-2 font-weight-bold">
                                     Room Mate Preference</p>
